@@ -12,9 +12,11 @@ dependencies = [
     
 ]
 
-
+[project.scripts]
+dworshak = "dworshak.cli:app"
 
 [tool.uv]
 # This tells uv that if it can't find a wheel for aarch64, 
 # it is allowed to build from source using your local Rust/Clang.
+package = true
 resolution = "highest"

@@ -10,12 +10,11 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 
-# --- CONFIGURATION & PATHS ---
-# Standardizing on a hidden home directory for cross-platform utility (Termux/Windows)
-APP_DIR = Path.home() / ".dworshak"
-KEY_FILE = APP_DIR / ".key"
-DB_FILE = APP_DIR / "vault.db"
 
+from dworshak.paths import APP_DIR,KEY_FILE,DB_FILE,CONFIG_FILE
+from dworshak.helpers import is_valid_service, load_services
+
+    
 app = typer.Typer(help="Dworshak: Secure API Orchestration for Infrastructure.")
 console = Console()
 
@@ -45,6 +44,15 @@ def initialize_system():
     """)
     conn.close()
 
+    # --- Config file initialization ---
+    if not CONFIG_FILE.exists():
+        default_config = {
+            "services": ["rjn_api","eds_soap_api"],   # sensible default
+            "default_service": "rjn_api"
+        }
+        CONFIG_FILE.write_text(json.dumps(default_config, indent=2))
+        console.print(f"[green]✔ Config file created at {CONFIG_FILE}[/green]")
+
 def get_fernet() -> Fernet:
     """Loads the master key from file or environment override."""
     # Check for environment override first (Standard for CI/CD/Headless)
@@ -66,9 +74,10 @@ def setup():
         title="Success"
     ))
 
+# def register(service: str = typer.Option("rjn_api", prompt=True)):
 @app.command()
 def register(
-    service: str = typer.Option(..., prompt="Service Name (e.g., rjn_api)"),
+    service: str = typer.Option("rjn_api", prompt="Service Name", show_default = True, callback=_validate_service),
     item: str = typer.Option(..., prompt="Credential Item (e.g., primary)"),
     username: str = typer.Option(..., prompt="Username"),
     password: str = typer.Option(..., prompt="Password", hide_input=True)
@@ -109,6 +118,15 @@ def list_services():
         table.add_row(row[0], row[1])
 
     console.print(table)
+
+# --- Internal, typer-facing ---
+
+def _validate_service(value: str):
+    if not is_valid_service(value):
+        raise typer.BadParameter(
+            f"Service must be one of: {', '.join(load_services())}"
+        )
+    return value
 
 if __name__ == "__main__":
     app()

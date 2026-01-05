@@ -13,11 +13,13 @@ import click
 
 from dworshak.paths import APP_DIR,KEY_FILE,DB_FILE,CONFIG_FILE
 from dworshak.services import KNOWN_SERVICES
-    
+from dworshak.core.bootstrap import initialize_environment
+from dworshak.core.security import get_fernet
+
 app = typer.Typer(help="Dworshak: Secure API Orchestration for Infrastructure.")
 console = Console()
 
-
+'''
 # --- CORE SECURITY LOGIC ---
 
 def initialize_system():
@@ -61,13 +63,15 @@ def get_fernet() -> Fernet:
             raise FileNotFoundError("Master key not found. Run 'dworshak setup' first.")
         key = KEY_FILE.read_bytes()
     return Fernet(key)
+'''
 
 # --- CLI COMMANDS ---
 
 @app.command()
 def setup():
     """Bootstrap the Dworshak environment and generate security keys."""
-    initialize_system()
+    #initialize_system()
+    initialize_environment()
     console.print(Panel.fit(
         "Dworshak System Initialized\n[bold green]Security Layer Active[/bold green]",
         title="Success"

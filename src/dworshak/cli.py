@@ -15,55 +15,13 @@ from dworshak.paths import APP_DIR,KEY_FILE,DB_FILE,CONFIG_FILE
 from dworshak.services import KNOWN_SERVICES
 from dworshak.core.bootstrap import initialize_environment
 from dworshak.core.security import get_fernet
+from dworshak.core.vault import (
+    credential_exists,
+    store_credential,
+)
 
 app = typer.Typer(help="Dworshak: Secure API Orchestration for Infrastructure.")
 console = Console()
-
-'''
-# --- CORE SECURITY LOGIC ---
-
-def initialize_system():
-    """Ensures the application directory and master key exist."""
-    APP_DIR.mkdir(parents=True, exist_ok=True)
-    
-    if not KEY_FILE.exists():
-        console.print("[yellow]Initializing Root of Trust...[/yellow]")
-        key = Fernet.generate_key()
-        KEY_FILE.write_bytes(key)
-        # Set file permissions: Read/Write for owner only (Linux/Termux standard)
-        os.chmod(KEY_FILE, 0o600)
-        console.print(f"[green]✔ Master key generated at {KEY_FILE}[/green]")
-    
-    # Initialize SQLite Vault if it doesn't exist
-    conn = sqlite3.connect(DB_FILE)
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS credentials (
-            service TEXT NOT NULL,
-            item TEXT NOT NULL,
-            encrypted_blob BLOB NOT NULL,
-            PRIMARY KEY (service, item)
-        )
-    """)
-    conn.close()
-
-    # --- Config file initialization ---
-    if not CONFIG_FILE.exists():
-        default_config = {
-            "default_service": "rjn_api"
-        }
-        CONFIG_FILE.write_text(json.dumps(default_config, indent=2))
-        console.print(f"[green]✔ Config file created at {CONFIG_FILE}[/green]")
-
-def get_fernet() -> Fernet:
-    """Loads the master key from file or environment override."""
-    # Check for environment override first (Standard for CI/CD/Headless)
-    key = os.getenv("DWORSHAK_MASTER_KEY")
-    if not key:
-        if not KEY_FILE.exists():
-            raise FileNotFoundError("Master key not found. Run 'dworshak setup' first.")
-        key = KEY_FILE.read_bytes()
-    return Fernet(key)
-'''
 
 # --- CLI COMMANDS ---
 
@@ -89,21 +47,27 @@ def register(
     username: str = typer.Option(..., prompt="Username"),
     password: str = typer.Option(..., prompt="Password", hide_input=True)
 ):
+
     """Encrypt and store a new credential in the vault."""
+    # Check for existing credential
+    if credential_exists(service, item):
+        console.print(
+            f"[yellow]A credential for {service}/{item} already exists.[/yellow]"
+        )
+        overwrite = typer.confirm("Overwrite?", default=False)
+        if not overwrite:
+            console.print("[green]Operation cancelled.[/green]")
+            return
+
+    # Encrypt the payload
     fernet = get_fernet()
-    
-    # Package credentials as JSON before encryption
     payload = json.dumps({"u": username, "p": password}).encode()
     encrypted_blob = fernet.encrypt(payload)
-    
-    conn = sqlite3.connect(DB_FILE)
-    conn.execute(
-        "INSERT OR REPLACE INTO credentials (service, item, encrypted_blob) VALUES (?, ?, ?)",
-        (service, item, encrypted_blob)
+
+    store_credential(service, item, encrypted_blob)
+    console.print(
+        f"[green]✔ Credential for [bold]{service}/{item}[/bold] stored securely.[/green]"
     )
-    conn.commit()
-    conn.close()
-    console.print(f"[green]✔ Credential for [bold]{service}/{item}[/bold] stored securely.[/green]")
 
 @app.command()
 def list_services():

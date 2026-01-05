@@ -7,7 +7,7 @@ To become the definitive **single-point-of-truth orchestration layer** for regio
 * **The Goal:** A system where data is fetched, validated, and mirrored locally so that decision-support tools (Dashboards, Alarms) never have to "wait" on a slow external API.
 * **The Method:** "Do one boring thing well." Dworshak doesn't try to *be* the dashboard; it provides the *clean water* (data) that the dashboard drinks.
 
-## ⚖️ User Storyes
+## ⚖️ User Stories
 Dworshak supports two complementary roles within the infrastructure data ecosystem:
 1. Infrastructure Integrator (Primary User)
 > I need a secure, predictable tool that orchestrates the movement of data between upstream and downstream systems — pulling from legacy SOAP endpoints, transforming or validating as needed, and pushing clean, trusted data to the services that depend on it.

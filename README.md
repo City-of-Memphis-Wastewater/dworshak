@@ -7,11 +7,13 @@ To become the definitive **single-point-of-truth orchestration layer** for regio
 * **The Goal:** A system where data is fetched, validated, and mirrored locally so that decision-support tools (Dashboards, Alarms) never have to "wait" on a slow external API.
 * **The Method:** "Do one boring thing well." Dworshak doesn't try to *be* the dashboard; it provides the *clean water* (data) that the dashboard drinks.
 
-## ⚖️ User Storyies
-> **As an Infrastructure Analyst**, I need a reliable, set-and-forget tool that synchronizes remote API data into a local, high-performance SQLite mirror, so that I can build visualizations and reports without worrying about credential leaks, API timeouts, or platform-specific (Windows vs. Termux) bugs.
-> **As an Infrastructure Integrator**, I need a secure, predictable tool that can orchestrate the movement of data between upstream and downstream systems — pulling from legacy SOAP endpoints, transforming or validating as needed, and pushing clean, trusted data to the services that depend on it.
-
-Dworshak should act as a controlled “data dam,” ensuring that credentials are protected, flows are one‑directional, and every transfer behaves the same way across Windows, Linux, and Termux environments.
+## ⚖️ User Storyes
+Dworshak supports two complementary roles within the infrastructure data ecosystem:
+1. Infrastructure Integrator (Primary User)
+> I need a secure, predictable tool that orchestrates the movement of data between upstream and downstream systems — pulling from legacy SOAP endpoints, transforming or validating as needed, and pushing clean, trusted data to the services that depend on it.
+> Dworshak should behave like a controlled “data dam,” ensuring one‑directional flow, consistent execution across platforms, and strict protection of credentials.
+2. Data Analyst (Secondary User)
+> I need a reliable, set-and-forget tool that synchronizes remote API data into a local, high-performance SQLite mirror, so that I can build visualizations and reports without worrying about credential leaks, API timeouts, or platform-specific (Windows vs. Termux) bugs.
 
 ## 🚀 The MVP (Current State)
 - **Secure Vault:** Fernet-encrypted SQLite storage for API credentials.

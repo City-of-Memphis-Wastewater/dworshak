@@ -12,21 +12,11 @@ from rich.table import Table
 import click
 
 from dworshak.paths import APP_DIR,KEY_FILE,DB_FILE,CONFIG_FILE
-from dworshak.helpers import is_valid_service, load_services
 from dworshak.services import KNOWN_SERVICES
     
 app = typer.Typer(help="Dworshak: Secure API Orchestration for Infrastructure.")
 console = Console()
 
-
-# --- Internal, typer-facing ---
-
-def _validate_service(value: str):
-    if not is_valid_service(value):
-        raise typer.BadParameter(
-            f"Service must be one of: {', '.join(load_services())}"
-        )
-    return value
 
 # --- CORE SECURITY LOGIC ---
 
@@ -87,7 +77,6 @@ def setup():
 # def register(service: str = typer.Option("rjn_api", prompt=True)):
 @app.command()
 def register(
-    # service: str = typer.Option("rjn_api", prompt="Service Name", show_default = True, callback=_validate_service),
     service: str = typer.Option(
         "rjn_api",
         prompt="Service Name",

@@ -9,11 +9,11 @@ from cryptography.fernet import Fernet
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-
+import click
 
 from dworshak.paths import APP_DIR,KEY_FILE,DB_FILE,CONFIG_FILE
 from dworshak.helpers import is_valid_service, load_services
-
+from dworshak.services import KNOWN_SERVICES
     
 app = typer.Typer(help="Dworshak: Secure API Orchestration for Infrastructure.")
 console = Console()
@@ -87,7 +87,12 @@ def setup():
 # def register(service: str = typer.Option("rjn_api", prompt=True)):
 @app.command()
 def register(
-    service: str = typer.Option("rjn_api", prompt="Service Name", show_default = True, callback=_validate_service),
+    # service: str = typer.Option("rjn_api", prompt="Service Name", show_default = True, callback=_validate_service),
+    service: str = typer.Option(
+        "rjn_api",
+        prompt="Service Name",
+        show_default=True,
+        click_type=click.Choice(KNOWN_SERVICES),),
     item: str = typer.Option(..., prompt="Credential Item (e.g., primary)"),
     username: str = typer.Option(..., prompt="Username"),
     password: str = typer.Option(..., prompt="Password", hide_input=True)

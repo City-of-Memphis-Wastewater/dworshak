@@ -1,6 +1,6 @@
 # Project Dworshak 🌊
 
-**Dworshak** is a high-integrity orchestration engine designed to manage the flow of infrastructure data between legacy SOAP services (EDS) and modern REST APIs (RJN). Like its namesake dam, it provides a stable, controlled interface for a high-pressure environment.
+**Dworshak** is a high-integrity orchestration engine designed to manage the flow of infrastructure data between legacy SOAP services (EDS) and modern REST APIs (RJN). Like its namesake dam in Idaho, it provides a stable, controlled interface for a high-pressure environment.
 
 ## 🏗 The Ultimate Vision
 To become the definitive **single-point-of-truth orchestration layer** for regional water/infrastructure data. 

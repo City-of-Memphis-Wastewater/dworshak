@@ -1,0 +1,71 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+myenv/
+test-pypi-venv/
+
+# Poetry lock files (optional, but recommended to commit poetry.lock)
+poetry.lock
+uv.lock 
+
+# Environment variables, secrets, etc.
+.env
+**/secrets.yaml
+.key
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# VS Code settings (optional)
+.vscode/
+
+# Log files
+logs/
+*.log
+**/daemon_log.txt
+
+# Export files
+exports/
+
+# PyInstaller / Build Artifacts
+dist/
+build/
+*.spec
+version.rc
+*.pyz
+
+# Jupyter Lab
+.ipynb_checkpoints/
+
+# Tauri
+# Rust / Cargo
+**/target/
+**/Cargo.lock  # optional: usually you do commit Cargo.lock for apps, not libs
+
+# Node / frontend
+**/node_modules/
+**/dist/
+
+# Ignore elements in src by default
+src/defunct/*
+src/example/*
+src/exploratory/*
+
+
+# Other
+
+*.sqlite3
+*.egg-info/
+Postman*
+.dockerignore
+.python-version
+export/
+detritis/

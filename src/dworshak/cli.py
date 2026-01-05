@@ -18,6 +18,16 @@ from dworshak.helpers import is_valid_service, load_services
 app = typer.Typer(help="Dworshak: Secure API Orchestration for Infrastructure.")
 console = Console()
 
+
+# --- Internal, typer-facing ---
+
+def _validate_service(value: str):
+    if not is_valid_service(value):
+        raise typer.BadParameter(
+            f"Service must be one of: {', '.join(load_services())}"
+        )
+    return value
+
 # --- CORE SECURITY LOGIC ---
 
 def initialize_system():
@@ -118,15 +128,6 @@ def list_services():
         table.add_row(row[0], row[1])
 
     console.print(table)
-
-# --- Internal, typer-facing ---
-
-def _validate_service(value: str):
-    if not is_valid_service(value):
-        raise typer.BadParameter(
-            f"Service must be one of: {', '.join(load_services())}"
-        )
-    return value
 
 if __name__ == "__main__":
     app()

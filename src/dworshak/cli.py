@@ -47,7 +47,6 @@ def initialize_system():
     # --- Config file initialization ---
     if not CONFIG_FILE.exists():
         default_config = {
-            "services": ["rjn_api","eds_soap_api"],   # sensible default
             "default_service": "rjn_api"
         }
         CONFIG_FILE.write_text(json.dumps(default_config, indent=2))

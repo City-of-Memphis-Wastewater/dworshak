@@ -13,7 +13,7 @@ Dworshak supports two complementary roles within the infrastructure data ecosyst
 > I need a secure, predictable tool that orchestrates the movement of data between upstream and downstream systems — pulling from legacy SOAP endpoints, transforming or validating as needed, and pushing clean, trusted data to the services that depend on it.
 > Dworshak should behave like a controlled “data dam,” ensuring one‑directional flow, consistent execution across platforms, and strict protection of credentials.
 2. Data Analyst (Secondary User)
-> I need a reliable, set-and-forget tool that synchronizes remote API data into a local, high-performance SQLite mirror, so that dashboards, reports, and decision-support tools never have to wait on slow or unreliable external services. Equipped with the Dworshak CLI and related companion tools, I can build visualizations and reports without worrying about credential leaks, API timeouts, or platform-specific (Windows vs. Termux) bugs.
+> I need a reliable, set-and-forget tool that synchronizes remote API data into a local, high-performance SQLite mirror, so that dashboards, reports, and decision-support tools never have to wait on slow or unreliable external services. Equipped with the Dworshak CLI and the related companion toolset, I can build visualizations and reports without worrying about credential leaks, API timeouts, or platform-specific (Windows vs. Termux) bugs.
 
 ## 🚀 The MVP (Current State)
 - **Secure Vault:** Fernet-encrypted SQLite storage for API credentials.

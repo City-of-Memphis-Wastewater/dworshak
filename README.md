@@ -3,7 +3,7 @@
 **Dworshak** is a high-integrity orchestration engine designed to manage the flow of infrastructure data between legacy SOAP services (EDS) and modern REST APIs (RJN). Like its namesake dam in Idaho, it provides a stable, controlled interface for a high-pressure environment.
 
 ## 🏗 The Ultimate Vision
-To become the definitive **single-point-of-truth orchestration layer** for regional water/infrastructure data. 
+To become the definitive  **super-user orchestration layer** for Emerson Ovation data in and out of the Maxson Wastewater Treatment Plant.
 * **The Goal:** A system where data is fetched, validated, and mirrored locally so that decision-support tools (Dashboards, Alarms) never have to "wait" on a slow external API.
 * **The Method:** "Do one boring thing well." Dworshak doesn't try to *be* the dashboard; it provides the *clean water* (data) that the dashboard drinks.
 

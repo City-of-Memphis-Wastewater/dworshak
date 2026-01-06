@@ -20,3 +20,7 @@ dworshak = "dworshak.cli:app"
 # it is allowed to build from source using your local Rust/Clang.
 package = true
 resolution = "highest"
+
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"

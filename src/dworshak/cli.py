@@ -20,6 +20,11 @@ from dworshak.core.vault import (
     store_credential,
 )
 
+# Force Rich to always enable colors, even when running from a .pyz bundle
+os.environ["FORCE_COLOR"] = "1"
+# Optional but helpful for full terminal feature detection
+os.environ["TERM"] = "xterm-256color"
+
 app = typer.Typer(
     name = "dworshak",
     help="Secure API Orchestration for Infrastructure.",

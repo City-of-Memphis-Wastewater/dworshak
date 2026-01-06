@@ -20,7 +20,18 @@ from dworshak.core.vault import (
     store_credential,
 )
 
-app = typer.Typer(help="Dworshak: Secure API Orchestration for Infrastructure.")
+app = typer.Typer(
+    name = "dworshak",
+    help="Secure API Orchestration for Infrastructure.",
+    add_completion=False,
+    invoke_without_command = True,
+    no_args_is_help = True,
+    context_settings={"ignore_unknown_options": True,
+    "allow_extra_args": True,
+    "help_option_names": ["-h", "--help"]},
+    )
+
+
 console = Console()
 
 # --- CLI COMMANDS ---

@@ -1,11 +1,11 @@
 # Project Dworshak 🌊
 
-**Dworshak** is a high-integrity orchestration engine designed to manage the flow of infrastructure data between legacy SOAP services (EDS) and modern REST APIs (RJN). Like its namesake dam in Idaho, it provides a stable, controlled interface for a high-pressure environment.
+**Dworshak** is the security bones behind API orchestration of infrastructure data between legacy SOAP services (EDS) and modern REST APIs (RJN).
 
 ## 🏗 The Ultimate Vision
-To become the definitive **super-user orchestration layer** for Emerson Ovation data and related APIs, supporting multiple projects in and beyond the Maxson Wastewater Treatment Plant.
-* **The Goal:** A system where data is fetched, validated, and mirrored locally so that decision-support tools (Dashboards, Alarms) never have to "wait" on a slow external API.
-* **The Method:** "Do one boring thing well." Dworshak doesn't try to *be* the dashboard; it provides the *clean water* (data) that the dashboard drinks.
+To become a stable credential management tool for scripting the flow of Emerson Ovation data and related APIs, supporting multiple projects in and beyond the Maxson Wastewater Treatment Plant.
+* **The Wider Goal:** A system where data is fetched, validated, and mirrored locally so that decision-support tools (Dashboards, Alarms) never have to "wait" on a slow external API.
+* **The Method:** "Do one boring thing well." Use OpenSSL to manage a local `~/.dowrshak/ directory which includes a `.key` file, a `vault.db` encrypted credential file, and a `config.json` file for controlling defaults.
 
 ## ⚖️ User Stories
 Dworshak supports two complementary roles within the infrastructure data ecosystem:

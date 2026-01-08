@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [0.1.2] – 2026-01-08
+### Added:
+- .github/workflows/ci.yml and .github/workflows/publish.yml. Now pushing to PyPI.
+
+---
+
 ## [0.1.1] - 2026-01-07
 ### Changed:
 - Remove uv-generated **main.py** file in root

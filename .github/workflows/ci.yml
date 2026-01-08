@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        #python-version: ['3.9','3.10','3.11', '3.12', '3.13'] 
+        python-version: ['3.11', '3.12', '3.13'] 
+        
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    - name: Install uv
+      run: pip install uv
+      
+    - name: Install main dependencies only (skip dev for speed/CI stability)
+      run: uv sync --no-dev
+      
+    #- name: Install dependencies
+    #  run: |
+    #    python -m pip install --upgrade pip
+    #    pip install flake8 pytest
+
+    # Optional: comment this if flake8 isn't ready
+    #- name: Lint (flake8 optional)
+    #  run: flake8 || true
+
+    # Optional: comment this if no tests
+    # - name: Run tests (pytest optional)
+    #  run: uv run pytest || true

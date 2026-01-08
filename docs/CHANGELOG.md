@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [0.1.1] - 2026-01-07
+### Changed:
+- Remove uv-generated **main.py** file in root
+
+---
+
 ## [0.1.0] - 2026-01-05
 ### Added
 - Initial project structure for `dworshak`.

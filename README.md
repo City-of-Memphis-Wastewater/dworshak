@@ -2,8 +2,8 @@
 
 **Dworshak** is the security bones behind API orchestration of infrastructure data between legacy SOAP services (EDS) and modern REST APIs (RJN).
 
-## 🏗 The Ultimate Vision
-To become a stable credential management tool for scripting the flow of Emerson Ovation data and related APIs, supporting multiple projects in and beyond the Maxson Wastewater Treatment Plant.
+## 🏗  The Ultimate Vision
+To become a stable credential management tool for scripting the flow of Emerson Ovation data and related APIs, supporting multiple projects in and beyond at the Maxson Wastewater Treatment Plant.
 * **The Wider Goal:** A system where data is fetched, validated, and mirrored locally so that decision-support tools (Dashboards, Alarms) never have to "wait" on a slow external API.
 * **The Method:** "Do one boring thing well." Use OpenSSL to manage a local `~/.dowrshak/ directory which includes a `.key` file, a `vault.db` encrypted credential file, and a `config.json` file for controlling defaults.
 
@@ -22,24 +22,18 @@ Dworshak supports two complementary roles within the infrastructure data ecosyst
 
 ## ⚠️ Risks & Guardrails
 To prevent "going off the rails" or drowning in scope creep:
-1. **The "Read-Only" UI Rule:** The web dashboard must NEVER have write-access to the APIs. Dworshak is a one-way dam, not a two-way bridge.
-2. **No "Feature Bloat":** If a feature doesn't help move data from Point A to Point B more securely or faster, it doesn't belong in `core`.
-3. **The Anti-Daemon Bias:** Stay script-based. Using `task-scheduler` or `cron` is more robust than maintaining a long-running daemon process that can leak memory or crash silently.
-
-## 🛠 Installation & Setup
-
-### Prerequisites
-- Python 3.12+
-- `uv` (Recommended package manager)
+ **The Anti-Daemon Bias:** Stay script-based. Using `task-scheduler` or `cron` is more robust than maintaining a long-running daemon process that can leak memory or crash silently.
 
 ### Quick Start
+
 ```bash
-# Initialize the project
-uv sync
+# Install the CLI
+pipx install dworshak
 
 # Bootstrap the security layer
-uv run python src/dworshak/cli.py setup
+dworshak setup
 
 # Register your first API
-uv run python src/dworshak/cli.py register --service rjn_api --item primary
+dworshak register --service rjn_api --item username
+
 ```

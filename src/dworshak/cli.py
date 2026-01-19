@@ -5,7 +5,6 @@ import os
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-import json
 
 from dworshak_access import (
     initialize_vault,

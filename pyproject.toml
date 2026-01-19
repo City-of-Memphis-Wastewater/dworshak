@@ -5,10 +5,11 @@ description = "Manage local, encrypted credentials. The **dworshak* CLI leverage
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "cryptography>=46.0.3", # No marker needed if Rust is present
+    #"cryptography>=46.0.3", # No marker needed if Rust is present
     "typer>=0.21.0",
     #"typer>=0.12.0",
     "rich>=13.0.0",
+    "dworshak-access>=0.1.13"
     
 ]
 

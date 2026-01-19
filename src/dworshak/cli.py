@@ -54,14 +54,14 @@ def register(
 
 
 @app.command()
-def retrieve(service: str, item: str):
+def retrieve(service: str, item: str, fail: bool = typer.Option(False, "--fail", help="Raise error if missing")):
     """Retrieve a credential from the vault."""
-    try:
-        creds = get_secret(service, item)
-        console.print(Panel(f"Username: {creds['u']}\nPassword: {creds['p']}", title=f"{service}/{item}"))
-    except KeyError:
-        console.print(f"[red]No credential found for {service}/{item}[/red]")
-
+    secret = get_secret(service, item, fail=fail)
+    if secret is None:
+        typer.echo(f"No credential found for {service}/{item}")
+    else:
+        typer.echo(f"{service}/{item}: {secret}")
+        
 
 @app.command()
 def list_items():

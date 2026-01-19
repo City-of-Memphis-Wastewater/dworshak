@@ -1,6 +1,11 @@
 # src/dworshak/cli.py
 from __future__ import annotations
 import typer
+from rich.console import Console
+from rich.panel import Panel
+from rich.table import Table
+import click
+
 from dworshak_access import (
     initialize_vault,
     store_secret,
@@ -9,7 +14,24 @@ from dworshak_access import (
     check_vault
 )
 
-app = typer.Typer(help="Dworshak CLI — secure credential orchestration")
+
+# Force Rich to always enable colors, even when running from a .py>
+os.environ["FORCE_COLOR"] = "1"
+# Optional but helpful for full terminal feature detection
+os.environ["TERM"] = "xterm-256color"
+
+app = typer.Typer(
+    name = "dworshak",
+    help="Dwroshak CLI - secure credential orchestration.",
+    add_completion=False,
+    invoke_without_command = True,
+    no_args_is_help = True,
+    context_settings={"ignore_unknown_options": True,
+    "allow_extra_args": True,
+    "help_option_names": ["-h", "--help"]},
+    )
+
+console = Console()
 
 @app.command()
 def setup():

@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [0.1.3] – 2026-01-19
+### Changed:
+- Now dworshak is just a CLI around dworshak-access.
+
+---
+
 ## [0.1.2] – 2026-01-08
 ### Added:
 - .github/workflows/ci.yml and .github/workflows/publish.yml. Now pushing to PyPI.

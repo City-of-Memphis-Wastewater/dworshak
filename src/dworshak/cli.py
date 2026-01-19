@@ -5,6 +5,7 @@ import os
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
+import json
 
 from dworshak_access import (
     initialize_vault,
@@ -43,8 +44,8 @@ def setup():
 
 @app.command()
 def register(
-    service: str = typer.Option("rjn_api", help="Service name"),
-    item: str = typer.Option(..., prompt="Credential item (e.g., username)"),
+    service: str = typer.Option(..., prompt=True, help="Service name"),
+    item: str = typer.Option(..., prompt=True),
     username: str = typer.Option(..., prompt=True),
     password: str = typer.Option(..., prompt=True, hide_input=True)
 ):

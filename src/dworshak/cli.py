@@ -69,14 +69,18 @@ def retrieve(service: str = typer.Option(..., prompt=True),
 @app.command()
 def remove(
     service: str = typer.Option(..., prompt=True, help="Service name"),
-    item: str = typer.Option(..., prompt=True, help="Item/key to remove")
+    item: str = typer.Option(..., prompt=True, help="Item/key to remove"),
+    fail: bool = typer.Option(False, "--fail", help="Raise error if secret not found")
 ):
     """Remove a credential from the vault."""
     deleted = remove_secret(service, item)
     if deleted:
         console.print(f"[green]✔ Removed credential {service}/{item}[/green]")
     else:
-        console.print(f"[yellow]⚠ No credential found for {service}/{item}[/yellow]")        
+        if fail:
+            raise KeyError(f"No credential found for {service}/{item}")
+        console.print(f"[yellow]⚠ No credential found for {service}/{item}[/yellow]")
+
 
 @app.command()
 def list_items():

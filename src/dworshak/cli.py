@@ -10,6 +10,7 @@ from dworshak_access import (
     initialize_vault,
     store_secret,
     get_secret,
+    remove_secret,
     list_credentials,
     check_vault,
 )
@@ -61,7 +62,18 @@ def retrieve(service: str, item: str, fail: bool = typer.Option(False, "--fail",
         typer.echo(f"No credential found for {service}/{item}")
     else:
         typer.echo(f"{service}/{item}: {secret}")
-        
+
+@app.command()
+def remove(
+    service: str = typer.Option(..., prompt=True, help="Service name"),
+    item: str = typer.Option(..., prompt=True, help="Item/key to remove")
+):
+    """Remove a credential from the vault."""
+    deleted = remove_secret(service, item)
+    if deleted:
+        console.print(f"[green]✔ Removed credential {service}/{item}[/green]")
+    else:
+        console.print(f"[yellow]⚠ No credential found for {service}/{item}[/yellow]")        
 
 @app.command()
 def list_items():
@@ -84,3 +96,4 @@ def health():
 
 if __name__ == "__main__":
     app()
+

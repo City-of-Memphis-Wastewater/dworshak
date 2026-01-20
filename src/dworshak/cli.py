@@ -55,7 +55,10 @@ def register(
 
 
 @app.command()
-def retrieve(service: str, item: str, fail: bool = typer.Option(False, "--fail", help="Raise error if missing")):
+def retrieve(service: str = typer.Option(..., prompt=True),
+    item: str = typer.Option(..., prompt=True),
+    fail: bool = typer.Option(False, "--fail", help="Raise error if missing")
+):
     """Retrieve a credential from the vault."""
     secret = get_secret(service, item, fail=fail)
     if secret is None:

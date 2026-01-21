@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is (read: strives to be) based on Keep a Changelog.
 
+
+---
+
+## [0.1.10] – 2026-01-20
+### Added:
+- `help-tree`
+- `--version`
+
+### BREAKING:
+- CLI commands changed for ergonimcs and length:
+    - retrieve -> get
+    - register -> store
+
+### Fixed:
+- username and password is out, secret is in
+
 ---
 
 ## [0.1.3] – 2026-01-19

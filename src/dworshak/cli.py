@@ -46,11 +46,10 @@ def setup():
 def register(
     service: str = typer.Option(..., prompt=True, help="Service name"),
     item: str = typer.Option(..., prompt=True),
-    username: str = typer.Option(..., prompt=True),
-    password: str = typer.Option(..., prompt=True, hide_input=True)
+    secret: str = typer.Option(..., prompt=True, hide_input=True)
 ):
     """Store a new credential in the vault."""
-    store_secret(service, item, username, password)
+    store_secret(service, item, secret)
     console.print(f"[green]✔ Credential for {service}/{item} stored securely.[/green]")
 
 

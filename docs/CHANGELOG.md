@@ -13,12 +13,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 - `--version`
 
 ### BREAKING:
-- CLI commands changed for ergonimcs and length:
+- CLI commands changed for ergonomics and length:
     - retrieve -> get
     - register -> store
 
 ### Fixed:
-- username and password is out, secret is in
+- username and password are out, secret is in
 
 ---
 

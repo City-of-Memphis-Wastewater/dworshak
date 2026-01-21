@@ -1,6 +1,6 @@
 # Project Dworshak 🌊
 
-**Dworshak** is the security bones behind API orchestration of infrastructure data between legacy SOAP services (EDS) and modern REST APIs (RJN).
+**Dworshak** is the security bones behind API orchestration of infrastructure data between legacy SOAP services (EDS) and modern REST APIs (RJN). It is a sister project of the `dworshak-access` library.
 
 ---
 
@@ -36,6 +36,13 @@ $env:DEV_TYPER_HELP_TREE = "1"; dworshak help-tree` # PowerShell
 
 ---
 
+# Sister Project: 
+Library: `dworshak-access` 
+GitHub: https://github.com/City-of-Memphis-Wastewater/dworshak-access
+PyPI: https://pypi.org/project/dworshak-access/
+
+---
+
 ## 🏗  The Ultimate Vision
 To become a stable credential management tool for scripting the flow of Emerson Ovation data and related APIs, supporting multiple projects in and beyond at the Maxson Wastewater Treatment Plant.
 * **The Wider Goal:** A system where data is fetched, validated, and mirrored locally so that decision-support tools (Dashboards, Alarms) never have to "wait" on a slow external API.
@@ -57,4 +64,6 @@ Dworshak supports two complementary roles within the infrastructure data ecosyst
 ## ⚠️ Risks & Guardrails
 To prevent "going off the rails" or drowning in scope creep:
  **The Anti-Daemon Bias:** Stay script-based. Using `task-scheduler` or `cron` is more robust than maintaining a long-running daemon process that can leak memory or crash silently.
+
+---
 

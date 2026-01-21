@@ -5,6 +5,7 @@ import os
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
+from typing import Optional
 
 from dworshak_access import (
     initialize_vault,
@@ -14,6 +15,8 @@ from dworshak_access import (
     list_credentials,
     check_vault,
 )
+
+from dworshak.version_info import get_version_from_pyproject # change to import from pyhabitat
 
 # Force Rich to always enable colors, even in .pyz or Termux
 os.environ["FORCE_COLOR"] = "1"
@@ -33,7 +36,27 @@ app = typer.Typer(
 )
 
 console = Console()
+# help-tree() command: fragile, experimental, defaults to not being included.
+if os.environ.get('DEV_TYPER_HELP_TREE',0) in ('true','1'):
+    from dworshak.dev import add_typer_help_tree
+    add_typer_help_tree(
+        app = app,
+        console = console)
+    
 
+@app.callback()
+def main(ctx: typer.Context,
+    version: Optional[bool] = typer.Option(
+    None, "--version", is_flag=True, help="Show the version."
+    )
+    ):
+    """
+    Enable --version
+    """
+    if version:
+        typer.echo(get_version_from_pyproject())
+        raise typer.Exit(code=0)
+        
 
 @app.command()
 def setup():
@@ -43,7 +66,7 @@ def setup():
 
 
 @app.command()
-def register(
+def store(
     service: str = typer.Option(..., prompt=True, help="Service name"),
     item: str = typer.Option(..., prompt=True),
     secret: str = typer.Option(..., prompt=True, hide_input=True)
@@ -54,7 +77,7 @@ def register(
 
 
 @app.command()
-def retrieve(service: str = typer.Option(..., prompt=True),
+def get(service: str = typer.Option(..., prompt=True),
     item: str = typer.Option(..., prompt=True),
     fail: bool = typer.Option(False, "--fail", help="Raise error if missing")
 ):
@@ -82,7 +105,7 @@ def remove(
 
 
 @app.command()
-def list_items():
+def list():
     """List all stored credentials."""
     creds = list_credentials()
     table = Table(title="Stored Credentials")

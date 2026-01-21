@@ -2,6 +2,39 @@
 
 **Dworshak** is the security bones behind API orchestration of infrastructure data between legacy SOAP services (EDS) and modern REST APIs (RJN).
 
+---
+
+### Quick Start
+
+```bash
+# Install the CLI
+pipx install dworshak
+
+# Bootstrap the security layer
+dworshak setup
+
+# Register your first API
+dworshak store --service rjn_api --item username
+
+```
+
+---
+
+`dworshak --help`:
+![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v0.1.10.png)
+
+
+See the Help Tree by unlocking the help-tree CLI command, using the DEV_TYPER_HELP_TREE env var.
+
+```
+DEV_TYPER_HELP_TREE=1 dworshak help-tree` # bash
+$env:DEV_TYPER_HELP_TREE = "1"; dworshak help-tree` # PowerShell
+```
+
+![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v0.1.10_tree_help.png)
+
+---
+
 ## 🏗  The Ultimate Vision
 To become a stable credential management tool for scripting the flow of Emerson Ovation data and related APIs, supporting multiple projects in and beyond at the Maxson Wastewater Treatment Plant.
 * **The Wider Goal:** A system where data is fetched, validated, and mirrored locally so that decision-support tools (Dashboards, Alarms) never have to "wait" on a slow external API.
@@ -24,16 +57,3 @@ Dworshak supports two complementary roles within the infrastructure data ecosyst
 To prevent "going off the rails" or drowning in scope creep:
  **The Anti-Daemon Bias:** Stay script-based. Using `task-scheduler` or `cron` is more robust than maintaining a long-running daemon process that can leak memory or crash silently.
 
-### Quick Start
-
-```bash
-# Install the CLI
-pipx install dworshak
-
-# Bootstrap the security layer
-dworshak setup
-
-# Register your first API
-dworshak register --service rjn_api --item username
-
-```

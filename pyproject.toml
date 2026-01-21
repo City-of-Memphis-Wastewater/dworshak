@@ -1,11 +1,10 @@
 [project]
 name = "dworshak"
-version = "0.1.9"
+version = "0.1.10"
 description = "Manage local, encrypted credentials. The **dworshak* CLI leverages openssl, sqlite3, and cryptography."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    #"cryptography>=46.0.3", # No marker needed if Rust is present
     "typer>=0.21.0",
     "rich>=13.0.0",
     "dworshak-access>=0.1.20"

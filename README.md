@@ -36,10 +36,14 @@ $env:DEV_TYPER_HELP_TREE = "1"; dworshak help-tree` # PowerShell
 
 ---
 
-# Sister Project: 
+## Sister Project: 
 Library: `dworshak-access` 
 GitHub: https://github.com/City-of-Memphis-Wastewater/dworshak-access
 PyPI: https://pypi.org/project/dworshak-access/
+
+```
+pip install dworshak-access
+```
 
 ---
 

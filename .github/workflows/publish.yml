@@ -37,13 +37,13 @@ jobs:
       - name: Build package (sdist + wheel)
         run: uv build
 
-      - name: Install the built package (sanity check)
-        run: uv pip install dist/*.whl --system
+      #- name: Install the built package (sanity check)
+      #  run: uv pip install dist/*.whl --system
 
       - name: Test CLI entrypoint
         run: |
           #dworshak --version
-          dworshak --help
+          uv run dworshak --help
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1

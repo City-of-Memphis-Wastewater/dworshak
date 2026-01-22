@@ -6,6 +6,7 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 from typing import Optional
+from typer_helptree import add_typer_helptree
 
 from dworshak_access import (
     initialize_vault,
@@ -38,11 +39,7 @@ app = typer.Typer(
 console = Console()
 # help-tree() command: fragile, experimental, defaults to not being included.
 if os.environ.get('DEV_TYPER_HELP_TREE',0) in ('true','1'):
-    from dworshak.dev import add_typer_help_tree
-    add_typer_help_tree(
-        app = app,
-        console = console)
-    
+    add_typer_helptree(app = app, console = console)
 
 @app.callback()
 def main(ctx: typer.Context,

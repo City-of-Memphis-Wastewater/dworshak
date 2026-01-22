@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is (read: strives to be) based on Keep a Changelog.
 
+---
+
+## [0.1.11] – 2026-01-22
+### Added:
+- build_pyz.py
+- pyhabitat as a dependency
+- typer-helptree as a dependency
+- .github/workflows/build.yml
 
 ---
 

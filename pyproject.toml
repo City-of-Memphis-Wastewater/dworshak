@@ -1,6 +1,6 @@
 [project]
 name = "dworshak"
-version = "0.1.10"
+version = "0.1.11"
 description = "Manage local, encrypted credentials. The **dworshak* CLI leverages openssl, sqlite3, and cryptography."
 readme = "README.md"
 requires-python = ">=3.12"
@@ -9,6 +9,7 @@ dependencies = [
     "rich>=13.0.0",
     "dworshak-access>=0.1.20",
     "pyhabitat>=1.1.26",
+    "typer-helptree>=0.1.6",
 ]
 authors = [
   { name="George Clayton Bennett", email="george.bennett@memphistn.gov" },

@@ -69,6 +69,12 @@ def store(
     secret: str = typer.Option(..., prompt=True, hide_input=True)
 ):
     """Store a new credential in the vault."""
+    status = check_vault()
+    if not status.is_valid:
+        console.print(f"status.is_valid = {status.is_valid}")
+        console.print(f"status.message = {status.message}")
+        raise typer.Exit(code=0)
+    
     store_secret(service, item, secret)
     console.print(f"[green]✔ Credential for {service}/{item} stored securely.[/green]")
 

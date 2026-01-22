@@ -13,6 +13,9 @@ The format is (read: strives to be) based on Keep a Changelog.
 - typer-helptree as a dependency
 - .github/workflows/build.yml
 
+### Removed
+- dev.py (which used to have the typer help tree)
+
 ---
 
 ## [0.1.10] – 2026-01-20

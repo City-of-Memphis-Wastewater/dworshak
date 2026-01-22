@@ -1,6 +1,7 @@
 # Project Dworshak 🌊
 
-**Dworshak** is the security bones behind API orchestration of infrastructure data between legacy SOAP services (EDS) and modern REST APIs (RJN). It is a sister project of the `dworshak-access` library.
+**Dworshak** is the security bones behind API orchestration at City of Memphis Maxson Wastewater Treatment Plant. 
+It is a sister project of the `dworshak-access` library.
 
 ---
 
@@ -66,10 +67,6 @@ Dworshak supports two complementary roles within the infrastructure data ecosyst
 - **Secure Vault:** Fernet-encrypted SQLite storage for API credentials.
 - **Root of Trust:** A local `.key` file architecture that works identically on Windows and Termux.
 - **CLI Entry:** A `typer`-based interface for setup and credential management.
-
-## ⚠️ Risks & Guardrails
-To prevent "going off the rails" or drowning in scope creep:
- **The Anti-Daemon Bias:** Stay script-based. Using `task-scheduler` or `cron` is more robust than maintaining a long-running daemon process that can leak memory or crash silently.
 
 ---
 

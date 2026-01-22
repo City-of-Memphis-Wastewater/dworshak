@@ -2,21 +2,21 @@
 # ./build_executable.py
 """
 build_executable.py
-Builds the PyHabitat standalone EXE using PyInstaller.
+Builds the Dworshak standalone EXE / ELF using PyInstaller.
 """
 from __future__ import annotations
 import shutil
 import subprocess
 import sys
 from pathlib import Path
-
-from pyhabitat.version_info import get_package_name, get_package_version, get_version_for_build, get_python_version, form_dynamic_binary_name
+import pyhabitat
 from pyhabitat.system_info import SystemInfo
-from pyhabitat.environment import on_windows
+
+from dworshak.version_info import get_package_name, get_package_version, get_version_for_build, get_python_version, form_dynamic_binary_name
 
 # --- Config ---
 
-MAIN_SCRIPT = "src/pyhabitat/__main__.py"
+MAIN_SCRIPT = "src/dworshak/__main__.py"
 DIST_DIR = Path("dist") / "onefile"
 BUILD_DIR= Path("build")
 BUILD_ASSETS_DIR = Path("build_assets")
@@ -38,7 +38,7 @@ def clean_build_folder():
 
 def run_pyinstaller(exe_name):
     """Run PyInstaller to build the executable."""
-    print(f"--- PyHabitat executable Builder --")
+    print(f"--- Executable Builder --")
     
     print(f"Building executable: {exe_name}")
 
@@ -51,7 +51,6 @@ def run_pyinstaller(exe_name):
     exclusions = [
         "tkinter",
         "matplotlib",
-        # Add other standard library modules PyHabitat checks but doesn't need to run itself
     ]
     
     exclusion_flags = [f"--exclude-module={mod}" for mod in exclusions] # CHANGED <-------------------------
@@ -75,7 +74,7 @@ def run_pyinstaller(exe_name):
     ]
 
     # 2. Windows-Specific Resource Logic
-    if on_windows():
+    if pyhabitat.on_windows():
 
         rc_file = prepare_windows_version_info(get_version_for_build())
         if rc_file:
@@ -83,7 +82,7 @@ def run_pyinstaller(exe_name):
             cmd += ["--version-file", str(rc_file)]
             
         # If you have an icon, you'd add it here
-        icon_file = "assets/pyhabitat-ico-alpha_256x256.ico"
+        icon_file = "assets/dworshak-ico-alpha_256x256.ico"
         if Path(icon_file).exists():
             cmd += ["--icon", icon_file]
         

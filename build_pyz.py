@@ -11,13 +11,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 import pyhabitat
 
-from pyhabitat.version_info import get_version_from_pyproject
-from pyhabitat.environment import on_termux
+from dworshak.version_info import get_version_from_pyproject
 
 # --- Configuration ---
-PROJECT_NAME = "pyhabitat"
+PROJECT_NAME = "dworshak"
 DIST_DIR = Path("dist") / "zipapp"
-BUILD_ROOT = Path("pyhabitat-build")
+BUILD_ROOT = Path("dworshak-build")
 
 def run_command(cmd, env=None):
     """Run command with printing and environment support."""
@@ -29,7 +28,7 @@ def run_command(cmd, env=None):
 def get_custom_env():
     """Handles Fdroid Termux sandboxing by redirecting TMPDIR."""
     custom_env = os.environ.copy()
-    if on_termux():
+    if pyhabitat.on_termux():
         termux_tmp = Path.home() / ".tmp"
         termux_tmp.mkdir(exist_ok=True)
         custom_env["TMPDIR"] = str(termux_tmp)
@@ -75,7 +74,7 @@ def run_build():
     # 1. Get the version from the source TOML
     version = get_version_from_pyproject()
 
-    internal_pkg_dir = BUILD_ROOT / "pyhabitat"
+    internal_pkg_dir = BUILD_ROOT / "dworshak"
     internal_pkg_dir.mkdir(parents=True, exist_ok=True) # Defensive check
 
     # 2. "Stamp" the build directory so the PYZ carries its identity
@@ -86,7 +85,7 @@ def run_build():
         sys.executable, "-m", "zipapp",
         str(BUILD_ROOT),
         "-o", str(output_pyz),
-        "-m", "pyhabitat.cli:run_cli", # Matches [project.scripts]
+        "-m", "dworshak.cli:run_cli", # Matches [project.scripts]
         "-p", "/usr/bin/env python3"
     ])
 

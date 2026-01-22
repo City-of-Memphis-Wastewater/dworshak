@@ -6,6 +6,14 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [0.1.12] – 2026-01-22
+### Internal:
+- Guard against edge cases like missing or malformed DB .
+- Version the DB schema so that i can be checked for compatibility.
+- Improve PYZ file naming to reflect the system, like pdflinkcheck, and not like pyhabitat.
+
+---
+
 ## [0.1.11] – 2026-01-22
 ### Added:
 - build_pyz.py

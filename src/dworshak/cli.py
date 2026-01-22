@@ -79,6 +79,12 @@ def get(service: str = typer.Option(..., prompt=True),
     fail: bool = typer.Option(False, "--fail", help="Raise error if missing")
 ):
     """Retrieve a credential from the vault."""
+    status = check_vault()
+    if not status.is_valid:
+        console.print(f"status.is_valid = {status.is_valid}")
+        console.print(f"status.message = {status.message}")
+        raise typer.Exit(code=0)
+    
     secret = get_secret(service, item, fail=fail)
     if secret is None:
         typer.echo(f"No credential found for {service}/{item}")
@@ -92,6 +98,12 @@ def remove(
     fail: bool = typer.Option(False, "--fail", help="Raise error if secret not found")
 ):
     """Remove a credential from the vault."""
+    status = check_vault()
+    if not status.is_valid:
+        console.print(f"status.is_valid = {status.is_valid}")
+        console.print(f"status.message = {status.message}")
+        raise typer.Exit(code=0)
+    
     deleted = remove_secret(service, item)
     if deleted:
         console.print(f"[green]✔ Removed credential {service}/{item}[/green]")
@@ -104,6 +116,12 @@ def remove(
 @app.command()
 def list():
     """List all stored credentials."""
+    status = check_vault()
+    if not status.is_valid:
+        console.print(f"status.is_valid = {status.is_valid}")
+        console.print(f"status.message = {status.message}")
+        raise typer.Exit(code=0)
+    
     creds = list_credentials()
     table = Table(title="Stored Credentials")
     table.add_column("Service", style="cyan")

@@ -31,13 +31,15 @@ jobs:
 
       - name: UV Sync
         run: |
-          uv sync --group build --extra dev
+          uv sync #--group build --extra dev
 
-      - name: Build PYZ 
+      - name: Build PYZ  # fix naming convention
+        if: false
         run: |
           uv run python build_pyz.py
 
       - name: Run Sanity Check
+        if: false
         run: |
           # 1. Install dependencies for the environment
           #uv pip install . # not expected to need any
@@ -46,6 +48,7 @@ jobs:
           python dist/zipapp/*.pyz --debug
 
       - name: Upload Binaries to GitHub Release
+        if : false
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:

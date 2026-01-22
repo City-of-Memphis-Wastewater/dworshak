@@ -1,6 +1,6 @@
-# Project Dworshak 🌊
+# Dworshak  🌊
 
-**Dworshak** is the security bones behind API orchestration at City of Memphis Maxson Wastewater Treatment Plant. 
+**Dworshak** a cross-platform credential management solution.
 It is a sister project of the `dworshak-access` library.
 
 ---

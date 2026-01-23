@@ -17,7 +17,7 @@ from dworshak_access import (
     check_vault,
 )
 
-from dworshak.version_info import get_version_from_pyproject # change to import from pyhabitat
+from dworshak.version_info import get_version
 
 # Force Rich to always enable colors, even in .pyz or Termux
 os.environ["FORCE_COLOR"] = "1"
@@ -51,7 +51,7 @@ def main(ctx: typer.Context,
     Enable --version
     """
     if version:
-        typer.echo(get_version_from_pyproject())
+        typer.echo(get_version())
         raise typer.Exit(code=0)
         
 

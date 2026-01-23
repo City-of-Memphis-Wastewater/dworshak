@@ -15,6 +15,7 @@ from dworshak_access import (
     remove_secret,
     list_credentials,
     check_vault,
+    export_vault
 )
 
 from dworshak.version_info import get_version
@@ -148,6 +149,17 @@ def health():
     """Check vault health."""
     status = check_vault()
     console.print(f"[bold]{status.message}[/bold] (root={status.root_path})")
+
+
+@app.command()
+def export(
+):
+    """Export the current vault. 
+    """
+    # This is currently a safety net if your vault version is out of date with your Dworshak CLI verison.
+    
+    export_vault()
+    console.print("Your vault has been exported to the usual place.")
 
 
 if __name__ == "__main__":

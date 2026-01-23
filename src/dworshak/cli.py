@@ -109,7 +109,13 @@ def remove(
         console.print(f"status.is_valid = {status.is_valid}")
         console.print(f"status.message = {status.message}")
         raise typer.Exit(code=0)
-    
+    if not typer.confirm(
+        f"Are you sure you want to remove {service}/{item}?",
+        default=False,  # ← [y/N] style — safe default
+    ):
+        console.print("[yellow]⛔ Operation cancelled.[/yellow]")
+        raise typer.Exit(code=0)
+
     deleted = remove_secret(service, item)
     if deleted:
         console.print(f"[green]✔ Removed credential {service}/{item}[/green]")

@@ -35,7 +35,7 @@ jobs:
           uv sync #--group build --extra dev
 
       - name: Build PYZ  # fix naming convention
-        status: not ready yet
+        #status: not ready yet
         run: |
           uv run python build_pyz.py
 

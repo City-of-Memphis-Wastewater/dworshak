@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [0.1.13] – 2026-01-23
+### Fixed:
+- Versioning is now handled by editing src/dworshak/VERSION
+
+---
+
 ## [0.1.12] – 2026-01-22
 ### Internal:
 - Guard against edge cases like missing or malformed DB .

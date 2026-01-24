@@ -15,7 +15,8 @@ from dworshak_access import (
     remove_secret,
     list_credentials,
     check_vault,
-    export_vault
+    export_vault,
+    import_record
 )
 
 from dworshak.version_info import get_version
@@ -153,15 +154,39 @@ def health():
 
 @app.command()
 def export(
-    path = None;
-):
+    output_path: str | Path | None = None,
+    decrypt: bool = typer.Option(False, "--reload", is_flag=True, help="Export the file with the secrets decrypted."
+):  
     """Export the current vault. 
     """
     # This is currently a safety net if your vault version is out of date with your Dworshak CLI verison.
     
-    export_vault()
-    console.print("Your vault has been exported to the usual place.")
+    output_path = export_vault(output_path, decrypt)
+    console.print("Your vault has been exported to: {output_path}")
 
+@app.command()
+def import(
+    path: Optional[Path] = typer.Argument(
+        None,
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        readable=True,
+        resolve_path=True,
+        help="Path to the JSON file to import."
+    ),
+    overwrite: bool = typer.Option(
+        False, 
+        "--overwrite", 
+        is_flag=True, 
+        help="If new credentials match exosting ones, overwrite."
+): 
+    """
+    Import only a properly structured JSON file to a dworshak vault
+    """
+
+    data = import_record(path,overwrite)
+    print(f"data = {data}")
 
 if __name__ == "__main__":
     app()

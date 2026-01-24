@@ -153,6 +153,7 @@ def health():
 
 @app.command()
 def export(
+    path = None;
 ):
     """Export the current vault. 
     """

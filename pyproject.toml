@@ -1,6 +1,5 @@
 [project]
 name = "dworshak"
-#version = "0.1.12"
 dynamic = ["version"]
 description = "Manage local, encrypted credentials. The **dworshak* CLI leverages openssl, sqlite3, and cryptography."
 readme = "README.md"
@@ -8,7 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "typer>=0.21.0",
     "rich>=13.0.0",
-    "dworshak-access>=0.1.21",
+    "dworshak-access>=0.1.22",
     "pyhabitat>=1.1.26",
     "typer-helptree>=0.1.6",
 ]

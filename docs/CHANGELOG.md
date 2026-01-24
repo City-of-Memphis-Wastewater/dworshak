@@ -11,7 +11,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 - dwroshak-access bumped to 0.1.23
 
 ### Added:
-- import and export funtions
+- import and export functions
 
 
 ---

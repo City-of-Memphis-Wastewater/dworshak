@@ -5,6 +5,7 @@ import os
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
+from pathlib import Path
 from typing import Optional
 from typer_helptree import add_typer_helptree
 
@@ -16,7 +17,7 @@ from dworshak_access import (
     list_credentials,
     check_vault,
     export_vault,
-    import_record
+    import_records
 )
 
 from dworshak.version_info import get_version
@@ -144,30 +145,37 @@ def list():
         table.add_row(service, item)
     console.print(table)
 
-
 @app.command()
 def health():
     """Check vault health."""
     status = check_vault()
     console.print(f"[bold]{status.message}[/bold] (root={status.root_path})")
 
-
 @app.command()
 def export(
-    output_path: str | Path | None = None,
-    decrypt: bool = typer.Option(False, "--reload", is_flag=True, help="Export the file with the secrets decrypted."
+    output_path: Optional[Path] = typer.Option(None, "--output", "-o", help="Path to save the export."),
+    decrypt: bool = typer.Option(
+        False, 
+        "--decrypt", # Changed from --reload to --decrypt for clarity
+        is_flag=True, 
+        help="Export the file with the secrets decrypted."
+    )
 ):  
-    """Export the current vault. 
     """
-    # This is currently a safety net if your vault version is out of date with your Dworshak CLI verison.
+    Export the current vault to a JSON file.
+    """
+    # export_vault handles default paths internally if output_path is None
+    final_path = export_vault(output_path, decrypt)
     
-    output_path = export_vault(output_path, decrypt)
-    console.print("Your vault has been exported to: {output_path}")
+    if final_path:
+        console.print(f"[green]Success![/green] Your vault has been exported to: [bold]{final_path}[/bold]")
+    else:
+        console.print("[red]Export failed.[/red] Check logs for details.")
 
-@app.command()
-def import(
-    path: Optional[Path] = typer.Argument(
-        None,
+@app.command(name="import") # 'import' is a reserved keyword in Python
+def import_cmd(
+    path: Path = typer.Argument(
+        ...,
         exists=True,
         file_okay=True,
         dir_okay=False,
@@ -179,15 +187,23 @@ def import(
         False, 
         "--overwrite", 
         is_flag=True, 
-        help="If new credentials match exosting ones, overwrite."
+        help="If new credentials match existing ones, overwrite them."
+    )
 ): 
     """
-    Import only a properly structured JSON file to a dworshak vault
+    Import a properly structured JSON file into the Dworshak vault.
     """
+    # import_records returns a dict of stats: {"added": x, "updated": y, "skipped": z}
 
-    data = import_record(path,overwrite)
-    print(f"data = {data}")
+    stats = import_records(path, overwrite)
+    
+    if stats:
+        console.print(f"\n[bold]Import Summary for {path.name}:[/bold]")
+        console.print(f"  [green]Added:[/green]   {stats['added']}")
+        console.print(f"  [yellow]Updated:[/yellow] {stats['updated']}")
+        console.print(f"  [blue]Skipped:[/blue] {stats['skipped']}")
+    else:
+        console.print("[red]Import failed or rejected.[/red]")
 
 if __name__ == "__main__":
     app()
-

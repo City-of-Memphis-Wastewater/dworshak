@@ -149,7 +149,8 @@ def list():
 def health():
     """Check vault health."""
     status = check_vault()
-    console.print(f"[bold]{status.message}[/bold] (root={status.root_path})")
+    #console.print(f"[bold]{status.message}[/bold] (root={status.root_path})")
+    console.print(status)
 
 @app.command()
 def export(

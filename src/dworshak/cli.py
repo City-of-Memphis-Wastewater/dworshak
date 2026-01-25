@@ -154,11 +154,21 @@ def health():
 
 @app.command()
 def export(
-    output_path: Optional[Path] = typer.Option(None, "--output", "-o", help="Path to save the export."),
+    output_path: Optional[Path] = typer.Option(
+        None, 
+        "--output", "-o", 
+        help="Path to save the export."
+    ),
     decrypt: bool = typer.Option(
         False, 
-        "--decrypt", # Changed from --reload to --decrypt for clarity
+        "--decrypt", 
         is_flag=True, 
+        help="Export the file with the secrets decrypted."
+    ),
+    yes: bool = typer.Option(
+        False,
+        "--yes","-y",
+        is_flag=True,
         help="Export the file with the secrets decrypted."
     )
 ):  
@@ -166,7 +176,12 @@ def export(
     Export the current vault to a JSON file.
     """
     # export_vault handles default paths internally if output_path is None
-    final_path = export_vault(output_path, decrypt)
+    if decrypt and not yes:
+    yes = typer.confirm(
+        f"Are you sure you want to decrypted secrets in the export?",
+        default=False,  # ← [y/N] style — safe default
+    )
+    final_path = export_vault(output_path, decrypt,yes)
     
     if final_path:
         console.print(f"[green]Success![/green] Your vault has been exported to: [bold]{final_path}[/bold]")

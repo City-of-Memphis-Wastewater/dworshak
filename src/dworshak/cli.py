@@ -226,49 +226,49 @@ def import_cmd(
 
 @app.command(name="rotate-key")
 def rotate_key_cmd(
-    yes: bool = typer.Option(
-        False,
-        "--yes", "-y",
-        is_flag=True,
-        help="Skip confirmation (use only in trusted automation)",
-    ),
     dry_run: bool = typer.Option(
         False,
         "--dry-run",
         is_flag=True,
-        help="Simulate rotation without changes",
+        help="Simulate the rotation without making any changes or backups",
     ),
     no_backup: bool = typer.Option(
         False,
         "--no-backup",
         is_flag=True,
-        help="Skip automatic backup (advanced / dangerous)",
-    )
+        help="Skip automatic backup (advanced / dangerous; ignored in dry-run)",
+    ),
 ):
-    """Rotate the encryption key and re-encrypt all secrets."""
-    if not yes:
-        if not typer.confirm(
-            "This will generate a NEW key and re-encrypt ALL secrets.\n"
-            "Old key will be replaced permanently.\n"
-            "Proceed?",
-            default=False
-        ):
-            console.print("[yellow]Rotation cancelled.[/yellow]")
-            raise typer.Exit(0)
+    """Rotate the encryption key and re-encrypt all stored secrets.
 
-    success, msg = da.key.rotate_key(
+    WARNING: This is a destructive operation unless --dry-run is used.
+    A backup is created automatically unless --no-backup is specified.
+    Use --dry-run first to preview what will happen.
+    """
+    from dworshak_access import key as da_key
+
+    success, message, affected = da_key.rotate_key(
         dry_run=dry_run,
-        auto_backup=not no_backup
+        auto_backup=not no_backup if not dry_run else False,
     )
 
     if success:
         if dry_run:
-            console.print("[yellow]Dry run successful – no changes made.[/yellow]")
+            console.print("[cyan]Dry run completed – no changes were made.[/cyan]")
         else:
-            console.print("[green]✔ Key rotation completed.[/green]")
-        console.print(msg)
+            console.print("[green]✔ Key rotation completed successfully.[/green]")
+
+        console.print(message)
+
+        if affected:
+            table = Table(title="Credentials Processed" if dry_run else "Credentials Re-encrypted")
+            table.add_column("Service/Item", style="cyan")
+            for cred in affected:
+                table.add_row(cred)
+            console.print(table)
+
     else:
-        console.print(f"[red]Error:[/red] {msg}")
+        console.print(f"[red]Operation failed:[/red] {message}")
         raise typer.Exit(1)
 
 @app.command()
@@ -301,19 +301,6 @@ def backup(
     if not status.is_valid:
         console.print(f"[red]Vault unhealthy: {status.message}[/red]")
         raise typer.Exit(1)
-
-    # Interactive confirmation (skipped with -y)
-    if not yes:
-        confirm_msg = "Create vault backup?"
-        if extra_suffix:
-            confirm_msg += f" with suffix '{extra_suffix}'"
-        if output_dir:
-            confirm_msg += f" to {output_dir}"
-        if no_timestamp:
-            confirm_msg += " (no timestamp)"
-        if not typer.confirm(confirm_msg, default=True):
-            console.print("[yellow]Backup cancelled.[/yellow]")
-            raise typer.Exit(0)
 
     # Call the library function
     backup_path = backup_vault(

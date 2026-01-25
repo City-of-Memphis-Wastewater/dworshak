@@ -3,7 +3,7 @@ name = "dworshak"
 dynamic = ["version"]
 description = "Manage local, encrypted credentials. The **dworshak* CLI leverages openssl, sqlite3, and cryptography."
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.9"
 dependencies = [
     "typer>=0.21.0",
     "rich>=13.0.0",
@@ -22,6 +22,9 @@ license-files = ["LICENSE"]
 classifiers=[
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",

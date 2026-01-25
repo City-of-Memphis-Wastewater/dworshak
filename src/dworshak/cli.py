@@ -17,7 +17,9 @@ from dworshak_access import (
     list_credentials,
     check_vault,
     export_vault,
-    import_records
+    import_records,
+    backup_vault,
+    rotate_key
 )
 
 from dworshak.version_info import get_version
@@ -220,6 +222,112 @@ def import_cmd(
         console.print(f"  [blue]Skipped:[/blue] {stats['skipped']}")
     else:
         console.print("[red]Import failed or rejected.[/red]")
+
+
+@app.command(name="rotate-key")
+def rotate_key_cmd(
+    yes: bool = typer.Option(
+        False,
+        "--yes", "-y",
+        is_flag=True,
+        help="Skip confirmation (use only in trusted automation)",
+    ),
+    dry_run: bool = typer.Option(
+        False,
+        "--dry-run",
+        is_flag=True,
+        help="Simulate rotation without changes",
+    ),
+    no_backup: bool = typer.Option(
+        False,
+        "--no-backup",
+        is_flag=True,
+        help="Skip automatic backup (advanced / dangerous)",
+    )
+):
+    """Rotate the encryption key and re-encrypt all secrets."""
+    if not yes:
+        if not typer.confirm(
+            "This will generate a NEW key and re-encrypt ALL secrets.\n"
+            "Old key will be replaced permanently.\n"
+            "Proceed?",
+            default=False
+        ):
+            console.print("[yellow]Rotation cancelled.[/yellow]")
+            raise typer.Exit(0)
+
+    success, msg = da.key.rotate_key(
+        dry_run=dry_run,
+        auto_backup=not no_backup
+    )
+
+    if success:
+        if dry_run:
+            console.print("[yellow]Dry run successful – no changes made.[/yellow]")
+        else:
+            console.print("[green]✔ Key rotation completed.[/green]")
+        console.print(msg)
+    else:
+        console.print(f"[red]Error:[/red] {msg}")
+        raise typer.Exit(1)
+
+@app.command()
+def backup(
+    extra_suffix: str = typer.Option(
+        "",
+        "--suffix", "-s",
+        help="Extra identifier in the filename (e.g. 'pre-import', 'manual', 'test')."
+    ),
+    output_dir: Optional[Path] = typer.Option(
+        None,
+        "--output-dir", "-o",
+        help="Custom directory to save the backup (default: same as vault.db)."
+    ),
+    no_timestamp: bool = typer.Option(
+        False,
+        "--no-timestamp",
+        is_flag=True,
+        help="Omit timestamp from filename (not recommended unless you know what you're doing)."
+    ),
+    yes: bool = typer.Option(
+        False,
+        "--yes", "-y",
+        is_flag=True,
+        help="Skip confirmation prompt (useful in scripts or automation)."
+    )
+):
+    """Create a timestamped backup copy of the vault database."""
+    status = check_vault()
+    if not status.is_valid:
+        console.print(f"[red]Vault unhealthy: {status.message}[/red]")
+        raise typer.Exit(1)
+
+    # Interactive confirmation (skipped with -y)
+    if not yes:
+        confirm_msg = "Create vault backup?"
+        if extra_suffix:
+            confirm_msg += f" with suffix '{extra_suffix}'"
+        if output_dir:
+            confirm_msg += f" to {output_dir}"
+        if no_timestamp:
+            confirm_msg += " (no timestamp)"
+        if not typer.confirm(confirm_msg, default=True):
+            console.print("[yellow]Backup cancelled.[/yellow]")
+            raise typer.Exit(0)
+
+    # Call the library function
+    backup_path = backup_vault(
+        extra_suffix=extra_suffix,
+        include_timestamp=not no_timestamp,
+        dest_dir=output_dir,
+    )
+
+    if backup_path:
+        console.print(f"[green]✔ Backup created:[/green] [bold]{backup_path}[/bold]")
+    else:
+        console.print("[red]Backup failed.[/red] Check vault health or disk space.")
+        raise typer.Exit(1)
+
 
 if __name__ == "__main__":
     app()

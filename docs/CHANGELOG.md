@@ -6,7 +6,13 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
-## [0.1.15] – 2026-01-23
+## [0.1.15] – 2026-01-24
+### Changed:
+- Claimed compatibility with Python 3.9
+
+---
+
+## [0.1.15] – 2026-01-24
 ### Changed:
 - dwroshak-access bumped to 0.1.23
 

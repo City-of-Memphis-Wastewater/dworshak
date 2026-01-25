@@ -245,7 +245,7 @@ def rotate_key_cmd(
     A backup is created automatically unless --no-backup is specified.
     Use --dry-run first to preview what will happen.
     """
-    success, message, affected = da_key.rotate_key(
+    success, message, affected = rotate_key(
         dry_run=dry_run,
         auto_backup=not no_backup if not dry_run else False,
     )

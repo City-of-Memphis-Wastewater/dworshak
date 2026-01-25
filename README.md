@@ -8,8 +8,8 @@ It is a sister project of the `dworshak-access` library.
 ### Quick Start
 
 ```bash
-# Install the CLI
-pipx install dworshak
+# Install the CLI (for most environments)
+pipx install "dworshak[crypto]"
 
 # Bootstrap the security layer
 dworshak setup
@@ -64,3 +64,17 @@ To become a stable credential management tool for scripting the flow of Emerson 
 
 ---
 
+## Termux installation
+
+```
+pkg install python-cryptography
+pipx install dworshak --system-site-packages
+```
+
+## iSH Apline installation
+
+```
+apk add py3-cryptography 
+pipx install dworshak --system-site-packages
+
+```

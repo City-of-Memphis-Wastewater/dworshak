@@ -8,8 +8,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ## [0.1.17] – 2026-01-24
 ### Changed:
-- No longer does installation include crytography. User must explicity include it as an extra@
-, crypto.
+- No longer does installation include crytography. User must explicity include it as an extra, [crypto].
 - Readme reflects new installation methods
 
 ### Fixed:

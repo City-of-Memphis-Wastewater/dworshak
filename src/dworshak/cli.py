@@ -177,10 +177,10 @@ def export(
     """
     # export_vault handles default paths internally if output_path is None
     if decrypt and not yes:
-    yes = typer.confirm(
+        yes = typer.confirm(
         f"Are you sure you want to decrypted secrets in the export?",
         default=False,  # ← [y/N] style — safe default
-    )
+        )
     final_path = export_vault(output_path, decrypt,yes)
     
     if final_path:

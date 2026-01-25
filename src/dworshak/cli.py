@@ -245,8 +245,6 @@ def rotate_key_cmd(
     A backup is created automatically unless --no-backup is specified.
     Use --dry-run first to preview what will happen.
     """
-    from dworshak_access import key as da_key
-
     success, message, affected = da_key.rotate_key(
         dry_run=dry_run,
         auto_backup=not no_backup if not dry_run else False,
@@ -259,13 +257,6 @@ def rotate_key_cmd(
             console.print("[green]✔ Key rotation completed successfully.[/green]")
 
         console.print(message)
-
-        if affected:
-            table = Table(title="Credentials Processed" if dry_run else "Credentials Re-encrypted")
-            table.add_column("Service/Item", style="cyan")
-            for cred in affected:
-                table.add_row(cred)
-            console.print(table)
 
     else:
         console.print(f"[red]Operation failed:[/red] {message}")

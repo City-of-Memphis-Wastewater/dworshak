@@ -6,9 +6,13 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
-## [0.1.15] – 2026-01-24
+## [0.1.16] – 2026-01-24
 ### Changed:
 - Claimed compatibility with Python 3.9
+
+### Added:
+- backup command
+- rotate-key command
 
 ---
 
@@ -18,7 +22,6 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ### Added:
 - import and export functions
-
 
 ---
 

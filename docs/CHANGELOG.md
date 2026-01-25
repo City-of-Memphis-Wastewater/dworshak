@@ -6,6 +6,17 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [0.1.17] – 2026-01-24
+### Changed:
+- No longer does installation include crytography. User must explicity include it as an extra@
+, crypto.
+- Readme reflects new installation methods
+
+### Fixed:
+- bumped dworshak-access version to 0.1.28, which now is 3.9 safe by using datetime.timezone.utc instead of datetime.UTC.
+
+---
+
 ## [0.1.16] – 2026-01-24
 ### Changed:
 - Claimed compatibility with Python 3.9

@@ -7,7 +7,7 @@ requires-python = ">=3.9"
 dependencies = [
     "typer>=0.21.0",
     "rich>=13.0.0",
-    "dworshak-access>=0.1.27",
+    "dworshak-access>=0.1.28",
     "pyhabitat>=1.1.26",
     "typer-helptree>=0.1.6",
 ]
@@ -41,6 +41,12 @@ classifiers=[
 keywords = [
     "credentials",
     "security"
+]
+
+[project.optional-dependencies]
+crypto = [
+    "cryptography>=46.0.3",
+    "dworshak-access[crypto]>=0.1.27",   # redundant but explicit
 ]
 
 [project.urls]

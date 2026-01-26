@@ -13,20 +13,20 @@ jobs:
       id-token: write  # Needed for OIDC authentication
       contents: write 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         if: false
         with:
           fetch-depth: 0
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
           # Fixes the warning: tells uv exactly what to watch for caching
           cache-dependency-glob: "pyproject.toml" 
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 

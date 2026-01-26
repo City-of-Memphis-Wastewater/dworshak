@@ -53,7 +53,7 @@ pip install dworshak-access
 ## 🏗  The Ultimate Vision
 To become a stable credential management tool for scripting the flow of Emerson Ovation data and related APIs, supporting multiple projects in and beyond at the Maxson Wastewater Treatment Plant.
 * **The Wider Goal:** A system where data is fetched, validated, and mirrored locally so that decision-support tools (Dashboards, Alarms) never have to "wait" on a slow external API.
-* **The Method:** "Do one boring thing well." Use OpenSSL to manage a local `~/.dowrshak/ directory which includes a `.key` file, a `vault.db` encrypted credential file, and a `config.json` file for controlling defaults.
+* **The Method:** "Do one boring thing well." Use Industry-standard AES (Fernet) encryption  to manage a local `~/.dworshak/ directory which includes a `.key` file, a `vault.db` encrypted credential file, and a `config.json` file for controlling defaults.
 
 <!--## ⚖️ User Stories-->
 

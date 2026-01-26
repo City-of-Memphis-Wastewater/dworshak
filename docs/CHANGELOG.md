@@ -6,6 +6,15 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [0.1.18] – 2026-01-25
+### Changed:
+- Bump dworshak-access to 0.1.29.
+
+### Internal:
+- Do not state the version number of dworshak-access in the optional dependency 'crypto' section. This is a maintenance risk to keep up with the number in two places. 
+
+---
+
 ## [0.1.17] – 2026-01-24
 ### Changed:
 - No longer does installation include crytography. User must explicity include it as an extra, [crypto].

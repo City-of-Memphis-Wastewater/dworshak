@@ -46,6 +46,7 @@ PyPI: https://pypi.org/project/dworshak-access/
 
 ```
 pip install dworshak-access
+# or,  uv add dworshak-access
 ```
 
 ---

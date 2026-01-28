@@ -28,8 +28,7 @@ dworshak store --service rjn_api --item username
 See the Help Tree by unlocking the helptree CLI command, using the DEV_TYPER_HELP_TREE env var.
 
 ```
-DEV_TYPER_HELP_TREE=1 dworshak helptree` # bash
-$env:DEV_TYPER_HELP_TREE = "1"; dworshak helptree` # PowerShell
+dworshak helptree
 ```
 
 ![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.3_help_tree.png)
@@ -63,6 +62,12 @@ To become a stable credential management tool for scripting the flow of Emerson 
 - **CLI Entry:** A `typer`-based interface for setup and credential management.
 
 ---
+
+## Typical installation
+
+```
+pipx install "dworshak[crypto]"
+```
 
 ## Termux installation
 

@@ -1,28 +1,26 @@
 # src/dworshak/_version.py
 from pathlib import Path
+import logging
 
-def _get_version():
-    # 1. Try to get version from the installed package metadata (Production)
-    try:
-        return version("dworshak")
-    except PackageNotFoundError:
-        pass
+# Setup a logger so the library can "whisper" errors without crashing the CLI
+logger = logging.getLogger(__name__)
 
-    # 2. Fallback: Read VERSION file directly from source (Development/Repo)
+PACKAGE_NAME = "dworshak"
+
+def get_version(package_name: str) -> str:
+    # 1. Try the official way (Installed/Production)
     try:
-        version_file = Path(__file__).parent / "VERSION"
-        if version_file.exists():
-            return version_file.read_text(encoding="utf-8").strip()
+        from importlib.metadata import version
+        return version(package_name)
     except Exception:
         pass
 
-    # Try metadata (Installed)
+    # 2. Try the dev/zip way (Local/PyZ)
     try:
-        from importlib.metadata import version, PackageNotFoundError
-        return version("dworshak")
-    except (ImportError, PackageNotFoundError):
-        pass
+        return (Path(__file__).parent / "VERSION").read_text(encoding="utf-8").strip()
+    except Exception:
+        return "0.0.0-unknown"
+    
+__version__ = get_version(PACKAGE_NAME)
 
-    return "0.0.0-unknown"
 
-__version__ = _get_version()

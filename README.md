@@ -22,8 +22,7 @@ dworshak store --service rjn_api --item username
 ---
 
 `dworshak --help`:
-![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v0.1.10_help.png)
-<!---https://github.com/City-of-Memphis-Wastewater/dworshak/blob/main/assets/dworshak_cli_v0.1.10_help.png--->
+![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.3_help.png)
 
 
 See the Help Tree by unlocking the helptree CLI command, using the DEV_TYPER_HELP_TREE env var.
@@ -33,7 +32,7 @@ DEV_TYPER_HELP_TREE=1 dworshak helptree` # bash
 $env:DEV_TYPER_HELP_TREE = "1"; dworshak helptree` # PowerShell
 ```
 
-![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v0.1.10_help_tree.png)
+![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.3_help_tree.png)
 
 ---
 

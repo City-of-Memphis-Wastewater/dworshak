@@ -47,7 +47,7 @@ console = Console()
 #    add_typer_helptree(app = app, console = console)
 
 # In cli.py
-add_typer_helptree(app=app, console=console, hidden=True)
+add_typer_helptree(app=app, console=console, version = __version__,hidden=True)
 
 @app.callback()
 def main(ctx: typer.Context,

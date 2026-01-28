@@ -6,6 +6,13 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [0.1.19] – 2026-01-28
+### Changed:
+- Bump dworshak-access to 1.1.1.
+- Magenta text in list command for Item column has been changed to green text, for visibility against PowerShell blue on a Windows 10 system.
+
+---
+
 ## [0.1.18] – 2026-01-25
 ### Changed:
 - Bump dworshak-access to 0.1.29.

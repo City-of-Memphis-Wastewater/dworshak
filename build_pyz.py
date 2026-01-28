@@ -11,7 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 import pyhabitat
 
-from dworshak.version_info import get_version
+from dworshak._version import __version__
 
 # --- Configuration ---
 PROJECT_NAME = "dworshak"
@@ -72,7 +72,7 @@ def run_build():
     print(f"\n3. Packaging ZipApp: {output_pyz.name}")
 
     # 1. Get the version from the source TOML
-    version = get_version()
+    version = __version__
 
     internal_pkg_dir = BUILD_ROOT / "dworshak"
     internal_pkg_dir.mkdir(parents=True, exist_ok=True) # Defensive check

@@ -22,7 +22,7 @@ from dworshak_access import (
     rotate_key
 )
 
-from dworshak.version_info import get_version
+from dworshak._version import __version__
 
 # Force Rich to always enable colors, even in .pyz or Termux
 os.environ["FORCE_COLOR"] = "1"
@@ -43,8 +43,11 @@ app = typer.Typer(
 
 console = Console()
 # help-tree() command: fragile, experimental, defaults to not being included.
-if os.environ.get('DEV_TYPER_HELP_TREE',0) in ('true','1'):
-    add_typer_helptree(app = app, console = console)
+#if os.environ.get('DEV_TYPER_HELP_TREE',0) in ('true','1'):
+#    add_typer_helptree(app = app, console = console)
+
+# In cli.py
+add_typer_helptree(app=app, console=console, hidden=True)
 
 @app.callback()
 def main(ctx: typer.Context,
@@ -56,7 +59,7 @@ def main(ctx: typer.Context,
     Enable --version
     """
     if version:
-        typer.echo(get_version())
+        typer.echo(__version__)
         raise typer.Exit(code=0)
         
 

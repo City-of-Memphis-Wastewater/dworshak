@@ -9,7 +9,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 ## [1.1.3] – 2026-01-28 
 ### Changed:
 - Update screenshots in README
-- Update README installation guide and herlptree call
+- Update README installation guide and helptree call
 
 ---
 

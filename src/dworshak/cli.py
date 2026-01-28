@@ -87,7 +87,8 @@ def store(
 @app.command()
 def get(service: str = typer.Option(..., prompt=True),
     item: str = typer.Option(..., prompt=True),
-    fail: bool = typer.Option(False, "--fail", help="Raise error if missing")
+    fail: bool = typer.Option(False, "--fail", help="Raise error if missing"),
+    value_only: bool = typer.Option(False, "--value-only", help="Only print the secret value") 
 ):
     """Retrieve a credential from the vault."""
     status = check_vault()
@@ -99,6 +100,8 @@ def get(service: str = typer.Option(..., prompt=True),
     secret = get_secret(service, item, fail=fail)
     if secret is None:
         typer.echo(f"No credential found for {service}/{item}")
+    elif value_only:
+        typer.echo(secret, nl=False) # nl=False prevents trailing newlines
     else:
         typer.echo(f"{service}/{item}: {secret}")
 

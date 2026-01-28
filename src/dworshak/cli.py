@@ -69,8 +69,8 @@ def setup():
 
 @app.command()
 def store(
-    service: str = typer.Option(..., prompt=True, help="Service name"),
-    item: str = typer.Option(..., prompt=True),
+    service: str = typer.Option(..., "--service", "-s", prompt=True, help="Service name"),
+    item: str = typer.Option(..., "--item", "-i", prompt=True),
     secret: str = typer.Option(..., prompt=True, hide_input=True)
 ):
     """Store a new credential in the vault."""
@@ -85,8 +85,8 @@ def store(
 
 
 @app.command()
-def get(service: str = typer.Option(..., prompt=True),
-    item: str = typer.Option(..., prompt=True),
+def get(service: str = typer.Option(..., "--service", "-s", prompt=True),
+    item: str = typer.Option(..., "--item", "-i", prompt=True),
     fail: bool = typer.Option(False, "--fail", help="Raise error if missing"),
     value_only: bool = typer.Option(False, "--value-only", help="Only print the secret value") 
 ):

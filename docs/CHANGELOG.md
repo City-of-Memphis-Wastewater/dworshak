@@ -6,6 +6,13 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.1.3] – 2026-01-28 
+### Changed:
+- Update screenshots in README
+- Update README installation guide and herlptree call
+
+---
+
 ## [1.1.2] – 2026-01-28 
 ### Changed:
 - Add abbreviated flags for item and service name, -i and -s, in get and store commands.

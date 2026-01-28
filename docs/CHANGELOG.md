@@ -6,6 +6,17 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.1.2] – 2026-01-28 
+### Changed:
+- Add abbreviated flags for item and service name, -i and -s, in get and store commands.
+- Add "--value-only" flag to get command, for easier var assignment in the command line.
+- Add __main__ file to enable python -m dworshak
+
+### Internal:
+- Favor flags instad of positionals, for service and item values, for get and store commands. Explicit is better than implicit, and credential management does not need to be particularly fast. Short flags -s and -i help with speed.
+ 
+---
+
 ## [1.1.1] – 2026-01-28 
 ### Changed:
 - Bump dworshak-access to 1.1.1.

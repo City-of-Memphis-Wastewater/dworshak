@@ -142,7 +142,7 @@ def list():
     creds = list_credentials()
     table = Table(title="Stored Credentials")
     table.add_column("Service", style="cyan")
-    table.add_column("Item", style="magenta")
+    table.add_column("Item", style="green")
     for service, item in creds:
         table.add_row(service, item)
     console.print(table)

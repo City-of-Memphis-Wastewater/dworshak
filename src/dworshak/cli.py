@@ -73,8 +73,8 @@ def setup():
 @app.command()
 def store(
     service: str = typer.Option(..., "--service", "-s", prompt=True, help="Service name"),
-    item: str = typer.Option(..., "--item", "-i", prompt=True),
-    secret: str = typer.Option(..., prompt=True, hide_input=True)
+    item: str = typer.Option(..., "--item", "-i", prompt=True, help="Item key"),
+    secret: str = typer.Option(..., prompt=True, hide_input=True, help = "Encrypted secret, with hide_input = True")
 ):
     """Store a new credential in the vault."""
     status = check_vault()
@@ -88,8 +88,9 @@ def store(
 
 
 @app.command()
-def get(service: str = typer.Option(..., "--service", "-s", prompt=True),
-    item: str = typer.Option(..., "--item", "-i", prompt=True),
+def get(
+    service: str = typer.Option(..., "--service", "-s", prompt=True, help="Service name"),
+    item: str = typer.Option(..., "--item", "-i", prompt=True, help="Item key"),
     fail: bool = typer.Option(False, "--fail", help="Raise error if missing"),
     value_only: bool = typer.Option(False, "--value-only", help="Only print the secret value") 
 ):
@@ -110,8 +111,8 @@ def get(service: str = typer.Option(..., "--service", "-s", prompt=True),
 
 @app.command()
 def remove(
-    service: str = typer.Option(..., prompt=True, help="Service name"),
-    item: str = typer.Option(..., prompt=True, help="Item/key to remove"),
+    service: str = typer.Option(..., "--service", "-s", prompt=True, help="Service name"),
+    item: str = typer.Option(..., "--item", "-i", prompt=True, help="Item key"),
     fail: bool = typer.Option(False, "--fail", help="Raise error if secret not found")
 ):
     """Remove a credential from the vault."""

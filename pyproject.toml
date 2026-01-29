@@ -35,6 +35,7 @@ classifiers=[
     "Topic :: Software Development :: Build Tools",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Utilities",
+    "Development Status :: 5 - Production/Stable"
 ]
 
 

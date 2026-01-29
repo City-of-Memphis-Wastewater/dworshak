@@ -1,7 +1,7 @@
 # Dworshak  🌊
 
 **Dworshak** a cross-platform credential management solution.
-It is a sister project of the `dworshak-access` library.
+It is a [sister project](#sister-project-dworshak-access) of the `dworshak-access` library.
 
 ---
 
@@ -35,6 +35,7 @@ dworshak helptree
 
 ---
 
+<a id="sister-project-dworshak-access"></a>
 ## Sister Project: 
 Library: `dworshak-access` 
 

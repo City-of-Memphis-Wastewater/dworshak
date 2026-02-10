@@ -327,6 +327,9 @@ def backup(
         console.print("[red]Backup failed.[/red] Check vault health or disk space.")
         raise typer.Exit(1)
 
+def run_cli():
+    """Entry point for the PYZ/ZipApp."""
+    app()
 
 if __name__ == "__main__":
     app()

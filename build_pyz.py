@@ -1,96 +1,154 @@
 #!/usr/bin/env python3
-# ./build_pyz.py
+# SPDX-License-Identifier: MIT
+"""
+Build a portable dworshak PYZ using shiv.
+
+Policy:
+- Desktop platforms: bundle the 'crypto' extra
+- Termux: do NOT bundle cryptography
+  (system python-cryptography via `pkg install python-cryptography` is used)
+"""
+
 from __future__ import annotations
+
 import os
 import sys
-import subprocess
 import shutil
-import tempfile
+import subprocess
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent / "src"))
 import pyhabitat
 from dworshak._version import __version__
 
-# --- Configuration ---
+# -------
+# Configuration
+# -------
+
 PROJECT_NAME = "dworshak"
+ENTRY_POINT = "dworshak.cli:app"
+
 DIST_DIR = Path("dist") / "zipapp"
-BUILD_ROOT = Path("dworshak-build")
+DIST_DIR.mkdir(parents=True, exist_ok=True)
 
-def get_platform_tag():
-    """Generates a descriptive platform tag using pyhabitat."""
-    info = pyhabitat.SystemInfo()
-    sys_name = info.system.lower()
-    arch = info.architecture.lower()
-    
-    if pyhabitat.on_termux():
-        return f"android-{arch}-termux"
-    return f"{sys_name}-{arch}"
+# -------
+# Helpers
+# -------
 
-def run_command(cmd, env=None):
-    """Run command with printing and environment support."""
+def run(cmd: list[str], env: dict | None = None) -> None:
+    """Run a command with echo."""
     print(f"\n$ {' '.join(cmd)}")
-    # If no env provided, default to current os.environ
-    final_env = env if env is not None else os.environ.copy()
-    subprocess.run(cmd, check=True, env=final_env)
+    subprocess.run(cmd, check=True, env=env or os.environ.copy())
 
-def get_custom_env():
-    """Handles Fdroid Termux sandboxing by redirecting TMPDIR."""
-    custom_env = os.environ.copy()
+
+def build_wheel() -> None:
+    """Build the project wheel using uv."""
+    env = os.environ.copy()
+
     if pyhabitat.on_termux():
-        termux_tmp = Path.home() / ".tmp"
-        termux_tmp.mkdir(exist_ok=True)
-        custom_env["TMPDIR"] = str(termux_tmp)
-        print(f"Termux detected: Redirecting TMPDIR to {termux_tmp}")
-    return custom_env
+        # Work around Termux TMPDIR restrictions
+        tmp = Path.home() / ".tmp"
+        tmp.mkdir(exist_ok=True)
+        env["TMPDIR"] = str(tmp)
+        print(f"Termux detected: TMPDIR set to {tmp}")
 
-def run_build():
-    print(f"--- PYZ Build (uv-powered) ---")
+    run(
+        [
+            "uv",
+            "build",
+            "--wheel",
+            "--out-dir",
+            str(DIST_DIR),
+        ],
+        env=env,
+    )
 
-    if BUILD_ROOT.exists():
-        shutil.rmtree(BUILD_ROOT)
-    DIST_DIR.mkdir(parents=True, exist_ok=True)
 
-    custom_env = get_custom_env()
-
-    # 1. Build the Wheel
-    print("\n1. Building Project Wheel...")
-    run_command(["uv", "build", "--wheel", "--out-dir", str(DIST_DIR)], env=custom_env)
-
-    wheels = sorted(DIST_DIR.glob(f"{PROJECT_NAME}-*.whl"), key=lambda f: f.stat().st_mtime, reverse=True)
+def find_latest_wheel() -> Path:
+    """Return the most recently built dworshak wheel."""
+    wheels = sorted(
+        DIST_DIR.glob(f"{PROJECT_NAME}-*.whl"),
+        key=lambda p: p.stat().st_mtime,
+        reverse=True,
+    )
     if not wheels:
-        raise FileNotFoundError("No wheel found.")
-    wheel_path = wheels[0]
+        raise RuntimeError("No wheel produced")
+    return wheels[0]
 
-    # 2. Install dependencies + the wheel into the BUILD_ROOT
-    # FIX: Removed --no-deps. We want the ZipApp to be portable!
-    print(f"\n2. Staging wheel and dependencies...")
-    run_command([
-        "uv", "pip", "install",
-        f"{wheel_path}[crypto]",
-        "--target", str(BUILD_ROOT),
-    ], env=custom_env)
 
-    # 3. Packaging ZipApp
-    platform_tag = get_platform_tag()
-    output_filename = f"{PROJECT_NAME}-{__version__}-{platform_tag}.pyz"
-    output_pyz = DIST_DIR / output_filename
+def crypto_extras_for_build() -> list[str]:
+    """
+    Decide whether to bundle cryptography.
 
-    # FIX: Point to the actual Typer entrypoint. 
-    # Since your pyproject.toml says: dworshak = "dworshak.cli:app"
-    # Zipapp needs a function call, so we use a string that calls .app()
-    
-    run_command([
-        sys.executable, "-m", "zipapp",
-        str(BUILD_ROOT),
-        "-o", str(output_pyz),
-        "-m", "dworshak.cli:app", 
-        "-p", "/usr/bin/env python3"
-    ])
+    Termux:
+      - Do NOT bundle
+      - Expect system python-cryptography if needed
 
-    output_pyz.chmod(0o755)
-    shutil.rmtree(BUILD_ROOT)
-    print(f"\n✅ Build successful! Portable PYZ: {output_pyz.resolve()}")
-    
+    Elsewhere:
+      - Bundle 'crypto' extra
+    """
+    if pyhabitat.on_termux():
+        print(
+            "Termux build: cryptography will NOT be bundled\n"
+            "→ Install with: pkg install python-cryptography"
+        )
+        return []
+    return ["crypto"]
+
+
+def platform_tag() -> str:
+    """Generate a descriptive platform tag."""
+    if pyhabitat.on_termux():
+        return "android-termux"
+
+    info = pyhabitat.SystemInfo()
+    return f"{info.system.lower()}-{info.architecture.lower()}"
+
+# -------
+# Build
+# -------
+
+def build_pyz() -> None:
+    build_wheel()
+    wheel_path = find_latest_wheel()
+
+    extras = crypto_extras_for_build()
+    wheel_spec = str(wheel_path)
+
+    if extras:
+        wheel_spec += f"[{','.join(extras)}]"
+
+    pyz_name = f"{PROJECT_NAME}-{__version__}-{platform_tag()}.pyz"
+    output_path = DIST_DIR / pyz_name
+
+    if output_path.exists():
+        output_path.unlink()
+
+    run(
+        [
+            "shiv",
+            "-o",
+            str(output_path),
+            "-e",
+            ENTRY_POINT,
+            "-p",
+            "/usr/bin/env python3",
+            "--compressed",
+            "--no-cache",
+            wheel_spec,
+        ]
+    )
+
+    output_path.chmod(0o755)
+
+    # Cleanup temporary wheel
+    try:
+        wheel_path.unlink()
+    except OSError:
+        pass
+
+    print(f"\n✅ Build successful: {output_path.resolve()}")
+
+# -------
+
 if __name__ == "__main__":
-    run_build()
+    build_pyz()

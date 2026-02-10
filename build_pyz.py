@@ -142,11 +142,12 @@ def build_pyz() -> None:
 
     output_path.chmod(0o755)
 
+    # wheel gwneration for upload is now handled separwtely in build_pyz.yml, so we should unlink here.
     # Cleanup temporary wheel (suppress to include wheel in build.yml
-    #try:
-    #    wheel_path.unlink()
-    #except OSError:
-    #    pass
+    try:
+        wheel_path.unlink()
+    except OSError:
+        pass
 
     print(f"\n✅ Build successful: {output_path.resolve()}")
 

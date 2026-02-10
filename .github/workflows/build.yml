@@ -48,7 +48,7 @@ jobs:
 
           # 2. Test the ZipApp directly
           python dist/zipapp/*.pyz --version
-          python dist/zipapp/*.pyz ---help
+          python dist/zipapp/*.pyz --help
           python dist/zipapp/*.pyz vault setup
 
       - name: Generate Checksums

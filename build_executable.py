@@ -91,11 +91,19 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
     subprocess.run(cmd, check=True, env=os.environ.copy())
 
     # Determine final path
+    #ext = ".exe" if IS_WINDOWS else ""
+    #final_path = (DIST_DIR_ONEFILE / f"{exe_name}{ext}") if mode == "onefile" else (DIST_DIR_ONEDIR / exe_name)
+    # Determine actual executable path
     ext = ".exe" if IS_WINDOWS else ""
-    final_path = (DIST_DIR_ONEFILE / f"{exe_name}{ext}") if mode == "onefile" else (DIST_DIR_ONEDIR / exe_name)
-    print(f"\nPyInstaller build complete: {final_path.resolve()}")
-    return final_path.resolve()
+    if mode == "onefile":
+        final_path = DIST_DIR_ONEFILE / f"{exe_name}{ext}"
+    else:  # onedir
+        final_path = DIST_DIR_ONEDIR / exe_name / f"{exe_name}{ext}"
 
+    print(f"\nPyInstaller build complete: {final_path.resolve()}")
+    final_path.chmod(0o755)  # make executable
+    return final_path.resolve()
+    
 # --- Post-build verification ---
 def verify_cryptography(executable_path: Path):
     """Run the built executable in a subprocess and check if cryptography is importable."""
@@ -130,13 +138,6 @@ if __name__ == "__main__":
         exe_name += "-onefile"
 
     exe_path = run_pyinstaller(exe_name, args.mode)
-    
-    if mode == "onefile":
-        exe_path.chmod(0o755)
-        exe_to_run = exe_path
-    else:  # onedir
-        exe_to_run = DIST_DIR_ONEDIR / exe_name / exe_name
-        exe_to_run.chmod(0o755)
 
     # Then pass exe_to_run to verify_cryptography()
     verify_cryptography(exe_to_run)

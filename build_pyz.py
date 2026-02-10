@@ -44,69 +44,6 @@ def get_custom_env():
         print(f"Termux detected: Redirecting TMPDIR to {termux_tmp}")
     return custom_env
 
-def run_build_():
-    print(f"--- PYZ Build (uv-powered) ---")
-    
-    # 1. Setup Directories
-    if BUILD_ROOT.exists():
-        shutil.rmtree(BUILD_ROOT)
-    DIST_DIR.mkdir(parents=True, exist_ok=True)
-    
-    custom_env = get_custom_env()
-
-    # 2. Build the Wheel using uv
-    # This automatically uses the pyproject.toml logic
-    print("\n1. Building Project Wheel...")
-    run_command(["uv", "build", "--wheel", "--out-dir", str(DIST_DIR)], env=custom_env)
-
-    # 3. Find the wheel (using your existing find_latest logic style)
-    wheels = sorted(DIST_DIR.glob(f"{PROJECT_NAME}-*.whl"), key=lambda f: f.stat().st_mtime, reverse=True)
-    if not wheels:
-        raise FileNotFoundError("No wheel found after build.")
-    wheel_path = wheels[0]
-
-    # 4. Stage the files into BUILD_ROOT
-    # uv pip install --target is the fastest way to expand a wheel for zipapp
-    print(f"\n2. Staging wheel: {wheel_path.name}")
-    run_command([
-        "uv", "pip", "install", 
-        f"{wheel_path}[crypto]", 
-        "--target", str(BUILD_ROOT),
-        "--no-deps"
-    ], env=custom_env)
-
-    # 5. Build the PYZ
-    # We use the standard zipapp module
-    platform_tag = get_platform_tag()
-    output_filename = f"{PROJECT_NAME}-{__version__}-{platform_tag}.pyz"
-    output_pyz = DIST_DIR / output_filename
-    print(f"\n3. Packaging ZipApp: {output_pyz.name}")
-
-    # 1. Get the version from the source TOML
-    version = __version__
-
-    internal_pkg_dir = BUILD_ROOT / "dworshak"
-    internal_pkg_dir.mkdir(parents=True, exist_ok=True) # Defensive check
-
-    # 2. "Stamp" the build directory so the PYZ carries its identity
-    version_file = internal_pkg_dir / "VERSION"
-    version_file.write_text(version, encoding="utf-8")
-    
-    run_command([
-        sys.executable, "-m", "zipapp",
-        str(BUILD_ROOT),
-        "-o", str(output_pyz),
-        "-m", "dworshak.cli:app", # Matches [project.scripts]
-        "-p", "/usr/bin/env python3"
-    ])
-
-    # 6. Finalize
-    output_pyz.chmod(0o755)
-    # Optional: Keep build_root for debugging or delete it
-    shutil.rmtree(BUILD_ROOT)
-    
-    print(f"\n✅ Build successful! Portable PYZ: {output_pyz.resolve()}")
-
 def run_build():
     print(f"--- PYZ Build (uv-powered) ---")
 
@@ -135,8 +72,10 @@ def run_build():
     ], env=custom_env)
 
     # 3. Packaging ZipApp
-    output_pyz = DIST_DIR / f"{PROJECT_NAME}.pyz" # Cleaner name
-    
+    platform_tag = get_platform_tag()
+    output_filename = f"{PROJECT_NAME}-{__version__}-{platform_tag}.pyz"
+    output_pyz = DIST_DIR / output_filename
+
     # FIX: Point to the actual Typer entrypoint. 
     # Since your pyproject.toml says: dworshak = "dworshak.cli:app"
     # Zipapp needs a function call, so we use a string that calls .app()

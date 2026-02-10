@@ -93,7 +93,7 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
     # Determine final path
     ext = ".exe" if IS_WINDOWS else ""
     final_path = (DIST_DIR_ONEFILE / f"{exe_name}{ext}") if mode == "onefile" else (DIST_DIR_ONEDIR / exe_name)
-    print(f"\n✅ PyInstaller build complete: {final_path.resolve()}")
+    print(f"\nPyInstaller build complete: {final_path.resolve()}")
     return final_path.resolve()
 
 # --- Post-build verification ---

@@ -103,7 +103,7 @@ def verify_cryptography(executable_path: Path):
     import subprocess
     import sys
 
-    print(f"\n🔍 Verifying cryptography in {executable_path}...")
+    print(f"\nVerifying cryptography in {executable_path}...")
 
     # Use -c to run a short Python snippet inside the frozen executable
     # For PyInstaller onefile, --version works; for onedir, use env PYTHONPATH if needed

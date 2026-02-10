@@ -94,6 +94,7 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
     ext = ".exe" if IS_WINDOWS else ""
     final_path = (DIST_DIR_ONEFILE / f"{exe_name}{ext}") if mode == "onefile" else (DIST_DIR_ONEDIR / exe_name)
     print(f"\nPyInstaller build complete: {final_path.resolve()}")
+    final_path.chmod(0o755)  # give read+write+execute to owner, read+execute to group/others
     return final_path.resolve()
 
 # --- Post-build verification ---

@@ -10,6 +10,9 @@ The format is (read: strives to be) based on Keep a Changelog.
 ### Fixed:
 - build.yml
 
+### Internal:
+- PYZ file needs sys and arch and version info in filename.
+
 ---
 
 ## [1.1.5] – 2026-01-28 

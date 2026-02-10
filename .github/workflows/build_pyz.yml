@@ -45,18 +45,43 @@ jobs:
         run: uv run python build_pyz.py
 
       - name: Run Sanity Check
+        if: matrix.os != 'windows-latest'
         run: |
           python dist/zipapp/*.pyz --version
           python dist/zipapp/*.pyz --help
           python dist/zipapp/*.pyz vault health
+
+      - name: Run sanity check (Windows)
+        shell: pwsh
+        if: matrix.os == 'windows-latest'
+        run: |
+          $pyz = Get-ChildItem -Path dist/zipapp -Filter *.pyz | Select-Object -First 1
+          python $pyz --version
+          python $pyz --help
+          python $pyz vault health
 
       - name: Build wheel + sdist (Linux only)
         if: matrix.os == 'ubuntu-latest'
         #run: python -m build --wheel --sdist --outdir dist/zipapp
         run: uv build --wheel --sdist --out-dir dist/zipapp
 
+      - name: Generate Checksums
+        run: |
+          python - <<'EOF'
+          import hashlib, glob, pathlib
+
+          out_file = pathlib.Path("dist/zipapp/SHA256SUMS.txt")
+          with out_file.open("w") as f:
+              for p in sorted(glob.glob("dist/zipapp/*.pyz") + 
+                              glob.glob("dist/zipapp/*.whl") + 
+                              glob.glob("dist/zipapp/*.tar.gz")):
+                  h = hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+                  f.write(f"{h}  {p}\n")
+          print("SHA256SUMS.txt generated")
+          EOF
+
       - name: Generate Checksums (Linux only)
-        if: matrix.os == 'ubuntu-latest'
+        if: false # matrix.os == 'ubuntu-latest'
         run: |
           cd dist/zipapp
           sha256sum *.pyz *.whl *.tar.gz > SHA256SUMS.txt

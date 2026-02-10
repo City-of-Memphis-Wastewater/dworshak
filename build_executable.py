@@ -73,6 +73,8 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
         f"--specpath={BUILD_DIR}",
         f"--additional-hooks-dir={HOOKS_DIR_ABS}" if HOOKS_DIR_ABS.exists() else "",
         "--hidden-import", "typer",
+        "--hidden-import", "typer.main",
+        "--hidden-import", "typer.models",
         "--hidden-import", "click",
         "--hidden-import", "rich",
     ]
@@ -94,6 +96,29 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
     print(f"\n✅ PyInstaller build complete: {final_path.resolve()}")
     return final_path.resolve()
 
+# --- Post-build verification ---
+def verify_cryptography(executable_path: Path):
+    """Run the built executable in a subprocess and check if cryptography is importable."""
+    import subprocess
+    import sys
+
+    print(f"\n🔍 Verifying cryptography in {executable_path}...")
+
+    # Use -c to run a short Python snippet inside the frozen executable
+    # For PyInstaller onefile, --version works; for onedir, use env PYTHONPATH if needed
+    try:
+        result = subprocess.run(
+            [str(executable_path), "-c", "import cryptography; print(cryptography.__version__)"],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        print(f"✅ cryptography detected: {result.stdout.strip()}")
+    except subprocess.CalledProcessError as e:
+        print("❌ Failed to detect cryptography in the executable!")
+        print(e.stderr)
+        sys.exit(1)
+
 # --- Main ---
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -104,4 +129,8 @@ if __name__ == "__main__":
     if args.mode == "onefile":
         exe_name += "-onefile"
 
-    run_pyinstaller(exe_name, args.mode)
+    exe_path = run_pyinstaller(exe_name, args.mode)
+    
+    # Only run this for non-Termux platforms
+    if not pyhabitat.on_termux():
+        verify_cryptography(exe_path)

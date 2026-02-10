@@ -6,6 +6,18 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.1.9] – 2026-02-10 
+### Added:
+- pyinstaller build script and runner
+
+### Changed:
+- runner build.yml now triggers build_pyz.yml and build_executable.yml
+
+### Internal:
+- Using build_executable.py is untenable on Termux because it cannot reasonably include cryptography from source (due to time to package)
+
+---
+
 ## [1.1.8] – 2026-02-10 
 ### Internal:
 - Shiv is succeeding and crypto test is suceeding. 

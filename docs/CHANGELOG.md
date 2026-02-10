@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.1.6] – 2026-01-28 
+### Fixed:
+- build.yml
+
+---
+
 ## [1.1.5] – 2026-01-28 
 ### BREAKING CHANGES:
 - Flat app structure converted to nested app structure, with sub apps: secret, vault, config, and prompt.

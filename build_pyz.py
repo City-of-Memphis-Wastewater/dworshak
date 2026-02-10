@@ -85,7 +85,7 @@ def run_build_():
         sys.executable, "-m", "zipapp",
         str(BUILD_ROOT),
         "-o", str(output_pyz),
-        "-m", "dworshak.cli:run_cli", # Matches [project.scripts]
+        "-m", "dworshak.cli:app", # Matches [project.scripts]
         "-p", "/usr/bin/env python3"
     ])
 

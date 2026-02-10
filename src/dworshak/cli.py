@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Optional
 from typer_helptree import add_typer_helptree
 
-from dworshak_access import (
+from dworshak_secret import (
     initialize_vault,
     store_secret,
     get_secret,

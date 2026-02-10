@@ -52,7 +52,8 @@ jobs:
 
       - name: Build wheel + sdist (Linux only)
         if: matrix.os == 'ubuntu-latest'
-        run: python -m build --wheel --sdist --outdir dist/zipapp
+        #run: python -m build --wheel --sdist --outdir dist/zipapp
+        run: uv build --wheel --sdist --out-dir dist/zipapp
 
       - name: Generate Checksums (Linux only)
         if: matrix.os == 'ubuntu-latest'

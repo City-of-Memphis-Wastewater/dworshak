@@ -37,12 +37,13 @@ jobs:
           pip install -e ".[crypto]"
 
       - name: Build executable
+        shell: pwsh
         run: |
-          if [ "${{ matrix.os }}" = "windows-latest" ]; then
+          if ("${{ matrix.os }}" -eq "windows-latest") {
               python build_executable.py --mode onefile
-          else
+          } else {
               python build_executable.py --mode onedir
-          fi
+          }
 
       - name: Upload artifacts to GitHub Release
         if: startsWith(github.ref, 'refs/tags/')

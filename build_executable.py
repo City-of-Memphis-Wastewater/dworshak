@@ -113,9 +113,9 @@ def verify_cryptography(executable_path: Path):
             text=True,
             check=True,
         )
-        print(f"✅ cryptography detected: {result.stdout.strip()}")
+        print(f"2cryptography detected: {result.stdout.strip()}")
     except subprocess.CalledProcessError as e:
-        print("❌ Failed to detect cryptography in the executable!")
+        print("Failed to detect cryptography in the executable!")
         print(e.stderr)
         sys.exit(1)
 

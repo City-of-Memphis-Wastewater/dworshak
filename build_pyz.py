@@ -10,13 +10,22 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 import pyhabitat
-
 from dworshak._version import __version__
 
 # --- Configuration ---
 PROJECT_NAME = "dworshak"
 DIST_DIR = Path("dist") / "zipapp"
 BUILD_ROOT = Path("dworshak-build")
+
+def get_platform_tag():
+    """Generates a descriptive platform tag using pyhabitat."""
+    info = pyhabitat.SystemInfo()
+    sys_name = info.system.lower()
+    arch = info.architecture.lower()
+    
+    if pyhabitat.on_termux():
+        return f"android-{arch}-termux"
+    return f"{sys_name}-{arch}"
 
 def run_command(cmd, env=None):
     """Run command with printing and environment support."""
@@ -61,14 +70,16 @@ def run_build_():
     print(f"\n2. Staging wheel: {wheel_path.name}")
     run_command([
         "uv", "pip", "install", 
-        str(wheel_path), 
+        f"{wheel_path}[crypto]", 
         "--target", str(BUILD_ROOT),
         "--no-deps"
     ], env=custom_env)
 
     # 5. Build the PYZ
     # We use the standard zipapp module
-    output_pyz = DIST_DIR / f"{wheel_path.stem}.pyz"
+    platform_tag = get_platform_tag()
+    output_filename = f"{PROJECT_NAME}-{__version__}-{platform_tag}.pyz"
+    output_pyz = DIST_DIR / output_filename
     print(f"\n3. Packaging ZipApp: {output_pyz.name}")
 
     # 1. Get the version from the source TOML

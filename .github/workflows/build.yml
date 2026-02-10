@@ -1,4 +1,4 @@
-name: Build All Artifacts
+name: Build Trigger Shiv and PyInstaller
 
 on:
   release:

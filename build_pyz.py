@@ -149,7 +149,7 @@ def build_pyz() -> None:
     except OSError:
         pass
 
-    print(f"\n✅ Build successful: {output_path.resolve()}")
+    print(f"\nBuild successful: {output_path.resolve()}")
 
 # -------
 

@@ -22,6 +22,9 @@ from dworshak_secret import (
     rotate_key
 )
 
+#from dworshak_prompt import DworshakPrompt, PromptMode
+from dworshak_prompt import cli as prompt_cli
+
 from dworshak._version import __version__
 
 # Force Rich to always enable colors, even in .pyz or Termux
@@ -40,6 +43,17 @@ app = typer.Typer(
         "help_option_names": ["-h", "--help"]
     },
 )
+
+# Create the sub-apps
+secret_app = typer.Typer(help="Manage individual secrets/credentials.")
+vault_app = typer.Typer(help="Manage the vault infrastructure and security.")
+config_app = typer.Typer(help="Manage individual plaintext config values.")
+prompt_app = prompt_cli.app
+
+# Add them to the main app
+app.add_typer(secret_app, name="secret")
+app.add_typer(vault_app, name="vault")
+app.add_typer(prompt_app, name="prompt")
 
 console = Console()
 # help-tree() command: fragile, experimental, defaults to not being included.
@@ -63,14 +77,14 @@ def main(ctx: typer.Context,
         raise typer.Exit(code=0)
         
 
-@app.command()
+@vault_app.command()
 def setup():
     """Initialize vault and encryption key."""
     initialize_vault()
     console.print(Panel.fit("Vault initialized successfully!", title="Success"))
 
 
-@app.command()
+@secret_app.command()
 def store(
     service: str = typer.Option(..., "--service", "-s", prompt=True, help="Service name"),
     item: str = typer.Option(..., "--item", "-i", prompt=True, help="Item key"),
@@ -87,7 +101,7 @@ def store(
     console.print(f"[green]✔ Credential for {service}/{item} stored securely.[/green]")
 
 
-@app.command()
+@secret_app.command()
 def get(
     service: str = typer.Option(..., "--service", "-s", prompt=True, help="Service name"),
     item: str = typer.Option(..., "--item", "-i", prompt=True, help="Item key"),
@@ -109,7 +123,7 @@ def get(
     else:
         typer.echo(f"{service}/{item}: {secret}")
 
-@app.command()
+@secret_app.command()
 def remove(
     service: str = typer.Option(..., "--service", "-s", prompt=True, help="Service name"),
     item: str = typer.Option(..., "--item", "-i", prompt=True, help="Item key"),
@@ -137,7 +151,7 @@ def remove(
         console.print(f"[yellow]⚠ No credential found for {service}/{item}[/yellow]")
 
 
-@app.command()
+@secret_app.command()
 def list():
     """List all stored credentials."""
     status = check_vault()
@@ -154,14 +168,14 @@ def list():
         table.add_row(service, item)
     console.print(table)
 
-@app.command()
+@vault_app.command()
 def health():
     """Check vault health."""
     status = check_vault()
     #console.print(f"[bold]{status.message}[/bold] (root={status.root_path})")
     console.print(status)
 
-@app.command()
+@vault_app.command()
 def export(
     output_path: Optional[Path] = typer.Option(
         None, 
@@ -197,7 +211,7 @@ def export(
     else:
         console.print("[red]Export failed.[/red] Check logs for details.")
 
-@app.command(name="import") # 'import' is a reserved keyword in Python
+@vault_app.command(name="import") # 'import' is a reserved keyword in Python
 def import_cmd(
     path: Path = typer.Argument(
         ...,
@@ -231,7 +245,7 @@ def import_cmd(
         console.print("[red]Import failed or rejected.[/red]")
 
 
-@app.command(name="rotate-key")
+@vault_app.command(name="rotate-key")
 def rotate_key_cmd(
     dry_run: bool = typer.Option(
         False,
@@ -269,7 +283,7 @@ def rotate_key_cmd(
         console.print(f"[red]Operation failed:[/red] {message}")
         raise typer.Exit(1)
 
-@app.command()
+@vault_app.command()
 def backup(
     extra_suffix: str = typer.Option(
         "",

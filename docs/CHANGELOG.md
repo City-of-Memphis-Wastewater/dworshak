@@ -9,6 +9,8 @@ The format is (read: strives to be) based on Keep a Changelog.
 ## [1.1.10] – 2026-02-10 
 ### Fixed:
 - Use `uv build` instead of `python -m build` in build_pyz.yml
+- Remove emojis from build_*.py to allow runner success on windows action.
+- chmod 0o755 in yinstaller script for testing.
 
 ### Changed:
 - Let build_pyz.yml generate the tar.gz and .whl files for upload. Use wheel.unlink in build_pyz.py so that those are not uploaded but are destroyed. 

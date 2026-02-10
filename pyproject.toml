@@ -7,9 +7,9 @@ requires-python = ">=3.9"
 dependencies = [
     "typer>=0.21.0",
     "rich>=13.0.0",
-    "dworshak-access>=1.1.1",
     "pyhabitat>=1.1.26",
     "typer-helptree>=0.1.10",
+    "dworshak-secret>=1.2.1",
 ]
 authors = [
   { name="George Clayton Bennett", email="george.bennett@memphistn.gov" },
@@ -47,7 +47,7 @@ keywords = [
 [project.optional-dependencies]
 crypto = [
     "cryptography>=46.0.3",
-    "dworshak-access[crypto]"
+    "dworshak-secret[crypto]"
 ]
 
 [project.urls]

@@ -6,7 +6,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
-## [1.1.6] – 2026-02-10 
+## [1.1.7] – 2026-02-10 
 ### Changed:
 - build.yml includes extra optional dep group 'build', for shiv.
 - build_pyz.py uses shiv instead of zipapp.

@@ -94,7 +94,6 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
     ext = ".exe" if IS_WINDOWS else ""
     final_path = (DIST_DIR_ONEFILE / f"{exe_name}{ext}") if mode == "onefile" else (DIST_DIR_ONEDIR / exe_name)
     print(f"\nPyInstaller build complete: {final_path.resolve()}")
-    final_path.chmod(0o755)  # give read+write+execute to owner, read+execute to group/others
     return final_path.resolve()
 
 # --- Post-build verification ---
@@ -132,6 +131,13 @@ if __name__ == "__main__":
 
     exe_path = run_pyinstaller(exe_name, args.mode)
     
-    # Only run this for non-Termux platforms
-    if not pyhabitat.on_termux():
-        verify_cryptography(exe_path)
+    if mode == "onefile":
+        exe_path.chmod(0o755)
+        exe_to_run = exe_path
+    else:  # onedir
+        exe_to_run = DIST_DIR_ONEDIR / exe_name / exe_name
+        exe_to_run.chmod(0o755)
+
+    # Then pass exe_to_run to verify_cryptography()
+    verify_cryptography(exe_to_run)
+

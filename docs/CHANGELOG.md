@@ -6,6 +6,15 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.1.8] – 2026-02-10 
+### Internal:
+- Shiv is succeeding and crypto test is suceeding. 
+
+### Fixed:
+- Do not unlink the wheel in build_pyz.py, so that it can be checksummed and uploaded to release"          [dev d067d38] shiv is succeeding and crypto test is suceeding. do not unlink the wheel, so that it can be checksummed and uploaded to release.
+
+---
+
 ## [1.1.7] – 2026-02-10 
 ### Changed:
 - build.yml includes extra optional dep group 'build', for shiv.

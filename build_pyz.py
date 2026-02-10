@@ -56,6 +56,7 @@ def build_wheel() -> None:
             "uv",
             "build",
             "--wheel",
+            "--sdist",
             "--out-dir",
             str(DIST_DIR),
         ],
@@ -120,6 +121,7 @@ def build_pyz() -> None:
     pyz_name = f"{PROJECT_NAME}-{__version__}-{platform_tag()}.pyz"
     output_path = DIST_DIR / pyz_name
 
+    # clean up intermediate packaging
     if output_path.exists():
         output_path.unlink()
 
@@ -140,11 +142,11 @@ def build_pyz() -> None:
 
     output_path.chmod(0o755)
 
-    # Cleanup temporary wheel
-    try:
-        wheel_path.unlink()
-    except OSError:
-        pass
+    # Cleanup temporary wheel (suppress to include wheel in build.yml
+    #try:
+    #    wheel_path.unlink()
+    #except OSError:
+    #    pass
 
     print(f"\n✅ Build successful: {output_path.resolve()}")
 

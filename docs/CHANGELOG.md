@@ -6,6 +6,15 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.1.5] – 2026-01-28 
+### BREAKING CHANGES:
+- Flat app structure converted to nested app structure, with sub apps: secret, vault, config, and prompt.
+- Now dworshak exposes dworshak-secret and dworshak-prompt.
+- Soon dworshak will also expose dworshak-config.
+- dworshak-secret is the new name of the dworshak-acces package, for clarity
+
+---
+
 ## [1.1.4] – 2026-01-28 
 ### Changed:
 - Update pyproject.toml description to not use bold markers (asterisk).

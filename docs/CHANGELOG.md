@@ -6,7 +6,17 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
-## [1.1.6] – 2026-01-28 
+## [1.1.6] – 2026-02-10 
+### Changed:
+- build.yml includes extra optional dep group 'build', for shiv.
+- build_pyz.py uses shiv instead of zipapp.
+
+### Internal:
+- dworshak-secret inspected for PYZ inclusiomln capacity, concerning cryptography eager import.
+
+---
+
+## [1.1.6] – 2026-02-09 
 ### Fixed:
 - build.yml
 
@@ -15,7 +25,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
-## [1.1.5] – 2026-01-28 
+## [1.1.5] – 2026-02-09 
 ### BREAKING CHANGES:
 - Flat app structure converted to nested app structure, with sub apps: secret, vault, config, and prompt.
 - Now dworshak exposes dworshak-secret and dworshak-prompt.

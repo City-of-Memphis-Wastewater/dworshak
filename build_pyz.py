@@ -130,7 +130,7 @@ def run_build():
     print(f"\n2. Staging wheel and dependencies...")
     run_command([
         "uv", "pip", "install",
-        str(wheel_path),
+        f"{wheel_path}[crypto]",
         "--target", str(BUILD_ROOT),
     ], env=custom_env)
 

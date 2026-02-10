@@ -34,7 +34,7 @@ jobs:
       - name: UV Sync
         run: |
           uv venv --clear
-          uv sync --extra crypto
+          uv sync --extra crypto --extra build
 
       - name: Build PYZ  # fix naming convention
         #status: not ready yet

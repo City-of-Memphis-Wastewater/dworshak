@@ -8,7 +8,11 @@ on:
 jobs:
   build-pyz:
     uses: ./.github/workflows/build_pyz.yml
+    permissions:
+          contents: write
 
   build-executables:
     needs: build-pyz
     uses: ./.github/workflows/build_executable.yml
+    permissions:
+      contents: write

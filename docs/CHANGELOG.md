@@ -6,6 +6,15 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.1.15] – 2026-02-11
+### Fixed:
+- Use pyhabitat.get_interp_shebang() with -p flag in shiv call in build_pyz.py.
+
+### Changed:
+- To update the screenshots, we must first update typer-helptree to see recursively into nested sub apps.
+
+---
+
 ## [1.1.14] – 2026-02-11
 ### Fixed:
 - Ensure build_executable.yml has uv installed

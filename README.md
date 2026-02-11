@@ -31,7 +31,7 @@ See the Help Tree by unlocking the helptree CLI command, using the DEV_TYPER_HEL
 dworshak helptree
 ```
 
-![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.3_help_tree.png)
+![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.15_helptree.png)
 
 ---
 

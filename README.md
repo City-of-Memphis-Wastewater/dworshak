@@ -22,18 +22,20 @@ dworshak store --service rjn_api --item username
 ---
 
 `dworshak --help`:
-<!--![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.15_help.png)-->
 <p align="center">
   <img src="https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.15_help.png" width="100%" alt="Screenshot of the Dworshak CLI --help">
 </p>
 
-See the Help Tree by unlocking the helptree CLI command, using the DEV_TYPER_HELP_TREE env var.
+See the helptree, imported from the `typer-helptree` library.
+
+- GitHub: https://github.com/City-of-Memphis-Wastewater/typer-helptree
+- PyPI: https://pypi.org/project/typer-helptree/
+
 
 ```
 dworshak helptree
 ```
 
-<!--![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.15_helptree.png)-->
 <p align="center">
   <img src="https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.15_helptree.png" width="100%" alt="Screenshot of the Dworshak CLI helptree">
 </p>

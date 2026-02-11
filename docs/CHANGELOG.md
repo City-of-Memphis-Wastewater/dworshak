@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is (read: strives to be) based on Keep a Changelog.
 
+---
+
+## [1.1.11] – 2026-02-10 
+### Changed:
+- Ensure build group carries shiv for pyz.
+- Zip onedir output.
+- suppress checksums
 
 ---
 

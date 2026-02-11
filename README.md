@@ -1,7 +1,7 @@
 # Dworshak  🌊
 
 **Dworshak** a cross-platform credential management solution.
-It is a [sister project](#sister-project-dworshak-access) of the `dworshak-access` library.
+It is a [sister project](#sister-project-dworshak-secret) of the `dworshak-secret` library.
 
 ---
 
@@ -41,17 +41,17 @@ dworshak helptree
 </p>
 ---
 
-<a id="sister-project-dworshak-access"></a>
+<a id="sister-project-dworshak-secret"></a>
 ## Sister Project: 
-Library: `dworshak-access` 
+Library: `dworshak-secret` 
 
-GitHub: https://github.com/City-of-Memphis-Wastewater/dworshak-access 
+GitHub: https://github.com/City-of-Memphis-Wastewater/dworshak-secret 
 
-PyPI: https://pypi.org/project/dworshak-access/ 
+PyPI: https://pypi.org/project/dworshak-secret/ 
 
 ```
-pip install dworshak-access
-# or,  uv add dworshak-access
+pip install dworshak-secret
+# or,  uv add dworshak-secret
 ```
 
 ---

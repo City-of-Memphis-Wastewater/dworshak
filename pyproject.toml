@@ -50,6 +50,9 @@ crypto = [
     "cryptography>=46.0.3",
     "dworshak-secret[crypto]"
 ]
+build = [
+    "shiv>=1.0.0"
+]
 
 [project.urls]
 Homepage = "https://github.com/city-of-memphis-wastewater/dworshak"

@@ -125,6 +125,11 @@ def build_pyz() -> None:
     if output_path.exists():
         output_path.unlink()
 
+    # Determine the interpreter preamble
+    # On Windows, we usually want 'python' or nothing. 
+    # On Unix/Termux, we want '/usr/bin/env python3'
+    interpreter = "python" if os.name == "nt" else "/usr/bin/env python3"
+
     run(
         [
             "shiv",
@@ -132,15 +137,16 @@ def build_pyz() -> None:
             str(output_path),
             "-e",
             ENTRY_POINT,
-            "-p",
-            "/usr/bin/env python3",
+            "-p", interpreter,
             "--compressed",
             "--no-cache",
             wheel_spec,
         ]
     )
 
-    output_path.chmod(0o755)
+    # Only chmod on Unix-like systems
+    if os.name != "nt":
+        output_path.chmod(0o755)
 
     # wheel gwneration for upload is now handled separwtely in build_pyz.yml, so we should unlink here.
     # Cleanup temporary wheel (suppress to include wheel in build.yml

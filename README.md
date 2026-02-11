@@ -22,7 +22,7 @@ dworshak store --service rjn_api --item username
 ---
 
 `dworshak --help`:
-![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.3_help.png)
+![Screenshot of the dworshak CLI Tree Help](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.15_help.png)
 
 
 See the Help Tree by unlocking the helptree CLI command, using the DEV_TYPER_HELP_TREE env var.

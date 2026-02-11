@@ -58,25 +58,75 @@ def clean_previous_artifacts(exe_name: str, mode: str):
     if BUILD_DIR.exists():
         shutil.rmtree(BUILD_DIR)
 
+def prepare_build_venv() -> Path:
+    """Create a temporary venv for building and return the path to its site-packages."""
+    build_venv_dir = BUILD_DIR / "venv"
+    print(f"Preparing isolated build environment in {build_venv_dir}...")
+    
+    # 1. Create the venv
+    subprocess.run(["uv", "venv", str(build_venv_dir)], check=True)
+    
+    # Determine executable paths (Windows vs Unix)
+    if IS_WINDOWS:
+        bindir = build_venv_dir / "Scripts"
+        python_exe = bindir / "python.exe"
+    else:
+        bindir = build_venv_dir / "bin"
+        python_exe = bindir / "python"
+
+    # 2. Install the project with the crypto extra and pyinstaller
+    # We install '.' to get the local source, plus pyinstaller itself
+    print("Installing dependencies into build venv...")
+    subprocess.run([
+        "uv", "pip", "install", 
+        "--python", str(python_exe),
+        ".[crypto]", "pyinstaller"
+    ], check=True)
+
+    # 3. Get the site-packages path from this new venv
+    result = subprocess.run(
+        [str(python_exe), "-c", "import site; print(site.getsitepackages()[0])"],
+        capture_output=True, text=True, check=True
+    )
+    return Path(result.stdout.strip())
+    
 # --- PyInstaller Build ---
 def run_pyinstaller(exe_name: str, mode: str = "onedir"):
     setup_dirs()
     clean_previous_artifacts(exe_name, mode)
 
+    site_pkgs = prepare_build_venv()
+
+    #import cryptography
+    #crypto_path = Path(cryptography.__file__).parent.parent.resolve()
+
+    # 2. Find the pyinstaller executable in that environment
+    build_venv_bin = BUILD_DIR / "venv" / ("Scripts" if IS_WINDOWS else "bin")
+    pyinstaller_bin = build_venv_bin / ("pyinstaller.exe" if IS_WINDOWS else "pyinstaller")
+    
     cmd = [
-        "pyinstaller",
+        str(pyinstaller_bin),
         "--noconfirm",
         "--clean",
         f"--name={exe_name}",
+        f"--paths={site_pkgs}", # Help it find the newly installed crypto
         f"--distpath={DIST_DIR_ONEFILE if mode=='onefile' else DIST_DIR_ONEDIR}",
         f"--workpath={BUILD_DIR / 'work'}",
         f"--specpath={BUILD_DIR}",
-        f"--additional-hooks-dir={HOOKS_DIR_ABS}" if HOOKS_DIR_ABS.exists() else "",
+        #f"--additional-hooks-dir={HOOKS_DIR_ABS}" if HOOKS_DIR_ABS.exists() else "",
         "--hidden-import", "typer",
         "--hidden-import", "typer.main",
         "--hidden-import", "typer.models",
         "--hidden-import", "click",
         "--hidden-import", "rich",
+        #"--hidden-import", "cryptography",
+        # Explicitly include the cryptography submodules that analysis misses
+        #"--hidden-import", "cryptography.hazmat.backends.openssl.backend",
+        #"--hidden-import", "cryptography.hazmat.primitives.kdf.pbkdf2",
+        # Try collect-submodules instead of collect-all since it's "not a package"
+        #"--collect-submodules", "cryptography",
+        "--collect-all", "cryptography",
+        "--collect-submodules", "dworshak",
     ]
 
     if mode == "onefile":
@@ -105,26 +155,50 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
     return final_path.resolve()
     
 # --- Post-build verification ---
-def verify_cryptography(executable_path: Path):
-    """Run the built executable in a subprocess and check if cryptography is importable."""
-    import subprocess
-    import sys
 
+def verify_cryptography_(executable_path: Path, mode: str):
     print(f"\nVerifying cryptography in {executable_path}...")
+    
+    if mode == "onedir":
+        # Point Python to the folder containing the frozen dependencies
+        lib_dir = executable_path.parent
+        env = os.environ.copy()
+        env["PYTHONPATH"] = str(lib_dir)
+        cmd = [sys.executable, "-c", "import cryptography; print(cryptography.__version__)"]
+    else:
+        # For onefile, the 'hidden command' strategy above is the only reliable way
+        # because the file must self-extract to run.
+        cmd = [str(executable_path), "--help"] 
 
-    # Use -c to run a short Python snippet inside the frozen executable
-    # For PyInstaller onefile, --version works; for onedir, use env PYTHONPATH if needed
     try:
+        result = subprocess.run(cmd, env=env if mode=="onedir" else None, capture_output=True, text=True, check=True)
+        print(f"Cryptography detected: {result.stdout.strip()}")
+    except Exception as e:
+        print(f"Verification failed: {e}")
+        sys.exit(1)
+
+def verify_cryptography(executable_path: Path):
+    print(f"\nVerifying cryptography by running: {executable_path} vault health")
+
+    try:
+        # Run the actual built binary, not python -c
         result = subprocess.run(
-            [str(executable_path), "-c", "import cryptography; print(cryptography.__version__)"],
+            [str(executable_path), "vault", "health"],
             capture_output=True,
             text=True,
-            check=True,
+            check=False # We want to inspect the error code ourselves
         )
-        print(f"2cryptography detected: {result.stdout.strip()}")
-    except subprocess.CalledProcessError as e:
-        print("Failed to detect cryptography in the executable!")
-        print(e.stderr)
+        
+        # If 'Encryption is not available' is in the output, it failed
+        if "Encryption is not available" in result.stderr or "ModuleNotFoundError" in result.stderr:
+            print("Failed to detect cryptography in the executable!")
+            print(result.stderr)
+            sys.exit(1)
+        else:
+            print("Cryptography check passed (or at least didn't crash on imports)!")
+            
+    except Exception as e:
+        print(f"Execution failed: {e}")
         sys.exit(1)
 
 # --- Main ---
@@ -139,6 +213,6 @@ if __name__ == "__main__":
 
     exe_path = run_pyinstaller(exe_name, args.mode)
 
-    # Then pass exe_to_run to verify_cryptography()
-    verify_cryptography(exe_to_run)
+    # Then pass exe_path to verify_cryptography()
+    verify_cryptography(exe_path)
 

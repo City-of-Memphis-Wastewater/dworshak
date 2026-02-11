@@ -68,6 +68,11 @@ resolution = "highest"
 requires = ["setuptools>=64", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.18.0",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

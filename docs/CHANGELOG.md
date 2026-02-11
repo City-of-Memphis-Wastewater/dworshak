@@ -6,7 +6,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
-## [1.1.11] – 2026-02-10 
+## [1.1.13] – 2026-02-11 
 ### Changed:
 - Ensure build group carries shiv for pyz.
 - Zip onedir output.

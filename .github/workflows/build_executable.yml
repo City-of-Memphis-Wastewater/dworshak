@@ -30,13 +30,18 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: UV Sync
+        run: |
+          uv venv --clear
+          uv sync --extra crypto --dev
+
       - name: Build executable
         shell: pwsh
         run: |
           if ("${{ matrix.os }}" -eq "windows-latest") {
-              python build_executable.py --mode onefile
+              uv run python build_executable.py --mode onefile
           } else {
-              python build_executable.py --mode onedir
+              uv run python build_executable.py --mode onedir
           }
 
       - name: Upload artifacts to GitHub Release

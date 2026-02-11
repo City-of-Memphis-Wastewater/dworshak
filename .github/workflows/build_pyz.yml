@@ -94,7 +94,6 @@ jobs:
           files: |
             dist/zipapp/*.pyz
             dist/zipapp/*.whl
-            dist/zipapp/*.tar.gz
-            #dist/zipapp/SHA256SUMS.txt
+            dist/zipapp/*.tar.gz #dist/zipapp/SHA256SUMS.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

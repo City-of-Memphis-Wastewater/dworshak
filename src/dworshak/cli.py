@@ -76,12 +76,21 @@ def main(ctx: typer.Context,
         typer.echo(__version__)
         raise typer.Exit(code=0)
         
-
 @vault_app.command()
 def setup():
     """Initialize vault and encryption key."""
-    initialize_vault()
-    console.print(Panel.fit("Vault initialized successfully!", title="Success"))
+    res = initialize_vault()
+    
+    if res.success:
+        # Use Panel.fit for that premium CLI feel
+        color = "green" if res.is_new else "blue"
+        title = "Success"
+        
+        console.print(Panel.fit(res.message, title=title, border_style=color))
+    else:
+        # Standard error reporting
+        console.print(Panel.fit(res.message, title="Error", border_style="red"))
+        raise typer.Exit(code=1)
 
 
 @secret_app.command()

@@ -248,7 +248,7 @@ dev = [
 requires-dist = [
     { name = "cryptography", marker = "extra == 'crypto'", specifier = ">=46.0.3" },
     { name = "dworshak-prompt", specifier = ">=0.2.13" },
-    { name = "dworshak-secret", specifier = ">=1.2.1" },
+    { name = "dworshak-secret", specifier = ">=1.2.3" },
     { name = "dworshak-secret", extras = ["crypto"], marker = "extra == 'crypto'" },
     { name = "pyhabitat", specifier = ">=1.1.26" },
     { name = "rich", specifier = ">=13.0.0" },
@@ -275,11 +275,11 @@ wheels = [
 
 [[package]]
 name = "dworshak-secret"
-version = "1.2.2"
+version = "1.2.3"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/48/c2/be72e2394419b8888ce1571759128831bb9fef5edb9f489ee395096f0864/dworshak_secret-1.2.2.tar.gz", hash = "sha256:af133a1904b7e3aefb6ccb86305384196c2b271801aaf00bec7d6cbde7027080", size = 13547, upload-time = "2026-02-10T16:11:31.494Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/6a/dc/4950d7434dca9ea7d76967b0d9060b39b4afe5aac28b4b2d614929d3e5dd/dworshak_secret-1.2.3.tar.gz", hash = "sha256:59e620554817104443834b3bd539fbe7044bac1dd20b31e275f2206ff4aadb2d", size = 13553, upload-time = "2026-02-11T17:53:59.702Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/36/e9/162fd717541d007e75f200d6273661e13d24717bc0d08ccb18b7328a9e27/dworshak_secret-1.2.2-py3-none-any.whl", hash = "sha256:cb4bab583c83de0632c8d84fb671fffdda559bce7ca7d64ff0677d5eb5ba2d32", size = 12987, upload-time = "2026-02-10T16:11:29.877Z" },
+    { url = "https://files.pythonhosted.org/packages/ba/40/f73c2b397b69b37e1ed4cd3ee55378eec2a91705e6ea8dcee74a2ba73607/dworshak_secret-1.2.3-py3-none-any.whl", hash = "sha256:fcc0f574a640e40acd66bf8a2818053adc8a9e56ad85efdb8a42516dbecc7a40", size = 12982, upload-time = "2026-02-11T17:53:58.725Z" },
 ]
 
 [package.optional-dependencies]

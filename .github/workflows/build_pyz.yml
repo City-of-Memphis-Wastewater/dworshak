@@ -66,6 +66,7 @@ jobs:
         run: uv build --wheel --sdist --out-dir dist/zipapp
 
       - name: Generate Checksums
+        if: false
         run: |
           python - <<'EOF'
           import hashlib, glob, pathlib
@@ -94,6 +95,6 @@ jobs:
             dist/zipapp/*.pyz
             dist/zipapp/*.whl
             dist/zipapp/*.tar.gz
-            dist/zipapp/SHA256SUMS.txt
+            #dist/zipapp/SHA256SUMS.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

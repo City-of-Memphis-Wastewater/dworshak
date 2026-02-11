@@ -113,18 +113,12 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
         f"--distpath={DIST_DIR_ONEFILE if mode=='onefile' else DIST_DIR_ONEDIR}",
         f"--workpath={BUILD_DIR / 'work'}",
         f"--specpath={BUILD_DIR}",
-        #f"--additional-hooks-dir={HOOKS_DIR_ABS}" if HOOKS_DIR_ABS.exists() else "",
+        f"--additional-hooks-dir={HOOKS_DIR_ABS}" if HOOKS_DIR_ABS.exists() else "",
         "--hidden-import", "typer",
         "--hidden-import", "typer.main",
         "--hidden-import", "typer.models",
         "--hidden-import", "click",
         "--hidden-import", "rich",
-        #"--hidden-import", "cryptography",
-        # Explicitly include the cryptography submodules that analysis misses
-        #"--hidden-import", "cryptography.hazmat.backends.openssl.backend",
-        #"--hidden-import", "cryptography.hazmat.primitives.kdf.pbkdf2",
-        # Try collect-submodules instead of collect-all since it's "not a package"
-        #"--collect-submodules", "cryptography",
         "--collect-all", "cryptography",
         "--collect-submodules", "dworshak",
     ]
@@ -201,6 +195,38 @@ def verify_cryptography(executable_path: Path):
         print(f"Execution failed: {e}")
         sys.exit(1)
 
+def zip_onedir(exe_name: str) -> Path:
+    """
+    Zip the contents of a PyInstaller onedir build.
+
+    Produces:
+      dist/onedir/<exe_name>.zip
+
+    The zip contains the *contents* of:
+      dist/onedir/<exe_name>/
+    """
+    onedir_dir = DIST_DIR_ONEDIR / exe_name
+    if not onedir_dir.is_dir():
+        raise RuntimeError(f"Onedir folder not found: {onedir_dir}")
+
+    zip_path = DIST_DIR_ONEDIR / f"{exe_name}.zip"
+
+    # Remove old zip if present
+    if zip_path.exists():
+        zip_path.unlink()
+
+    print(f"Zipping onedir contents → {zip_path}")
+
+    shutil.make_archive(
+        base_name=str(zip_path.with_suffix("")),
+        format="zip",
+        root_dir=onedir_dir,
+        base_dir=".",  # zip *contents*, not parent folder
+    )
+
+    print(f"Created zip: {zip_path.resolve()}")
+    return zip_path.resolve()
+
 # --- Main ---
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -212,7 +238,9 @@ if __name__ == "__main__":
         exe_name += "-onefile"
 
     exe_path = run_pyinstaller(exe_name, args.mode)
-
+    if args.mode == "onedir":
+        zip_path = zip_onedir(exe_name)
+    
     # Then pass exe_path to verify_cryptography()
     verify_cryptography(exe_path)
 

@@ -125,11 +125,6 @@ def build_pyz() -> None:
     if output_path.exists():
         output_path.unlink()
 
-    # Determine the interpreter preamble
-    # On Windows, we usually want 'python' or nothing. 
-    # On Unix/Termux, we want '/usr/bin/env python3'
-    interpreter = "python" if os.name == "nt" else "/usr/bin/env python3"
-
     run(
         [
             "shiv",
@@ -137,7 +132,7 @@ def build_pyz() -> None:
             str(output_path),
             "-e",
             ENTRY_POINT,
-            "-p", interpreter,
+            "-p", pyhabitat.get_interp_shebang(),
             "--compressed",
             "--no-cache",
             wheel_spec,

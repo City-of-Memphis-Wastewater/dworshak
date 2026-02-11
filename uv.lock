@@ -250,7 +250,7 @@ requires-dist = [
     { name = "dworshak-prompt", specifier = ">=0.2.13" },
     { name = "dworshak-secret", specifier = ">=1.2.3" },
     { name = "dworshak-secret", extras = ["crypto"], marker = "extra == 'crypto'" },
-    { name = "pyhabitat", specifier = ">=1.1.26" },
+    { name = "pyhabitat", specifier = ">=1.1.38" },
     { name = "rich", specifier = ">=13.0.0" },
     { name = "shiv", marker = "extra == 'build'", specifier = ">=1.0.0" },
     { name = "typer", specifier = ">=0.21.0" },
@@ -412,11 +412,11 @@ wheels = [
 
 [[package]]
 name = "pyhabitat"
-version = "1.1.37"
+version = "1.1.38"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/19/12/c49e9d0e71a6b49c8bc51873e1a99a27cf97d8c2df77c58b6d4a7a4cdb22/pyhabitat-1.1.37.tar.gz", hash = "sha256:3c8b2d708f117281d9010a24fded5c3647c6979fe039ad8e846c161bbc0832bb", size = 27868, upload-time = "2026-02-05T21:48:47.866Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c5/4c/6aba6c4ee0b93218df08199c045cef6f0e2d9859efadb2b0cbafe6a72490/pyhabitat-1.1.38.tar.gz", hash = "sha256:9fb2fe7a214e6fe0d1c7584fd6faa150f280316c362ae758cae4ad9951a17ee1", size = 27881, upload-time = "2026-02-11T18:37:01.038Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/20/92/6b09d1396705e84c7e1d9fb87d12495ea34164771d1ce1151c3e7db8db65/pyhabitat-1.1.37-py3-none-any.whl", hash = "sha256:f4cb2f6544008009f0c986849cbc086f8db59eae5cfd995dc09655db6da84b16", size = 25936, upload-time = "2026-02-05T21:48:46.26Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/c6/03e947024bc804a8792671527da4803c45d11e89eb40d6e8ff398bfa65e1/pyhabitat-1.1.38-py3-none-any.whl", hash = "sha256:a6a4ea26477047d9f173714ee12aad0c1c94b3fb5dc336eed827635e3d6cd66c", size = 26081, upload-time = "2026-02-11T18:36:59.778Z" },
 ]
 
 [[package]]

@@ -7,7 +7,7 @@ requires-python = ">=3.9"
 dependencies = [
     "typer>=0.21.0",
     "rich>=13.0.0",
-    "pyhabitat>=1.1.26",
+    "pyhabitat>=1.1.38",
     "typer-helptree>=0.1.10",
     "dworshak-secret>=1.2.3",
     "dworshak-prompt>=0.2.13",

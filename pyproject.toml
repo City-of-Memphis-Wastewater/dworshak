@@ -9,8 +9,8 @@ dependencies = [
     "rich>=13.0.0",
     "pyhabitat>=1.1.26",
     "typer-helptree>=0.1.10",
-    "dworshak-secret>=1.2.2",
-    "dworshak-prompt>=0.2.11",
+    "dworshak-secret>=1.2.1",
+    "dworshak-prompt>=0.2.12",
 ]
 authors = [
   { name="George Clayton Bennett", email="george.bennett@memphistn.gov" },
@@ -50,10 +50,7 @@ crypto = [
     "cryptography>=46.0.3",
     "dworshak-secret[crypto]"
 ]
-build = [
-    "shiv>=1.0.0",
-]
-    
+
 [project.urls]
 Homepage = "https://github.com/city-of-memphis-wastewater/dworshak"
 Repository = "https://github.com/city-of-memphis-wastewater/dworshak"

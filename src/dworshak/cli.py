@@ -55,6 +55,7 @@ prompt_app = prompt_cli.app
 app.add_typer(secret_app, name="secret")
 app.add_typer(vault_app, name="vault")
 app.add_typer(prompt_app, name="prompt")
+app.add_typer(config_app, name="config")
 
 console = Console()
 # help-tree() command: fragile, experimental, defaults to not being included.

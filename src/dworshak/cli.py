@@ -58,11 +58,7 @@ app.add_typer(prompt_app, name="prompt")
 app.add_typer(config_app, name="config")
 
 console = Console()
-# help-tree() command: fragile, experimental, defaults to not being included.
-#if os.environ.get('DEV_TYPER_HELP_TREE',0) in ('true','1'):
-#    add_typer_helptree(app = app, console = console)
 
-# In cli.py
 add_typer_helptree(app=app, console=console, version = __version__,hidden=True)
 
 @app.callback()

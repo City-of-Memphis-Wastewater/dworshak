@@ -9,7 +9,7 @@ dependencies = [
     "rich>=13.0.0",
     "pyhabitat>=1.1.38",
     "typer-helptree>=0.2.4",
-    "dworshak-secret>=1.2.3",
+    "dworshak-secret[typer]>=1.2.3",
     "dworshak-prompt[typer]>=0.2.13",
     "dworshak-config[typer]>=0.1.6",
 ]
@@ -49,7 +49,11 @@ keywords = [
 [project.optional-dependencies]
 crypto = [
     "cryptography>=46.0.3",
-    "dworshak-secret[crypto]"
+    "dworshak-secret[typer,crypto]"
+    "dworshak-prompt[typer,secret]"
+]
+full = [
+    "dworshak-prompt[crypto]"
 ]
 build = [
     "shiv>=1.0.0"

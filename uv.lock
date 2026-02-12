@@ -222,7 +222,8 @@ wheels = [
 name = "dworshak"
 source = { editable = "." }
 dependencies = [
-    { name = "dworshak-prompt" },
+    { name = "dworshak-config", extra = ["typer"] },
+    { name = "dworshak-prompt", extra = ["typer"] },
     { name = "dworshak-secret" },
     { name = "pyhabitat" },
     { name = "rich" },
@@ -247,9 +248,10 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "cryptography", marker = "extra == 'crypto'", specifier = ">=46.0.3" },
-    { name = "dworshak-prompt", specifier = ">=0.2.13" },
-    { name = "dworshak-secret", specifier = ">=1.2.3" },
+    { name = "dworshak-config", extras = ["typer"], specifier = ">=0.1.6" },
+    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.13" },
     { name = "dworshak-secret", extras = ["crypto"], marker = "extra == 'crypto'" },
+    { name = "dworshak-secret", extras = ["typer"], specifier = ">=1.2.3" },
     { name = "pyhabitat", specifier = ">=1.1.38" },
     { name = "rich", specifier = ">=13.0.0" },
     { name = "shiv", marker = "extra == 'build'", specifier = ">=1.0.0" },
@@ -262,6 +264,21 @@ provides-extras = ["crypto", "build"]
 dev = [{ name = "pyinstaller", specifier = ">=6.18.0" }]
 
 [[package]]
+name = "dworshak-config"
+version = "0.1.6"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b2/ed/b4fffb6ad675940ee04e9f95fd3928cbd7da1926d6e75a11927abd2bd5d8/dworshak_config-0.1.6.tar.gz", hash = "sha256:32fc3526dd8de9f8d5028df2ee7db48afc6c52dc65d652cf82f8f3ca0f5b1062", size = 7295, upload-time = "2026-02-12T17:17:26.531Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/67/86/e99b6ef9152bd1e5d49a0402038b62d9a96cd8248227caf25e6b2243a693/dworshak_config-0.1.6-py3-none-any.whl", hash = "sha256:efe00da1a6e0ca68303e283e107a28f40c6d8cd1c9ff9dee78699eecbf04a61a", size = 7293, upload-time = "2026-02-12T17:17:25.213Z" },
+]
+
+[package.optional-dependencies]
+typer = [
+    { name = "rich" },
+    { name = "typer" },
+]
+
+[[package]]
 name = "dworshak-prompt"
 version = "0.2.13"
 source = { registry = "https://pypi.org/simple" }
@@ -271,6 +288,12 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/10/06/92f6384db7b7827302ab34131142cfaa551a627e914a95aef03f149ac0cd/dworshak_prompt-0.2.13.tar.gz", hash = "sha256:094c03f8c89250c2dedab99d923ee9deee1f3c53657ee17daa6c0770cd3cfb23", size = 17840, upload-time = "2026-02-11T01:53:24.692Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/4e/c4/5670343f92c86bbc5e03f3a895dfd5388a9f724797aa51fa9ff94d8e7ec6/dworshak_prompt-0.2.13-py3-none-any.whl", hash = "sha256:e2b937cdef9c3d991e4c4dc0fb0a79604ffde25bc007bbf94ce576f388e6c007", size = 21544, upload-time = "2026-02-11T01:53:23.036Z" },
+]
+
+[package.optional-dependencies]
+typer = [
+    { name = "rich" },
+    { name = "typer" },
 ]
 
 [[package]]

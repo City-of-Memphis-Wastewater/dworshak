@@ -223,6 +223,7 @@ name = "dworshak"
 source = { editable = "." }
 dependencies = [
     { name = "dworshak-config", extra = ["typer"] },
+    { name = "dworshak-env" },
     { name = "dworshak-prompt", extra = ["typer"] },
     { name = "dworshak-secret" },
     { name = "pyhabitat" },
@@ -237,6 +238,12 @@ build = [
 ]
 crypto = [
     { name = "cryptography" },
+    { name = "dworshak-prompt", extra = ["typer"] },
+    { name = "dworshak-secret", extra = ["crypto"] },
+]
+full = [
+    { name = "cryptography" },
+    { name = "dworshak-prompt", extra = ["typer"] },
     { name = "dworshak-secret", extra = ["crypto"] },
 ]
 
@@ -248,17 +255,20 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "cryptography", marker = "extra == 'crypto'", specifier = ">=46.0.3" },
+    { name = "dworshak", extras = ["crypto"], marker = "extra == 'full'" },
     { name = "dworshak-config", extras = ["typer"], specifier = ">=0.1.6" },
+    { name = "dworshak-env", specifier = ">=0.1.2" },
+    { name = "dworshak-prompt", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
     { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.13" },
-    { name = "dworshak-secret", specifier = ">=1.2.3" },
-    { name = "dworshak-secret", extras = ["crypto"], marker = "extra == 'crypto'" },
+    { name = "dworshak-secret", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
+    { name = "dworshak-secret", extras = ["typer"], specifier = ">=1.2.3" },
     { name = "pyhabitat", specifier = ">=1.1.38" },
     { name = "rich", specifier = ">=13.0.0" },
     { name = "shiv", marker = "extra == 'build'", specifier = ">=1.0.0" },
     { name = "typer", specifier = ">=0.21.0" },
     { name = "typer-helptree", specifier = ">=0.2.4" },
 ]
-provides-extras = ["crypto", "build"]
+provides-extras = ["crypto", "full", "build"]
 
 [package.metadata.requires-dev]
 dev = [{ name = "pyinstaller", specifier = ">=6.18.0" }]
@@ -276,6 +286,15 @@ wheels = [
 typer = [
     { name = "rich" },
     { name = "typer" },
+]
+
+[[package]]
+name = "dworshak-env"
+version = "0.1.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/2d/cf/b403c8fd25e274ab0949e76d1cd957f7263e88f5bec91f15744f9b74c401/dworshak_env-0.1.2.tar.gz", hash = "sha256:f38e66c0d9529f6770ef678e21b6a3e7a69ce6fd825caf034540266c2f9f5910", size = 9631, upload-time = "2026-02-13T19:02:54.927Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e0/39/cd8f47d996df755a5ac68f05a217e95dc189e09090dba054d5d4d01a02ff/dworshak_env-0.1.2-py3-none-any.whl", hash = "sha256:a657e588e5d21099e49494e17dae4d04d3b4460ba30e28b6a454de04f95354ea", size = 9888, upload-time = "2026-02-13T19:02:53.848Z" },
 ]
 
 [[package]]

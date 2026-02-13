@@ -12,6 +12,7 @@ dependencies = [
     "dworshak-secret[typer]>=1.2.3",
     "dworshak-prompt[typer]>=0.2.13",
     "dworshak-config[typer]>=0.1.6",
+    "dworshak-env>=0.1.2",
 ]
 authors = [
   { name="George Clayton Bennett", email="george.bennett@memphistn.gov" },
@@ -49,11 +50,11 @@ keywords = [
 [project.optional-dependencies]
 crypto = [
     "cryptography>=46.0.3",
-    "dworshak-secret[typer,crypto]"
-    "dworshak-prompt[typer,secret]"
+    "dworshak-secret[typer,crypto]",
+    "dworshak-prompt[typer,crypto]"
 ]
 full = [
-    "dworshak-prompt[crypto]"
+    "dworshak[crypto]"
 ]
 build = [
     "shiv>=1.0.0"

@@ -259,7 +259,7 @@ requires-dist = [
     { name = "dworshak-config", extras = ["typer"], specifier = ">=0.1.6" },
     { name = "dworshak-env", extras = ["typer"], specifier = ">=0.1.2" },
     { name = "dworshak-prompt", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
-    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.15" },
+    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.16" },
     { name = "dworshak-secret", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
     { name = "dworshak-secret", extras = ["typer"], specifier = ">=1.2.4" },
     { name = "pyhabitat", specifier = ">=1.1.38" },
@@ -307,7 +307,7 @@ typer = [
 
 [[package]]
 name = "dworshak-prompt"
-version = "0.2.15"
+version = "0.2.16"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dworshak-config" },
@@ -316,9 +316,9 @@ dependencies = [
     { name = "memphisdrip" },
     { name = "pyhabitat" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d0/6f/2c90f338c1f0b41f72d8afbd228485046d97e1ca441138c0c3ec59078480/dworshak_prompt-0.2.15.tar.gz", hash = "sha256:8fc8f192a2d67c60f7d10f6b80539816a3cee57715ee51a6f7d46c77260f3787", size = 20530, upload-time = "2026-02-13T19:32:46.23Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8b/be/33835584267d9bb1efa3f021a6393dafdc37f5a7a987e1c506252cf93595/dworshak_prompt-0.2.16.tar.gz", hash = "sha256:ff2aa7aadd1f3393b0bff3e2d62662c624edb32de8257491ab46c432cf78c3ce", size = 20532, upload-time = "2026-02-13T20:15:31.949Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1d/bf/3bf4c5a91d947d16d154395767efa2028165a8a1653cd648c28bb1163ed4/dworshak_prompt-0.2.15-py3-none-any.whl", hash = "sha256:03a63ccec36e7f2b38733b6b124ab7d8ad0d9653e9d9a01d785fbd1e67ee6914", size = 25329, upload-time = "2026-02-13T19:32:45.026Z" },
+    { url = "https://files.pythonhosted.org/packages/e6/19/b5ebca04d639e33aadc7fe329147f19c18d9a8dd3c82f7a97758a026d458/dworshak_prompt-0.2.16-py3-none-any.whl", hash = "sha256:c2326d52ffc175980742912d1cf65228dbc631d4e06c02740901209bcc8ce10f", size = 25323, upload-time = "2026-02-13T20:15:30.88Z" },
 ]
 
 [package.optional-dependencies]

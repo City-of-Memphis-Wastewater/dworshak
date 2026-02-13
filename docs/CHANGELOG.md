@@ -6,6 +6,11 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.3] – 2026-02-13
+### Changed:
+- Increase dworshak_prompt to 0.2.17 and dworshak_config to 0.2.1.. ConfigManager - > DworshakConfig
+---
+
 ## [1.2.2] – 2026-02-13
 ### Fixed:
 - Add '--collect-submodules' flags for all libraries in the dworshak suite to build_executable.py

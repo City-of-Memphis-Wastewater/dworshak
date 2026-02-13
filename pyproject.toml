@@ -10,7 +10,7 @@ dependencies = [
     "pyhabitat>=1.1.38",
     "typer-helptree>=0.2.4",
     "dworshak-secret[typer]>=1.2.4",
-    "dworshak-prompt[typer]>=0.2.16",
+    "dworshak-prompt[typer]>=0.2.17",
     "dworshak-config[typer]>=0.2.1",
     "dworshak-env[typer]>=0.1.2",
 ]

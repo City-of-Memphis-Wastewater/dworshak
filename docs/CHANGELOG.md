@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.4->5] – 2026-02-13
+### Changed:
+- Bump to v1.2.5 with nore time to reaolve dworshak-prompt 0.2.18
+
+---
+
 ## [1.2.3] – 2026-02-13
 ### Changed:
 - Increase dworshak_prompt to 0.2.17 and dworshak_config to 0.2.1. ConfigManager - > DworshakConfig

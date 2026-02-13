@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.2] – 2026-02-13
+### Fixed:
+- Add '--collect-submodules' flags for all libraries in the dworshak suite to build_executable.py
+ 
+---
+
 ## [1.2.1] – 2026-02-13
 ### Fixed:
 - uv sync with dworshak-prompt 0.2.15 and dworshak-secret 0.2.4, which celebrate the standard dworshak ecosystem extras, typer and crypto.

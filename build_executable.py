@@ -121,6 +121,11 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
         "--hidden-import", "rich",
         "--collect-all", "cryptography",
         "--collect-submodules", "dworshak",
+        "--collect-submodules", "dworshak_secret",  # Added for safety
+        "--collect-submodules", "dworshak_config",  # Added for safety
+        "--collect-submodules", "dworshak_env",  # Added for safety
+        "--collect-submodules", "dworshak_prompt",  # Ensure the prompt package is fully visible
+        
     ]
 
     if mode == "onefile":

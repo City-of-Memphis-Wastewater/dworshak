@@ -6,6 +6,15 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.1] – 2026-02-13
+### Fixed:
+- uv sync with dworshak-prompt 0.2.15 and dworshak-secret 0.2.4, which celebrate the standard dworshak ecosystem extras, typer and crypto.
+
+### Added:
+- dworshak-env
+
+---
+
 ## [1.1.15] – 2026-02-11
 ### Fixed:
 - Use pyhabitat.get_interp_shebang() with -p flag in shiv call in build_pyz.py.

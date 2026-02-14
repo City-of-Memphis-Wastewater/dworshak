@@ -22,10 +22,10 @@ from dworshak_secret import (
     rotate_key
 )
 
-#from dworshak_prompt import DworshakPrompt, PromptMode
-from dworshak_prompt import cli as prompt_cli
+from dworshak_secret import cli as secret_cli
 from dworshak_config import cli as config_cli
 from dworshak_env import cli as env_cli
+from dworshak_prompt import cli as prompt_cli
 from dworshak._version import __version__
 
 # Force Rich to always enable colors, even in .pyz or Termux
@@ -46,8 +46,7 @@ app = typer.Typer(
 )
 
 # Create the sub-apps
-secret_app = typer.Typer(help="Manage individual secrets/credentials.")
-vault_app = typer.Typer(help="Manage the vault infrastructure and security.")
+secret_app = secret_cli.app
 config_app = config_cli.app
 env_app = env_cli.app
 prompt_app = prompt_cli.app
@@ -57,8 +56,6 @@ app.add_typer(secret_app, name="secret")
 app.add_typer(prompt_app, name="prompt")
 app.add_typer(config_app, name="config")
 app.add_typer(env_app, name="env")
-
-secret_app.add_typer(vault_app, name="vault")
 
 console = Console()
 

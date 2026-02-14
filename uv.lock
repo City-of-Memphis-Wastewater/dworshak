@@ -266,7 +266,7 @@ requires-dist = [
     { name = "rich", specifier = ">=13.0.0" },
     { name = "shiv", marker = "extra == 'build'", specifier = ">=1.0.0" },
     { name = "typer", specifier = ">=0.21.0" },
-    { name = "typer-helptree", specifier = ">=0.2.4" },
+    { name = "typer-helptree", specifier = ">=0.2.5" },
 ]
 provides-extras = ["crypto", "full", "build"]
 
@@ -615,16 +615,16 @@ wheels = [
 
 [[package]]
 name = "typer-helptree"
-version = "0.2.4"
+version = "0.2.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pyhabitat" },
     { name = "rich" },
     { name = "typer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6e/0e/3a79837889d76f06bb25d36718cd173a0ff9a449f36a699176dea0c740ba/typer_helptree-0.2.4.tar.gz", hash = "sha256:f3766f53facea20e0483a0308d11694540453b25a0c0d95a2cf14e9e16a41e50", size = 10210, upload-time = "2026-02-11T20:48:40.097Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/7c/3b/d57234b79b6375162a21db3335049e97d2211fd86b145c34b68653ff46d0/typer_helptree-0.2.5.tar.gz", hash = "sha256:349be7ed9edf1933239ef2e1013c09f6a5e48d569e15791e2c0850b8403a5312", size = 10331, upload-time = "2026-02-14T05:33:12.801Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ee/03/09c13c25e604006c5794592ffdb97e05af8d8d33da6c9c9584567ce9504a/typer_helptree-0.2.4-py3-none-any.whl", hash = "sha256:7cc8509bbf1bcf49d684290410ffa85413898a16f6540f69f7e9ec5ac90f635f", size = 11711, upload-time = "2026-02-11T20:48:38.579Z" },
+    { url = "https://files.pythonhosted.org/packages/91/48/265c25518ecaa150a137124ef2092a26fa46688787bd2786de1d08233785/typer_helptree-0.2.5-py3-none-any.whl", hash = "sha256:d954069ba84318a308c7e67b8bc4ca38b6d4fdcd43094e8b429b5e9a7fdbd088", size = 11798, upload-time = "2026-02-14T05:33:11.086Z" },
 ]
 
 [[package]]

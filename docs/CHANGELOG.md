@@ -10,8 +10,11 @@ The format is (read: strives to be) based on Keep a Changelog.
 ### Changed:
 - Import dworshak-secret cli into cli.py. Remove redundant dead code.
 
+### Fixed:
+- typer-helptree to 0.2.5, to correct sub apps interleaved with commands, alphabetizing but not giving thw obvious recursive levels. 
+
 ### Internal:
-- typer-helptree is putting sub apps intermixed with commands, alphabetizing but not giving thw obvious recursive levels.
+- Screenshot asset is now firmly out of date.
 
 ---
 

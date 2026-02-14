@@ -43,7 +43,7 @@ jobs:
       - name: UV Sync
         run: |
           uv venv --clear
-          uv sync --extra crypto --extra build
+          uv sync --extra crypro --extra build
 
       - name: Build PYZ
         run: uv run python build_pyz.py
@@ -62,7 +62,7 @@ jobs:
           $pyz = Get-ChildItem -Path dist/zipapp -Filter *.pyz | Select-Object -First 1
           python $pyz --version
           python $pyz --help
-          python $pyz vault health
+          python $pyz secret manage-vault health
 
       - name: Build wheel + sdist (Linux only)
         if: matrix.os == 'ubuntu-latest'

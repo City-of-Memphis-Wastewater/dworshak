@@ -42,16 +42,22 @@ dworshak helptree
 ---
 
 <a id="sister-project-dworshak-secret"></a>
-## Sister Project: 
-Library: `dworshak-secret` 
 
-GitHub: https://github.com/City-of-Memphis-Wastewater/dworshak-secret 
+## Sister Projects
 
-PyPI: https://pypi.org/project/dworshak-secret/ 
+* **CLI/Orchestrator:** [dworshak](https://github.com/City-of-Memphis-Wastewater/dworshak)
+* **Interactive UI:** [dworshak-prompt](https://github.com/City-of-Memphis-Wastewater/dworshak-prompt)
+* **Secrets Storage:** [dworshak-secret](https://github.com/City-of-Memphis-Wastewater/dworshak-secret)
+* **Plaintext Pathed Configs:** [dworshak-secret](https://github.com/City-of-Memphis-Wastewater/dworshak-config)
+* **Classic .env Injection:** [dworshak-secret](https://github.com/City-of-Memphis-Wastewater/dworshak-env)
 
 ```
 pip install dworshak-secret
-# or,  uv add dworshak-secret
+pip install dworshak-config
+pip install dworshak-env
+pip install dworshak-prompt
+# or,  uv add 
+
 ```
 
 ---

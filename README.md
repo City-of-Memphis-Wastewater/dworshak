@@ -51,12 +51,12 @@ dworshak helptree
 * **Plaintext Pathed Configs:** [dworshak-secret](https://github.com/City-of-Memphis-Wastewater/dworshak-config)
 * **Classic .env Injection:** [dworshak-secret](https://github.com/City-of-Memphis-Wastewater/dworshak-env)
 
-```
+```python
+pipx install dworshak
 pip install dworshak-secret
 pip install dworshak-config
 pip install dworshak-env
 pip install dworshak-prompt
-# or,  uv add 
 
 ```
 

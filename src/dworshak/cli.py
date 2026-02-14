@@ -73,7 +73,9 @@ def main(ctx: typer.Context,
     if version:
         typer.echo(__version__)
         raise typer.Exit(code=0)
-        
+
+
+'''        
 @vault_app.command()
 def setup():
     """Initialize vault and encryption key."""
@@ -334,6 +336,6 @@ def backup(
         console.print("[red]Backup failed.[/red] Check vault health or disk space.")
         raise typer.Exit(1)
 
-
+'''
 if __name__ == "__main__":
     app()

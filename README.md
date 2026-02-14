@@ -43,7 +43,7 @@ dworshak helptree
 
 <a id="sister-project-dworshak-secret"></a>
 
-## Sister Projects
+## Sister Projects in the Dworshak Ecosystem
 
 * **CLI/Orchestrator:** [dworshak](https://github.com/City-of-Memphis-Wastewater/dworshak)
 * **Interactive UI:** [dworshak-prompt](https://github.com/City-of-Memphis-Wastewater/dworshak-prompt)

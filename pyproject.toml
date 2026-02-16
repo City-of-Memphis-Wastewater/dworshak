@@ -53,6 +53,9 @@ crypto = [
     "dworshak-secret[typer,crypto]",
     "dworshak-prompt[typer,crypto]"
 ]
+
+typer = [] # typer is required anyways, but this is a placeholder for ecosystem jargon consistency - it is likely someone will accidentally include the "--extra typer" at some point. Why punish them.
+
 full = [
     "dworshak[crypto]"
 ]

@@ -53,7 +53,7 @@ jobs:
         run: |
           python dist/zipapp/*.pyz --version
           python dist/zipapp/*.pyz --help
-          python dist/zipapp/*.pyz vault health
+          python dist/zipapp/*.pyz secret manage-vault health
 
       - name: Run sanity check (Windows)
         shell: pwsh

@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.7] – 2026-02-13
+### Added:
+- Dummy 'typer' extra, for ecosystem consistency; i have several time tried edit other lines line 'uv add dwroshak-prompt --extra typer --extra crypto', to apply the same line for dworshak, to save typing, and then get punished with a 'typer extra does not exist'. So now it exists.
+
+---
+
 ## [1.2.6] – 2026-02-13
 ### Changed:
 - Import dworshak-secret cli into cli.py. Remove redundant dead code.

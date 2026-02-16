@@ -43,7 +43,7 @@ jobs:
       - name: UV Sync
         run: |
           uv venv --clear
-          uv sync --extra crypro --extra build
+          uv sync --extra crypto --extra build
 
       - name: Build PYZ
         run: uv run python build_pyz.py

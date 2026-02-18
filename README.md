@@ -1,7 +1,8 @@
 # Dworshak  🌊
 
-**Dworshak** a cross-platform credential management solution.
-It is a [sister project](#sister-project-dworshak-secret) of the `dworshak-secret` library.
+**dworshak** is a cross-platform credential and config management solution. 
+There are options to manage encrypted cresentials, store plaintext config to JSON, or to leverage traditional Pythonic `.env` files.
+`dworshak` is the CLI layer which allows your to edit and inspect values which you can also obtain programatically by using the wider `dworshak` ecosystem.
 
 ---
 
@@ -15,7 +16,9 @@ pipx install "dworshak[crypto]"
 dworshak setup
 
 # Register your first API
-dworshak store --service rjn_api --item username
+dworshak secret set "rjn_api"  "username"
+
+# you will then be prompted to ente the value with the inout characters securely hidden.
 
 ```
 

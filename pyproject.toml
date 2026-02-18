@@ -1,7 +1,7 @@
 [project]
 name = "dworshak"
 dynamic = ["version"]
-description = "Manage local, encrypted credentials. The dworshak CLI leverages openssl, sqlite3, and cryptography."
+description = "Manage file-based secure credentials and configuration values cross-platform including on Termux and iSH, with the dworshak CLI."
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [

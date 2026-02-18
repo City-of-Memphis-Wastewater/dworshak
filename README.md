@@ -21,11 +21,6 @@ dworshak store --service rjn_api --item username
 
 ---
 
-`dworshak --help`:
-<p align="center">
-  <img src="https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.15_help.png" width="100%" alt="Screenshot of the Dworshak CLI --help">
-</p>
-
 See the helptree, imported from the `typer-helptree` library.
 
 - GitHub: https://github.com/City-of-Memphis-Wastewater/typer-helptree

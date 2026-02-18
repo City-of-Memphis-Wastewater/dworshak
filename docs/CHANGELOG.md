@@ -8,9 +8,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ## [1.2.8] – 2026-02-17
 ### Changed
-- Set typer-helptree dep to 1.2.4
+- Set typer-helptree dep to 1.2.6
 - Set dworshak-secret dep to 1.2.8
 - Set dworshak-prompt to 0.2.20
+
+### Added:
+- Leveraged new `helptree --export-svg --assets` which is great (!), to handle screenshots saved to ./assets/. This is way better.
 
 ---
 

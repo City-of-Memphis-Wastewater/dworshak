@@ -67,7 +67,7 @@ To become a stable credential management tool for scripting the flow of Emerson 
 
 Furthmore, we want to offer Python developers a seamless configuration management experience that they can enjoy for years to come, on all of their devices.
 
-* **The Secret Sauce Behind** `dworshk-secret`: Use Industry-standard AES (Fernet) encryption  to manage a local `~/.dworshak/` directory which includes a `.key` file, a `vault.db` encrypted credential file, and a `config.json` file for controlling defaults.
+**The Secret Sauce Behind** `dworshk-secret`: Use Industry-standard AES (Fernet) encryption  to manage a local `~/.dworshak/` directory which includes a `.key` file, a `vault.db` encrypted credential file, and a `config.json` file for controlling defaults.
 
 <!--## ⚖️ User Stories-->
 

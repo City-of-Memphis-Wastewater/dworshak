@@ -18,7 +18,8 @@ dworshak setup
 # Register your first API
 dworshak secret set "rjn_api"  "username"
 
-# -> You will then be prompted, with the inout characters securely hidden.
+# -> You will then be prompted, 
+#    with the input characters securely hidden.
 
 ```
 

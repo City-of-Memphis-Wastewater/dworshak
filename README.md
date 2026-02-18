@@ -37,8 +37,8 @@ dworshak helptree
 ```
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_cli_v1.1.15_helptree.png" width="100%" alt="Screenshot of the Dworshak CLI helptree">
-</p>
+  <img src="https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_v1.2.8_helptree.svg" width="100%" alt="Screenshot of the Dworshak CLI helptree">
+</p> 
 ---
 
 <a id="sister-project-dworshak-secret"></a>

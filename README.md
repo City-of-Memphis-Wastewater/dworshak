@@ -78,6 +78,51 @@ Furthermore, we want to offer Python developers a seamless configuration managem
 
 ---
 
+## Bash Scripting
+
+Use `dworshak` to prompt user for Microsoft Fabric / Azure credentials
+
+```
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Prompt human securely
+SQL_PASSWORD=$(dworshak prompt ask \
+  --message "Enter Fabric SQL password" \
+  --hide)
+
+# Push into Azure Key Vault
+az keyvault secret set \
+  --vault-name my-fabric-vault \
+  --name sql-password \
+  --value "$SQL_PASSWORD"
+
+echo "Secret stored in Azure Key Vault"
+
+```
+
+
+Use `dworshak` to prompt user for AWS credentials
+
+```
+#!/usr/bin/env bash
+set -euo pipefail
+
+# 1. Human-friendly prompt
+DB_PASSWORD=$(dworshak prompt ask \
+  --message "Enter production DB password" \
+  --hide)
+
+# 2. Push into AWS Secrets Manager
+aws secretsmanager put-secret-value \
+  --secret-id prod/db/password \
+  --secret-string "$DB_PASSWORD"
+
+echo " Secret stored in AWS Secrets Manager"
+```
+
+---
+
 ## Typical installation
 
 ```
@@ -98,3 +143,5 @@ apk add py3-cryptography
 pipx install dworshak --system-site-packages
 
 ```
+
+

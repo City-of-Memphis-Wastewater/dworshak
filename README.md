@@ -98,7 +98,6 @@ az keyvault secret set \
   --value "$SQL_PASSWORD"
 
 echo "Secret stored in Azure Key Vault"
-
 ```
 
 
@@ -118,7 +117,7 @@ aws secretsmanager put-secret-value \
   --secret-id prod/db/password \
   --secret-string "$DB_PASSWORD"
 
-echo " Secret stored in AWS Secrets Manager"
+echo "Secret stored in AWS Secrets Manager"
 ```
 
 ---

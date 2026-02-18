@@ -80,7 +80,7 @@ Furthermore, we want to offer Python developers a seamless configuration managem
 
 ## Bash Scripting
 
-Use `dworshak` to prompt user for Microsoft Fabric / Azure credentials
+Use `dworshak` to prompt for Microsoft Fabric / Azure credentials
 
 ```
 #!/usr/bin/env bash
@@ -101,7 +101,7 @@ echo "Secret stored in Azure Key Vault"
 ```
 
 
-Use `dworshak` to prompt user for AWS credentials
+Use `dworshak` to prompt for AWS credentials
 
 ```
 #!/usr/bin/env bash

@@ -9,7 +9,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 ## [1.2.9] – 2026-02-17
 ### Changed
 - Improve README.
-- Stop including bsic --help screenshot. It is a maintenance risk/burden.
+- Stop including basic --help screenshot. It is a maintenance risk/burden.
 
 ---
 

@@ -25,11 +25,6 @@ dworshak secret set "rjn_api"  "username"
 
 ---
 
-See the helptree, imported from the `typer-helptree` library.
-
-- GitHub: https://github.com/City-of-Memphis-Wastewater/typer-helptree
-- PyPI: https://pypi.org/project/typer-helptree/
-
 
 ```
 dworshak helptree
@@ -38,6 +33,12 @@ dworshak helptree
 <p align="center">
   <img src="https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_v1.2.8_helptree.svg" width="100%" alt="Screenshot of the Dworshak CLI helptree">
 </p> 
+
+`helptree` is Typer utility, imported from the `typer-helptree` library.
+
+- GitHub: https://github.com/City-of-Memphis-Wastewater/typer-helptree
+- PyPI: https://pypi.org/project/typer-helptree/
+
 ---
 
 <a id="sister-project-dworshak-secret"></a>
@@ -63,6 +64,8 @@ pip install dworshak-prompt
 
 ## 🏗  The Ultimate Vision
 To become a stable credential management tool for scripting the flow of Emerson Ovation data and related APIs, supporting multiple projects in and beyond at the Maxson Wastewater Treatment Plant.
+
+Furthmore, we want to offer Python developers a seamless configuration management experience that they cn enjoy for years to come, on all of their devices.
 
 * **The Method:** "Do one boring thing well." Use Industry-standard AES (Fernet) encryption  to manage a local `~/.dworshak/` directory which includes a `.key` file, a `vault.db` encrypted credential file, and a `config.json` file for controlling defaults.
 

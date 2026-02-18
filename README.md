@@ -1,6 +1,6 @@
 # Dworshak  🌊
 
-**dworshak** is a cross-platform credential and config management solution. 
+`dworshak` is a cross-platform credential and config management solution. 
 There are options to manage encrypted cresentials, store plaintext config to JSON, or to leverage traditional Pythonic `.env` files.
 `dworshak` is the CLI layer which allows your to edit and inspect values which you can also obtain programatically by using the wider `dworshak` ecosystem.
 

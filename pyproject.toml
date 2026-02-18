@@ -8,9 +8,9 @@ dependencies = [
     "pyhabitat>=1.2.2",
     "typer>=0.21.0",
     "rich>=13.0.0",
-    "typer-helptree>=0.2.5",
+    "typer-helptree>=0.2.4",
     "dworshak-secret[typer]>=1.2.6",
-    "dworshak-prompt[typer]>=0.2.19",
+    "dworshak-prompt[typer]>=0.2.20",
     "dworshak-config[typer]>=0.2.2",
     "dworshak-env[typer]>=0.1.4",
 ]

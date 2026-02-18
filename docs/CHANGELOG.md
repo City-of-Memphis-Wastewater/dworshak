@@ -6,6 +6,13 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.9] – 2026-02-17
+### Changed
+- Improve README.
+- Stop including bsic --help screenshot. It is a maintenance risk/burden.
+
+---
+
 ## [1.2.8] – 2026-02-17
 ### Changed
 - Set typer-helptree dep to 1.2.6

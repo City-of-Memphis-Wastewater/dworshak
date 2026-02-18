@@ -122,7 +122,7 @@ echo "Secret stored in AWS Secrets Manager"
 
 ---
 
-## Typical installation
+## Typical installation (macOS, Ubuntu, Windows 11, etc)
 
 ```
 pipx install "dworshak[crypto]"

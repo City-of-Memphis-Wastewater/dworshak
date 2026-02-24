@@ -15,11 +15,15 @@ pipx install "dworshak[crypto]"
 # Bootstrap the security layer
 dworshak setup
 
-# Register your first API
+# Register your API credential
 dworshak secret set "rjn_api"  "username"
 
 # -> You will then be prompted, 
 #    with the input characters securely hidden.
+
+# Alternatively, if you want to have the option to hide/show the secret value without introducing it to console history,
+# use the web or gui input
+dworshak obtain secret "rjn_api" "password" --interface web 
 
 ```
 

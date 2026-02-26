@@ -11,6 +11,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 - Set dworshak-secret dep to 1.2.10
 - Set dworshak-prompt to 0.2.22
 - Set dworshak-config to 0.2.3
+- dworshak-config now has list and remove sub commands
+
+### Internal:
+- Known inconsistencies:
+    - dworshak-env does not have list and remove commands
+    - dworshak-prompt have --verbose and --debug commands but the other sub apps do not.
 
 ---
 

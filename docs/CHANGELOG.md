@@ -17,6 +17,8 @@ The format is (read: strives to be) based on Keep a Changelog.
 - Known inconsistencies:
     - dworshak-env does not have list and remove commands
     - dworshak-prompt have --verbose and --debug commands but the other sub apps do not.
+    - dworshak-config has --path flags but inconsistently have -p as an abbreviated version.
+- We need to collapse down a lot of the redudancy in dworshak-prompt. Are kwargs our friend?
 
 ---
 

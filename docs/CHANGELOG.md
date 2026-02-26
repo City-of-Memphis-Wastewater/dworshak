@@ -6,6 +6,14 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.10] – 2026-02-26
+### Changed
+- Set dworshak-secret dep to 1.2.10
+- Set dworshak-prompt to 0.2.22
+- Set dworshak-config to 0.2.3
+
+---
+
 ## [1.2.9] – 2026-02-17
 ### Changed
 - Improve README.

@@ -259,9 +259,9 @@ requires-dist = [
     { name = "dworshak-config", extras = ["typer"], specifier = ">=0.2.3" },
     { name = "dworshak-env", extras = ["typer"], specifier = ">=0.1.5" },
     { name = "dworshak-prompt", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
-    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.23" },
+    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.24" },
     { name = "dworshak-secret", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
-    { name = "dworshak-secret", extras = ["typer"], specifier = ">=1.2.10" },
+    { name = "dworshak-secret", extras = ["typer"], specifier = ">=1.2.11" },
     { name = "pyhabitat", specifier = ">=1.2.2" },
     { name = "rich", specifier = ">=13.0.0" },
     { name = "shiv", marker = "extra == 'build'", specifier = ">=1.0.0" },
@@ -307,7 +307,7 @@ typer = [
 
 [[package]]
 name = "dworshak-prompt"
-version = "0.2.23"
+version = "0.2.24"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dworshak-config" },
@@ -316,9 +316,9 @@ dependencies = [
     { name = "memphisdrip" },
     { name = "pyhabitat" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/03/14/24bd3f0108754c9145ab6af983d09089552b116845b9cc3bcc3530c94544/dworshak_prompt-0.2.23.tar.gz", hash = "sha256:4116349b98450a49bdc28e4e1ed1dabaef71221d6eee3af3125039c41608cef8", size = 25227, upload-time = "2026-02-28T14:45:10.488Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/be/cd/e40771cb6b5ddd9c74b022a454ac58e76999b481bc4d56ded9be7b05a55b/dworshak_prompt-0.2.24.tar.gz", hash = "sha256:caab34676d9c257a2d9652e47848ad637cbb0a46e05f3dfd35cf0c3948ac4b9d", size = 25681, upload-time = "2026-02-28T18:10:39.066Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1c/ca/0cfb442c171772638aad6d778c7ed00557627b4347bf96443a0bcd69dc91/dworshak_prompt-0.2.23-py3-none-any.whl", hash = "sha256:5460f57b9c809aeeab8e7f12f916041a0825c111a6fc06866b49234cd49d8526", size = 29674, upload-time = "2026-02-28T14:45:08.634Z" },
+    { url = "https://files.pythonhosted.org/packages/03/15/5243f662b0339cb847156e9cfdedb9a0dae6bec9ffa619847aefd3613727/dworshak_prompt-0.2.24-py3-none-any.whl", hash = "sha256:be3825a3c0e1cc152f95544878e9269c730b5be608e94be37d19c19ea3818d7e", size = 29906, upload-time = "2026-02-28T18:10:37.532Z" },
 ]
 
 [package.optional-dependencies]
@@ -335,14 +335,14 @@ typer = [
 
 [[package]]
 name = "dworshak-secret"
-version = "1.2.10"
+version = "1.2.11"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pyhabitat" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/38/fd/3b514a2542c679f5326d7db3d8a62acdb79eec318f02ddfa1cf16ef1c5c7/dworshak_secret-1.2.10.tar.gz", hash = "sha256:0c27a6fec977d3d62f6a7ab24743f1cc0cd9da78cbbc961e286ae8ad3dae70aa", size = 20627, upload-time = "2026-02-18T18:10:55.951Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/df/0b/e7fe08cdb1059348c1782901bfbb8fcc32e3d3d3837557a3a0ae9bce71e4/dworshak_secret-1.2.11.tar.gz", hash = "sha256:e65164841b052ba26a301315623faf109f85f2fa2f749930427f50fedac91b79", size = 20733, upload-time = "2026-02-28T17:46:58.801Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4e/3e/12aa1b42baa8554515082cd1791af9a8c85ee12cd06613fc5c1495a4b30f/dworshak_secret-1.2.10-py3-none-any.whl", hash = "sha256:81317a0e5ab3026517e2d6334a47bb786c6a0c6ab964948487181fe602b036f5", size = 22404, upload-time = "2026-02-18T18:10:54.329Z" },
+    { url = "https://files.pythonhosted.org/packages/93/76/bf355b5d7ba547448a1fab7ff64262c41c902c6b8e44cd691ecb7b6bd0a5/dworshak_secret-1.2.11-py3-none-any.whl", hash = "sha256:58e428ddbb69f31acab14c14c85666953b8216f7c7a9f04520cdff167d20d1e6", size = 22497, upload-time = "2026-02-28T17:46:57.244Z" },
 ]
 
 [package.optional-dependencies]

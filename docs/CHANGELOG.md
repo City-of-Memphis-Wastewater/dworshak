@@ -6,10 +6,18 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.12] – 2026-02-28
+### Changed:
+- dworshak-prompt to 0.2.24
+- dworshak-secret to 1.2.11
+- Change build_pyz.yml instances of manage-vault to vault.
+
+---
+
 ## [1.2.11] – 2026-02-28
 ### Changed:
 - Set dworshak-env dep to 0.1.5
-- Set dworshak-prompt to 0.2.24
+- Set dworshak-prompt to 0.2.23
 - Set dworshak-config to 0.2.4
 - Update helptree svg
 

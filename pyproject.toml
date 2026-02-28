@@ -1,7 +1,7 @@
 [project]
 name = "dworshak"
 dynamic = ["version"]
-description = "Manage file-based secure credentials and configuration values cross-platform, including on Termux and iSH, with the dworshak CLI."
+description = "Configuration and credential waterfall with user-in-the-loop prompting and CLI access."
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [

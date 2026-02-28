@@ -53,7 +53,7 @@ jobs:
         run: |
           python dist/zipapp/*.pyz --version
           python dist/zipapp/*.pyz --help
-          python dist/zipapp/*.pyz secret manage-vault health
+          python dist/zipapp/*.pyz secret vault health
 
       - name: Run sanity check (Windows)
         shell: pwsh
@@ -62,7 +62,7 @@ jobs:
           $pyz = Get-ChildItem -Path dist/zipapp -Filter *.pyz | Select-Object -First 1
           python $pyz --version
           python $pyz --help
-          python $pyz secret manage-vault health
+          python $pyz secret vault health
 
       - name: Build wheel + sdist (Linux only)
         if: matrix.os == 'ubuntu-latest'

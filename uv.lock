@@ -266,7 +266,7 @@ requires-dist = [
     { name = "rich", specifier = ">=13.0.0" },
     { name = "shiv", marker = "extra == 'build'", specifier = ">=1.0.0" },
     { name = "typer", specifier = ">=0.21.0" },
-    { name = "typer-helptree", specifier = ">=0.2.6" },
+    { name = "typer-helptree", specifier = "==0.2.6" },
 ]
 provides-extras = ["crypto", "typer", "full", "build"]
 

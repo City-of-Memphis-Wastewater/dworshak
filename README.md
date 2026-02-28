@@ -35,7 +35,7 @@ dworshak helptree
 ```
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_v1.2.11_helptree.svg" width="100%" alt="Screenshot of the Dworshak CLI helptree">
+  <img src="https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_v1.2.12_helptree.svg" width="100%" alt="Screenshot of the Dworshak CLI helptree">
 </p> 
 
 `helptree` is utility funtion for Typer CLIs, imported from the `typer-helptree` library.

@@ -257,7 +257,7 @@ requires-dist = [
     { name = "cryptography", marker = "extra == 'crypto'", specifier = ">=46.0.3" },
     { name = "dworshak", extras = ["crypto"], marker = "extra == 'full'" },
     { name = "dworshak-config", extras = ["typer"], specifier = ">=0.2.3" },
-    { name = "dworshak-env", extras = ["typer"], specifier = ">=0.1.4" },
+    { name = "dworshak-env", extras = ["typer"], specifier = ">=0.1.5" },
     { name = "dworshak-prompt", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
     { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.22" },
     { name = "dworshak-secret", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
@@ -291,11 +291,11 @@ typer = [
 
 [[package]]
 name = "dworshak-env"
-version = "0.1.4"
+version = "0.1.5"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/d9/3f/090cb4acac19c9a19a942b3f9ac132cb2522227ada9f04e63c9129c67959/dworshak_env-0.1.4.tar.gz", hash = "sha256:b676cac841694923235a6fc5729928e9edfdc2e85b3c8cb5200192ec259e005c", size = 9761, upload-time = "2026-02-16T20:17:27.672Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/72/95/ed685dae066cdcfeb7f1b1423ea2452f6f279a758366942f82ce83025033/dworshak_env-0.1.5.tar.gz", hash = "sha256:692397210d4467071d23359f1d9d5fee4769d723e74fd92aaf90f125352165e1", size = 10525, upload-time = "2026-02-28T02:44:16.043Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/12/4a/5d17bea03e0b398f619a67e38c01120fb5fbc34d2a243e081a8d432a7fe5/dworshak_env-0.1.4-py3-none-any.whl", hash = "sha256:4488f6496323dd096dd2139a61dee52f25228b7aa996fa80b63ee1f6769c52bf", size = 9934, upload-time = "2026-02-16T20:17:26.602Z" },
+    { url = "https://files.pythonhosted.org/packages/4c/9a/ee145bcfa27700270489483964bdbe7d4136b3ad43cd14d11a2054321261/dworshak_env-0.1.5-py3-none-any.whl", hash = "sha256:2936bd99d49e58c45ae1da83dbd338d0b48eb29fc24643e896873cc962e3f49b", size = 10736, upload-time = "2026-02-28T02:44:14.868Z" },
 ]
 
 [package.optional-dependencies]

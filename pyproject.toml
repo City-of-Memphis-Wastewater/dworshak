@@ -12,7 +12,7 @@ dependencies = [
     "dworshak-secret[typer]>=1.2.10",
     "dworshak-prompt[typer]>=0.2.22",
     "dworshak-config[typer]>=0.2.3",
-    "dworshak-env[typer]>=0.1.4",
+    "dworshak-env[typer]>=0.1.5",
 ]
 authors = [
   { name="George Clayton Bennett", email="george.bennett@memphistn.gov" },

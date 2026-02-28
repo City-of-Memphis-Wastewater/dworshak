@@ -11,6 +11,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 - dworshak-prompt to 0.2.24
 - dworshak-secret to 1.2.11
 - Change build_pyz.yml instances of manage-vault to vault.
+- Update helptree.
 
 ---
 

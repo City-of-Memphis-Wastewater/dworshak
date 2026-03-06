@@ -10,6 +10,9 @@ The format is (read: strives to be) based on Keep a Changelog.
 ### Fixed:
 - Correct usage of `--emit` flag in bash scripting examples in README.md.
 
+### Changed:
+- Update helptree and readme reference.
+
 ---
 
 ## [1.2.13] – 2026-03-06

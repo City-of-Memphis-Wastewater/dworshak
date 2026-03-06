@@ -13,7 +13,8 @@ The format is (read: strives to be) based on Keep a Changelog.
     - dworshak-env==0.1.6
     - dworshak-secret==1.2.14
     - dworshak-prompt==0.2.25
-    
+- Campaign for stderr and stdout clarity, to benefit variable assignment and piping in the console.
+
 ---
 
 ## [1.2.12] – 2026-02-28

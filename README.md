@@ -94,7 +94,7 @@ set -euo pipefail
 # Prompt human securely
 SQL_PASSWORD=$(dworshak prompt ask \
   --message "Enter Fabric SQL password" \
-  --hide)
+  --hide --emit)
 
 # Push into Azure Key Vault
 az keyvault secret set \
@@ -115,7 +115,7 @@ set -euo pipefail
 # 1. Human-friendly prompt
 DB_PASSWORD=$(dworshak prompt ask \
   --message "Enter production DB password" \
-  --hide)
+  --hide --emit)
 
 # 2. Push into AWS Secrets Manager
 aws secretsmanager put-secret-value \

@@ -7,6 +7,14 @@ The `dworshak` ecosystem is build to be a configuration and credential waterfall
 
 ---
 
+TL;DR: Use `dworshak` to securely store and retrieve secrets, configs, and env values in scripts.
+Supports Termux, Alpine, macOS, Linux, Windows.
+Clean stdout means you can assign variables directly:
+
+`PORT=$(dworshak prompt obtain config myapp port -e)`
+
+---
+
 ### Quick Start
 
 ```bash

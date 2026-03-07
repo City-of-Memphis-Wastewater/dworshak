@@ -17,9 +17,18 @@ jobs:
 
       - uses: astral-sh/setup-uv@v3
 
-      - run: uv sync
+      - run: uv sync --extra crypto
 
-      - run: uv pip install -e ".[crypto]"
+      # 4. Build the wheel
+      - run: uv build
+
+      # 5. Install the wheel globally in the runner environment
+      - run: pip install dist/dworshak-*.whl
+
+      # 6. Verify CLI works
+      - run: dworshak --version
+
+      #- run: uv pip install -e ".[crypto]"
 
       - run: |
           chmod +x scripts/generate_cli_docs.sh

@@ -1,5 +1,18 @@
-# CLI Overview
+# Dworshak CLI
 
-The Dworshak CLI is built with Typer and organized into modular command groups.
+The Dworshak CLI orchestrates credential, configuration, and environment management.
 
-![CLI helptree](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_v1.2.14_helptree.svg)
+## Command Tree
+
+![CLI tree](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_v1.2.14_helptree.svg)
+
+Core command groups:
+
+| Command | Purpose |
+|-------|--------|
+| `secret` | encrypted credential storage |
+| `config` | JSON configuration management |
+| `env` | `.env` style variables |
+| `prompt` | user input interface |
+
+See individual command pages for full help output.

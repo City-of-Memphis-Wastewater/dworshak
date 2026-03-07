@@ -42,7 +42,6 @@ jobs:
 
       # Build documentation
       - run: uv run mkdocs build --strict
-
       # Upload site
       - uses: actions/upload-pages-artifact@v3
         with:

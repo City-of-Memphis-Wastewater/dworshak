@@ -11,6 +11,6 @@
 ## Usage
 ```bash
 dworshak secret vault setup
-dworshak obtain secret maxson-eds api_key
+dworshak prompt obtain secret maxson-eds api_key
 ```
 

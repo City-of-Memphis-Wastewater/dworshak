@@ -24,7 +24,7 @@ dworshak secret set "rjn_api"  "username"
 
 # Alternatively, if you want to have the option to hide/show the secret value without introducing it to console history,
 # use the web or gui input
-dworshak obtain secret "rjn_api" "password" --interface web 
+dworshak prompt obtain secret "rjn_api" "password" --interface web 
 
 ```
 

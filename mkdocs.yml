@@ -11,6 +11,7 @@ theme:
     - navigation.tabs
     - navigation.sections
     - content.code.copy
+    - content.code.annotate
     - search.suggest
     - search.highlight
 
@@ -29,10 +30,6 @@ nav:
       - Vault Architecture: concepts/vault.md
   - Ecosystem:
       - Overview: ecosystem/index.md
-      - dworshak-secret: ecosystem/secret.md
-      - dworshak-config: ecosystem/config.md
-      - dworshak-env: ecosystem/env.md
-      - dworshak-prompt: ecosystem/prompt.md
 
 markdown_extensions:
   - admonition
@@ -42,6 +39,7 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.details
+  - pymdownx.inlinehilite
 
 plugins:
   - search

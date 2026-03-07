@@ -125,6 +125,13 @@ aws secretsmanager put-secret-value \
 echo "Secret stored in AWS Secrets Manager"
 ```
 
+### Recommended aliases:
+
+```zsh
+alias dwobsec='dworshak prompt obtain secret'
+alias dwobcon='dworshak prompt obtain config'
+alias dwobenv='dworshak prompt obtain env'
+```
 ---
 
 ## Typical installation (macOS, Ubuntu, Windows 11, etc)

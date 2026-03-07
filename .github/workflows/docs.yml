@@ -3,10 +3,13 @@ name: Docs
 on:
   push:
     branches: [main]
-
+  release:
+    types: [published]
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -17,7 +20,7 @@ jobs:
 
       - uses: astral-sh/setup-uv@v3
 
-      - run: uv sync --extra crypto
+      - run: uv sync --extra crypto --extra docs
 
       # 4. Build the wheel
       - run: uv build
@@ -35,5 +38,6 @@ jobs:
           ./scripts/generate_cli_docs.sh
 
       - run: pip install mkdocs-material
-
+      - run: uv pip install "mkdocs<2" mkdocs-material
+      
       - run: mkdocs gh-deploy --force

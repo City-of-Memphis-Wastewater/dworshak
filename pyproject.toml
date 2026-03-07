@@ -61,8 +61,15 @@ typer = [] # dummy, empty. typer is required anyways, but this is a placeholder 
 full = [
     "dworshak[crypto]"
 ]
+
 build = [
     "shiv>=1.0.0"
+]
+
+docs = [
+    "mkdocs>=1.5,<2",
+    "mkdocs-material>=9.5",
+    "pymdown-extensions>=10.0",
 ]
 
 [project.urls]

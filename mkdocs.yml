@@ -38,22 +38,6 @@ nav:
       - CLI Policy: CLI_POLICY.md
       - CLI Protocol: cli-protocol.md
 
-ignored_nav:
-  - Home: index.md
-  - Quick Start: quickstart.md
-  - CLI Reference:
-      - Overview: cli/index.md
-      - Setup: cli/setup.md
-      - Secret: cli/secret.md
-      - Config: cli/config.md
-      - Env: cli/env.md
-      - Prompt: cli/prompt.md
-  - Concepts:
-      - Obtain Pattern: concepts/obtain.md
-      - Vault Architecture: concepts/vault.md
-  - Ecosystem:
-      - Overview: ecosystem/index.md
-
 markdown_extensions:
   - admonition
   - toc:

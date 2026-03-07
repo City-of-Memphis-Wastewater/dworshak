@@ -75,6 +75,7 @@ docs = [
 [project.urls]
 Homepage = "https://github.com/city-of-memphis-wastewater/dworshak"
 Repository = "https://github.com/city-of-memphis-wastewater/dworshak"
+Documentation = "https://city-of-memphis-wastewater.github.io/dworshak"
 
 [project.scripts]
 dworshak = "dworshak.cli:app"

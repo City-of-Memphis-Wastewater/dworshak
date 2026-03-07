@@ -161,4 +161,8 @@ pipx install dworshak --system-site-packages
 
 ```
 
+---
 
+## Documentation
+
+[Read the docs](https://city-of-memphis-wastewater.github.io/dworshak)

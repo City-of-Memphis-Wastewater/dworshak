@@ -129,7 +129,7 @@ echo "Secret stored in AWS Secrets Manager"
 
 ```zsh
 alias dwobsec='dworshak prompt obtain secret'
-alias dwobcon='dworshak prompt obtain config'
+alias dwobfig='dworshak prompt obtain config'
 alias dwobenv='dworshak prompt obtain env'
 ```
 ---

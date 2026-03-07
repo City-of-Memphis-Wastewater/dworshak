@@ -74,6 +74,10 @@ def main(ctx: typer.Context,
         typer.echo(__version__)
         raise typer.Exit(code=0)
 
-
+@app.command(hidden=True)
+def setup():
+    """Initialize credential vault (hidden shortcut)."""
+    os.system("dworshak secret vault setup")
+    
 if __name__ == "__main__":
     app()

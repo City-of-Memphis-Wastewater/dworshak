@@ -1,0 +1,52 @@
+site_name: Dworshak
+site_description: Configuration and credential waterfall with user-in-the-loop prompting and CLI access.
+site_url: https://city-of-memphis-wastewater.github.io/dworshak
+repo_url: https://github.com/City-of-Memphis-Wastewater/dworshak
+repo_name: City-of-Memphis-Wastewater/dworshak
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+nav:
+  - Home: index.md
+  - Quick Start: quickstart.md
+  - CLI Reference:
+      - Overview: cli/index.md
+      - Setup: cli/setup.md
+      - Secret: cli/secret.md
+      - Config: cli/config.md
+      - Env: cli/env.md
+      - Prompt: cli/prompt.md
+  - Concepts:
+      - Obtain Pattern: concepts/obtain.md
+      - Vault Architecture: concepts/vault.md
+  - Ecosystem:
+      - Overview: ecosystem/index.md
+      - dworshak-secret: ecosystem/secret.md
+      - dworshak-config: ecosystem/config.md
+      - dworshak-env: ecosystem/env.md
+      - dworshak-prompt: ecosystem/prompt.md
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/City-of-Memphis-Wastewater/dworshak

@@ -14,8 +14,31 @@ theme:
     - content.code.annotate
     - search.suggest
     - search.highlight
-
 nav:
+  - Home: index.md
+  - Quick Start: quickstart.md
+
+  - CLI Reference:
+      - Overview: cli/dworshak.md
+      - Secret: cli/secret.md
+      - Secret Vault: cli/secret_vault.md
+      - Config: cli/config.md
+      - Env: cli/env.md
+      - Prompt: cli/prompt.md
+
+  - Concepts:
+      - Obtain Pattern: concepts/obtain.md
+
+  - Ecosystem:
+      - Overview: ecosystem/index.md
+      - Secret Integration: ecosystem/secret.md
+
+  - Project:
+      - Changelog: CHANGELOG.md
+      - CLI Policy: CLI_POLICY.md
+      - CLI Protocol: cli-protocol.md
+
+ignored_nav:
   - Home: index.md
   - Quick Start: quickstart.md
   - CLI Reference:

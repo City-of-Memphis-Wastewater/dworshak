@@ -1,34 +1,40 @@
 #!/usr/bin/env bash
 set -e
 
-mkdir -p docs/cli
+OUT_DIR="docs/cli"
+mkdir -p "$OUT_DIR"
 
-echo "# dworshak CLI" > docs/cli/dworshak.md
-echo '```' >> docs/cli/dworshak.md
-dworshak --help >> docs/cli/dworshak.md
-echo '```' >> docs/cli/dworshak.md
+# Strip ANSI escape codes for clean Markdown
+strip_ansi() {
+    sed 's/\x1B\[[0-9;]*[JKmsu]//g'
+}
 
-echo "# secret commands" > docs/cli/secret.md
-echo '```' >> docs/cli/secret.md
-dworshak secret --help >> docs/cli/secret.md
-echo '```' >> docs/cli/secret.md
+# Recursive function to generate CLI docs
+generate_command_md() {
+    local cmd_path=$1      # e.g., "dworshak secret vault"
+    local out_file=$2      # output markdown file
+    local title=$3         # heading in the markdown
 
-echo "# secret vault commands" > docs/cli/secret_vault.md
-echo '```' >> docs/cli/secret_vault.md
-dworshak secret vault --help >> docs/cli/secret_vault.md
-echo '```' >> docs/cli/secret_vault.md
+    echo "# $title" > "$out_file"
+    echo '```console' >> "$out_file"
+    $cmd_path --help 2>&1 | strip_ansi >> "$out_file"
+    echo '```' >> "$out_file"
 
-echo "# config commands" > docs/cli/config.md
-echo '```' >> docs/cli/config.md
-dworshak config --help >> docs/cli/config.md
-echo '```' >> docs/cli/config.md
+    # Discover subcommands dynamically
+    local subcommands
+    subcommands=$($cmd_path --help 2>&1 | strip_ansi | awk '/Commands:/{flag=1;next}/Options:/{flag=0}flag {print $1}')
+    
+    for sub in $subcommands; do
+        # Create a filename safe for Markdown
+        local file_name=$(echo "$cmd_path"_"$sub" | tr ' ' '_').md
+        local title_name="$cmd_path $sub"
+        generate_command_md "$cmd_path $sub" "$OUT_DIR/$file_name" "$title_name"
+    done
+}
 
-echo "# env commands" > docs/cli/env.md
-echo '```' >> docs/cli/env.md
-dworshak env --help >> docs/cli/env.md
-echo '```' >> docs/cli/env.md
+# Base CLI
+BASE_CMD="dworshak"
+generate_command_md "$BASE_CMD" "$OUT_DIR/dworshak.md" "$BASE_CMD CLI"
 
-echo "# prompt commands" > docs/cli/prompt.md
-echo '```' >> docs/cli/prompt.md
-dworshak prompt --help >> docs/cli/prompt.md
-echo '```' >> docs/cli/prompt.md
+echo "Recursive CLI docs generated in $OUT_DIR"
+

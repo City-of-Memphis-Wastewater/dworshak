@@ -37,7 +37,4 @@ jobs:
           chmod +x scripts/generate_cli_docs.sh
           ./scripts/generate_cli_docs.sh
 
-      - run: pip install mkdocs-material
-      - run: uv pip install "mkdocs<2" mkdocs-material
-      
       - run: mkdocs gh-deploy --force

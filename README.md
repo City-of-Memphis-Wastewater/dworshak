@@ -153,7 +153,7 @@ pkg install python-cryptography
 pipx install dworshak --system-site-packages
 ```
 
-## iSH Apline installation
+## iSH Alpine installation
 
 ```
 apk add py3-cryptography 

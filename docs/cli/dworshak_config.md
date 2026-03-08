@@ -1,23 +1,20 @@
-# dworshak
+# dworshak config
 
 ```console
                                                                                    
- Usage: dworshak [OPTIONS] COMMAND [ARGS]...                                       
+ Usage: dworshak config [OPTIONS] COMMAND [ARGS]...                                
                                                                                    
- Dworshak CLI - secure credential orchestration.                                   
+ Store and retrieve plaintext two-key configuration values to JSON. (v0.2.5)       
                                                                                    
 ╭─ Options ───────────────────────────────────────────────────────────────────────╮
 │ --version            Show the version.                                          │
 │ --help     -h        Show this message and exit.                                │
 ╰─────────────────────────────────────────────────────────────────────────────────╯
 ╭─ Commands ──────────────────────────────────────────────────────────────────────╮
-│ secret  Store and retrieve plaintext two-key credential values to encrypted     │
-│         database file. (v1.2.15)                                                │
-│ prompt  Multiplexed user input via console, GUI, and web. (v0.2.26)             │
-│ config  Store and retrieve plaintext two-key configuration values to JSON.      │
-│         (v0.2.5)                                                                │
-│ env     Store and retrieve plaintext, single-key configuration values to        │
-│         typical .env file. (v0.1.6)                                             │
+│ get     Get a configuration value (vault-style, two-key).                       │
+│ set     Set a configuration value (vault-style, two-key).                       │
+│ remove  Remove a config value.                                                  │
+│ list    List all stored values in a given config file.                          │
 ╰─────────────────────────────────────────────────────────────────────────────────╯
 
 ```

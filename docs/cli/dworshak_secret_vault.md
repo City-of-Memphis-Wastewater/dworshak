@@ -1,23 +1,21 @@
-# dworshak
+# dworshak secret vault
 
 ```console
                                                                                    
- Usage: dworshak [OPTIONS] COMMAND [ARGS]...                                       
+ Usage: dworshak secret vault [OPTIONS] COMMAND [ARGS]...                          
                                                                                    
- Dworshak CLI - secure credential orchestration.                                   
+ Manage the vault infrastructure and security.                                     
                                                                                    
 ╭─ Options ───────────────────────────────────────────────────────────────────────╮
-│ --version            Show the version.                                          │
-│ --help     -h        Show this message and exit.                                │
+│ --help  -h        Show this message and exit.                                   │
 ╰─────────────────────────────────────────────────────────────────────────────────╯
 ╭─ Commands ──────────────────────────────────────────────────────────────────────╮
-│ secret  Store and retrieve plaintext two-key credential values to encrypted     │
-│         database file. (v1.2.15)                                                │
-│ prompt  Multiplexed user input via console, GUI, and web. (v0.2.26)             │
-│ config  Store and retrieve plaintext two-key configuration values to JSON.      │
-│         (v0.2.5)                                                                │
-│ env     Store and retrieve plaintext, single-key configuration values to        │
-│         typical .env file. (v0.1.6)                                             │
+│ setup       Initialize vault and encryption key.                                │
+│ health      Check vault integrity and permissions.                              │
+│ export      Export the current vault to a JSON file.                            │
+│ import      Import a properly structured JSON file into the Dworshak vault.     │
+│ rotate-key  Rotate the encryption key and re-encrypt all stored secrets.        │
+│ backup      Create a timestamped backup copy of the vault database.             │
 ╰─────────────────────────────────────────────────────────────────────────────────╯
 
 ```

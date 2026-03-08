@@ -1,23 +1,19 @@
-# dworshak
+# dworshak prompt
 
 ```console
                                                                                    
- Usage: dworshak [OPTIONS] COMMAND [ARGS]...                                       
+ Usage: dworshak prompt [OPTIONS] COMMAND [ARGS]...                                
                                                                                    
- Dworshak CLI - secure credential orchestration.                                   
+ Multiplexed user input via console, GUI, and web. (v0.2.26)                       
                                                                                    
 ╭─ Options ───────────────────────────────────────────────────────────────────────╮
 │ --version            Show the version.                                          │
 │ --help     -h        Show this message and exit.                                │
 ╰─────────────────────────────────────────────────────────────────────────────────╯
 ╭─ Commands ──────────────────────────────────────────────────────────────────────╮
-│ secret  Store and retrieve plaintext two-key credential values to encrypted     │
-│         database file. (v1.2.15)                                                │
-│ prompt  Multiplexed user input via console, GUI, and web. (v0.2.26)             │
-│ config  Store and retrieve plaintext two-key configuration values to JSON.      │
-│         (v0.2.5)                                                                │
-│ env     Store and retrieve plaintext, single-key configuration values to        │
-│         typical .env file. (v0.1.6)                                             │
+│ ask     Simply prompt for an input. Do not check storage, nor store the input   │
+│         value.                                                                  │
+│ obtain  If a value cannot be retrieved, it will be prompted for and set.        │
 ╰─────────────────────────────────────────────────────────────────────────────────╯
 
 ```

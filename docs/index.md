@@ -15,4 +15,3 @@ Core command groups:
 | `env` | `.env` style variables |
 | `prompt` | user input interface |
 
-See individual command pages for full help output.

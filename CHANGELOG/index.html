@@ -1,0 +1,4411 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Configuration and credential waterfall with user-in-the-loop prompting and CLI access.">
+      
+      
+      
+        <link rel="canonical" href="https://city-of-memphis-wastewater.github.io/dworshak/CHANGELOG/">
+      
+      
+        <link rel="prev" href="../ecosystem/secret/">
+      
+      
+        <link rel="next" href="../CLI_POLICY/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Changelog - Dworshak</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#changelog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Dworshak" class="md-header__button md-logo" aria-label="Dworshak" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dworshak
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Changelog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/City-of-Memphis-Wastewater/dworshak" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    City-of-Memphis-Wastewater/dworshak
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../quickstart/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cli/dworshak/" class="md-tabs__link">
+          
+  
+  
+  CLI Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../concepts/obtain/" class="md-tabs__link">
+          
+  
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ecosystem/" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Project
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Dworshak" class="md-nav__button md-logo" aria-label="Dworshak" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Dworshak
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/City-of-Memphis-Wastewater/dworshak" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    City-of-Memphis-Wastewater/dworshak
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CLI Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/dworshak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/secret/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secret
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/secret_vault/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secret Vault
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Env
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/obtain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Obtain Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecosystem/secret/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secret Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1216-2026-03-07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.16] – 2026-03-07
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.16] – 2026-03-07">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1215-2026-03-07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.15] – 2026-03-07
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.15] – 2026-03-07">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1214-2026-03-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.14] – 2026-03-06
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.14] – 2026-03-06">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1213-2026-03-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.13] – 2026-03-06
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.13] – 2026-03-06">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1212-2026-02-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.12] – 2026-02-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.12] – 2026-02-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1211-2026-02-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.11] – 2026-02-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.11] – 2026-02-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1210-2026-02-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.10] – 2026-02-26
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.10] – 2026-02-26">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#129-2026-02-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.9] – 2026-02-17
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.9] – 2026-02-17">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#128-2026-02-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.8] – 2026-02-17
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.8] – 2026-02-17">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#127-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.7] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.7] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#126-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.6] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.6] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#124-5-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.4-&gt;5] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.4-&gt;5] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#123-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.3] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.3] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#122-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.2] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.2] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#121-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.1] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.1] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1115-2026-02-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.15] – 2026-02-11
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.15] – 2026-02-11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1114-2026-02-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.14] – 2026-02-11
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.14] – 2026-02-11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1113-2026-02-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.13] – 2026-02-11
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.13] – 2026-02-11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1111-2026-02-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.11] – 2026-02-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.11] – 2026-02-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1110-2026-02-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.10] – 2026-02-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.10] – 2026-02-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#119-2026-02-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.9] – 2026-02-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.9] – 2026-02-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#118-2026-02-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.8] – 2026-02-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.8] – 2026-02-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#117-2026-02-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.7] – 2026-02-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.7] – 2026-02-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#116-2026-02-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.6] – 2026-02-09
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.6] – 2026-02-09">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#115-2026-02-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.5] – 2026-02-09
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.5] – 2026-02-09">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BREAKING CHANGES:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114-2026-01-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.4] – 2026-01-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.4] – 2026-01-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-2026-01-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.3] – 2026-01-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.3] – 2026-01-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-2026-01-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.2] – 2026-01-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.2] – 2026-01-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#111-2026-01-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.1] – 2026-01-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.1] – 2026-01-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0118-2026-01-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.18] – 2026-01-25
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.18] – 2026-01-25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0117-2026-01-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.17] – 2026-01-24
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.17] – 2026-01-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0116-2026-01-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.16] – 2026-01-24
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.16] – 2026-01-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0115-2026-01-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.15] – 2026-01-24
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.15] – 2026-01-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0114-2026-01-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.14] – 2026-01-23
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.14] – 2026-01-23">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0113-2026-01-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.13] – 2026-01-23
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.13] – 2026-01-23">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0112-2026-01-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.12] – 2026-01-22
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.12] – 2026-01-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0111-2026-01-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.11] – 2026-01-22
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.11] – 2026-01-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0110-2026-01-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.10] – 2026-01-20
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.10] – 2026-01-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BREAKING:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#013-2026-01-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.3] – 2026-01-19
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.3] – 2026-01-19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#012-2026-01-08" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.2] – 2026-01-08
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.2] – 2026-01-08">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#011-2026-01-07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.1] - 2026-01-07
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.1] - 2026-01-07">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#010-2026-01-05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.0] - 2026-01-05
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.0] - 2026-01-05">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLI_POLICY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1216-2026-03-07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.16] – 2026-03-07
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.16] – 2026-03-07">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1215-2026-03-07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.15] – 2026-03-07
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.15] – 2026-03-07">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1214-2026-03-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.14] – 2026-03-06
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.14] – 2026-03-06">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1213-2026-03-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.13] – 2026-03-06
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.13] – 2026-03-06">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1212-2026-02-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.12] – 2026-02-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.12] – 2026-02-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1211-2026-02-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.11] – 2026-02-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.11] – 2026-02-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1210-2026-02-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.10] – 2026-02-26
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.10] – 2026-02-26">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#129-2026-02-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.9] – 2026-02-17
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.9] – 2026-02-17">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#128-2026-02-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.8] – 2026-02-17
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.8] – 2026-02-17">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#127-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.7] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.7] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#126-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.6] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.6] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#124-5-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.4-&gt;5] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.4-&gt;5] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#123-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.3] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.3] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#122-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.2] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.2] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#121-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.1] – 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.1] – 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1115-2026-02-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.15] – 2026-02-11
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.15] – 2026-02-11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1114-2026-02-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.14] – 2026-02-11
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.14] – 2026-02-11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1113-2026-02-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.13] – 2026-02-11
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.13] – 2026-02-11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1111-2026-02-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.11] – 2026-02-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.11] – 2026-02-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1110-2026-02-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.10] – 2026-02-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.10] – 2026-02-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#119-2026-02-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.9] – 2026-02-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.9] – 2026-02-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#118-2026-02-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.8] – 2026-02-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.8] – 2026-02-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#117-2026-02-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.7] – 2026-02-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.7] – 2026-02-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#116-2026-02-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.6] – 2026-02-09
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.6] – 2026-02-09">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#115-2026-02-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.5] – 2026-02-09
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.5] – 2026-02-09">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BREAKING CHANGES:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114-2026-01-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.4] – 2026-01-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.4] – 2026-01-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-2026-01-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.3] – 2026-01-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.3] – 2026-01-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-2026-01-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.2] – 2026-01-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.2] – 2026-01-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#111-2026-01-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.1] – 2026-01-28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.1] – 2026-01-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0118-2026-01-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.18] – 2026-01-25
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.18] – 2026-01-25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0117-2026-01-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.17] – 2026-01-24
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.17] – 2026-01-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0116-2026-01-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.16] – 2026-01-24
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.16] – 2026-01-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0115-2026-01-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.15] – 2026-01-24
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.15] – 2026-01-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0114-2026-01-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.14] – 2026-01-23
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.14] – 2026-01-23">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0113-2026-01-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.13] – 2026-01-23
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.13] – 2026-01-23">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0112-2026-01-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.12] – 2026-01-22
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.12] – 2026-01-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0111-2026-01-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.11] – 2026-01-22
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.11] – 2026-01-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0110-2026-01-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.10] – 2026-01-20
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.10] – 2026-01-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BREAKING:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#013-2026-01-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.3] – 2026-01-19
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.3] – 2026-01-19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#012-2026-01-08" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.2] – 2026-01-08
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.2] – 2026-01-08">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#011-2026-01-07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.1] - 2026-01-07
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.1] - 2026-01-07">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#010-2026-01-05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.0] - 2026-01-05
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.0] - 2026-01-05">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<p>All notable changes to this project will be documented in this file.</p>
+<p>The format is (read: strives to be) based on Keep a Changelog.</p>
+<hr />
+<h2 id="1216-2026-03-07">[1.2.16] – 2026-03-07<a class="headerlink" href="#1216-2026-03-07" title="Permanent link">&para;</a></h2>
+<h3 id="changed">Changed:<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update helptree reference in docs/index.md.</li>
+</ul>
+<hr />
+<h2 id="1215-2026-03-07">[1.2.15] – 2026-03-07<a class="headerlink" href="#1215-2026-03-07" title="Permanent link">&para;</a></h2>
+<h3 id="changed_1">Changed:<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>dworshak-prompt to 0.2.26</li>
+<li>dworshak-secret to 1.2.15</li>
+<li>Vault initialization is now automated if missing.</li>
+</ul>
+<hr />
+<h2 id="1214-2026-03-06">[1.2.14] – 2026-03-06<a class="headerlink" href="#1214-2026-03-06" title="Permanent link">&para;</a></h2>
+<h3 id="fixed">Fixed:<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Correct usage of <code>--emit</code> flag in bash scripting examples in README.md.</li>
+</ul>
+<h3 id="changed_2">Changed:<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update helptree and readme reference.</li>
+</ul>
+<hr />
+<h2 id="1213-2026-03-06">[1.2.13] – 2026-03-06<a class="headerlink" href="#1213-2026-03-06" title="Permanent link">&para;</a></h2>
+<h3 id="changed_3">Changed:<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Increase deps to:<ul>
+<li>dworshak-config==0.2.5</li>
+<li>dworshak-env==0.1.6</li>
+<li>dworshak-secret==1.2.14</li>
+<li>dworshak-prompt==0.2.25</li>
+</ul>
+</li>
+<li>Campaign for stderr and stdout clarity, to benefit variable assignment and piping in the console.</li>
+</ul>
+<hr />
+<h2 id="1212-2026-02-28">[1.2.12] – 2026-02-28<a class="headerlink" href="#1212-2026-02-28" title="Permanent link">&para;</a></h2>
+<h3 id="changed_4">Changed:<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>dworshak-prompt to 0.2.24</li>
+<li>dworshak-secret to 1.2.11</li>
+<li>Change build_pyz.yml instances of manage-vault to vault.</li>
+<li>Update helptree and its reference in README.</li>
+</ul>
+<hr />
+<h2 id="1211-2026-02-28">[1.2.11] – 2026-02-28<a class="headerlink" href="#1211-2026-02-28" title="Permanent link">&para;</a></h2>
+<h3 id="changed_5">Changed:<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Set dworshak-env dep to 0.1.5</li>
+<li>Set dworshak-prompt to 0.2.23</li>
+<li>Set dworshak-config to 0.2.4</li>
+<li>Update helptree svg</li>
+</ul>
+<hr />
+<h2 id="1210-2026-02-26">[1.2.10] – 2026-02-26<a class="headerlink" href="#1210-2026-02-26" title="Permanent link">&para;</a></h2>
+<h3 id="changed_6">Changed:<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Set dworshak-secret dep to 1.2.10</li>
+<li>Set dworshak-prompt to 0.2.22</li>
+<li>Set dworshak-config to 0.2.3</li>
+<li>dworshak-config now has list and remove sub commands</li>
+</ul>
+<h3 id="internal">Internal:<a class="headerlink" href="#internal" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Known inconsistencies:<ul>
+<li>dworshak-env does not have list and remove commands</li>
+<li>dworshak-prompt have --verbose and --debug commands but the other sub apps do not.</li>
+<li>dworshak-config has --path flags but inconsistently have -p as an abbreviated version.</li>
+</ul>
+</li>
+<li>We need to collapse down a lot of the redudancy in dworshak-prompt. Are kwargs our friend?</li>
+</ul>
+<hr />
+<h2 id="129-2026-02-17">[1.2.9] – 2026-02-17<a class="headerlink" href="#129-2026-02-17" title="Permanent link">&para;</a></h2>
+<h3 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Improve README.</li>
+<li>Stop including basic --help screenshot. It is a maintenance risk/burden.</li>
+</ul>
+<hr />
+<h2 id="128-2026-02-17">[1.2.8] – 2026-02-17<a class="headerlink" href="#128-2026-02-17" title="Permanent link">&para;</a></h2>
+<h3 id="changed_8">Changed<a class="headerlink" href="#changed_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Set typer-helptree dep to 1.2.6</li>
+<li>Set dworshak-secret dep to 1.2.8</li>
+<li>Set dworshak-prompt to 0.2.20</li>
+</ul>
+<h3 id="added">Added:<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Leveraged new <code>helptree --export-svg --assets</code> which is great (!), to handle screenshots saved to ./assets/. This is way better.</li>
+</ul>
+<hr />
+<h2 id="127-2026-02-13">[1.2.7] – 2026-02-13<a class="headerlink" href="#127-2026-02-13" title="Permanent link">&para;</a></h2>
+<h3 id="added_1">Added:<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dummy 'typer' extra, for ecosystem consistency; i have several time tried edit other lines line 'uv add dwroshak-prompt --extra typer --extra crypto', to apply the same line for dworshak, to save typing, and then get punished with a 'typer extra does not exist'. So now it exists.</li>
+</ul>
+<h3 id="changed_9">Changed:<a class="headerlink" href="#changed_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update ecosystem dependencies for CLI standardization and bug squashing.</li>
+</ul>
+<hr />
+<h2 id="126-2026-02-13">[1.2.6] – 2026-02-13<a class="headerlink" href="#126-2026-02-13" title="Permanent link">&para;</a></h2>
+<h3 id="changed_10">Changed:<a class="headerlink" href="#changed_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Import dworshak-secret cli into cli.py. Remove redundant dead code.</li>
+</ul>
+<h3 id="fixed_1">Fixed:<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>typer-helptree to 0.2.5, to correct sub apps interleaved with commands, alphabetizing but not giving thw obvious recursive levels. </li>
+</ul>
+<h3 id="internal_1">Internal:<a class="headerlink" href="#internal_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Screenshot asset is now firmly out of date.</li>
+</ul>
+<hr />
+<h2 id="124-5-2026-02-13">[1.2.4-&gt;5] – 2026-02-13<a class="headerlink" href="#124-5-2026-02-13" title="Permanent link">&para;</a></h2>
+<h3 id="changed_11">Changed:<a class="headerlink" href="#changed_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Bump to v1.2.5 with nore time to reaolve dworshak-prompt 0.2.18</li>
+</ul>
+<hr />
+<h2 id="123-2026-02-13">[1.2.3] – 2026-02-13<a class="headerlink" href="#123-2026-02-13" title="Permanent link">&para;</a></h2>
+<h3 id="changed_12">Changed:<a class="headerlink" href="#changed_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Increase dworshak_prompt to 0.2.17 and dworshak_config to 0.2.1. ConfigManager - &gt; DworshakConfig</li>
+</ul>
+<hr />
+<h2 id="122-2026-02-13">[1.2.2] – 2026-02-13<a class="headerlink" href="#122-2026-02-13" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_2">Fixed:<a class="headerlink" href="#fixed_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add '--collect-submodules' flags for all libraries in the dworshak suite to build_executable.py</li>
+</ul>
+<hr />
+<h2 id="121-2026-02-13">[1.2.1] – 2026-02-13<a class="headerlink" href="#121-2026-02-13" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_3">Fixed:<a class="headerlink" href="#fixed_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>uv sync with dworshak-prompt 0.2.15 and dworshak-secret 0.2.4, which celebrate the standard dworshak ecosystem extras, typer and crypto.</li>
+</ul>
+<h3 id="added_2">Added:<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>dworshak-env</li>
+</ul>
+<hr />
+<h2 id="1115-2026-02-11">[1.1.15] – 2026-02-11<a class="headerlink" href="#1115-2026-02-11" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_4">Fixed:<a class="headerlink" href="#fixed_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use pyhabitat.get_interp_shebang() with -p flag in shiv call in build_pyz.py.</li>
+</ul>
+<h3 id="changed_13">Changed:<a class="headerlink" href="#changed_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>To update the screenshots, we must first update typer-helptree to see recursively into nested sub apps.</li>
+</ul>
+<hr />
+<h2 id="1114-2026-02-11">[1.1.14] – 2026-02-11<a class="headerlink" href="#1114-2026-02-11" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_5">Fixed:<a class="headerlink" href="#fixed_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Ensure build_executable.yml has uv installed</li>
+<li>Guard against unmatched files during upload with continue on error true.</li>
+</ul>
+<hr />
+<h2 id="1113-2026-02-11">[1.1.13] – 2026-02-11<a class="headerlink" href="#1113-2026-02-11" title="Permanent link">&para;</a></h2>
+<h3 id="changed_14">Changed:<a class="headerlink" href="#changed_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Ensure build group carries shiv for pyz.</li>
+<li>Zip onedir output.</li>
+<li>suppress checksums</li>
+</ul>
+<hr />
+<h2 id="1111-2026-02-10">[1.1.11] – 2026-02-10<a class="headerlink" href="#1111-2026-02-10" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_6">Fixed:<a class="headerlink" href="#fixed_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Correct exe chmoding for onedir and onefile</li>
+<li>Generate checksums for all os matrix. </li>
+<li>Ensure sanity check differentiation for windows.</li>
+</ul>
+<hr />
+<h2 id="1110-2026-02-10">[1.1.10] – 2026-02-10<a class="headerlink" href="#1110-2026-02-10" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_7">Fixed:<a class="headerlink" href="#fixed_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use <code>uv build</code> instead of <code>python -m build</code> in build_pyz.yml</li>
+<li>Remove emojis from build_*.py to allow runner success on windows action.</li>
+<li>chmod 0o755 in pyinstaller script for testing.</li>
+</ul>
+<h3 id="changed_15">Changed:<a class="headerlink" href="#changed_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Let build_pyz.yml generate the tar.gz and .whl files for upload. Use wheel.unlink in build_pyz.py so that those are not uploaded but are destroyed. </li>
+</ul>
+<hr />
+<h2 id="119-2026-02-10">[1.1.9] – 2026-02-10<a class="headerlink" href="#119-2026-02-10" title="Permanent link">&para;</a></h2>
+<h3 id="added_3">Added:<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>pyinstaller build script and runner</li>
+</ul>
+<h3 id="changed_16">Changed:<a class="headerlink" href="#changed_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li>runner build.yml now triggers build_pyz.yml and build_executable.yml</li>
+</ul>
+<h3 id="internal_2">Internal:<a class="headerlink" href="#internal_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Using build_executable.py is untenable on Termux because it cannot reasonably include cryptography from source (due to time to package)</li>
+</ul>
+<hr />
+<h2 id="118-2026-02-10">[1.1.8] – 2026-02-10<a class="headerlink" href="#118-2026-02-10" title="Permanent link">&para;</a></h2>
+<h3 id="internal_3">Internal:<a class="headerlink" href="#internal_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Shiv is succeeding and crypto test is suceeding. </li>
+</ul>
+<h3 id="fixed_8">Fixed:<a class="headerlink" href="#fixed_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Do not unlink the wheel in build_pyz.py, so that it can be checksummed and uploaded to release"          [dev d067d38] shiv is succeeding and crypto test is suceeding. do not unlink the wheel, so that it can be checksummed and uploaded to release.</li>
+</ul>
+<hr />
+<h2 id="117-2026-02-10">[1.1.7] – 2026-02-10<a class="headerlink" href="#117-2026-02-10" title="Permanent link">&para;</a></h2>
+<h3 id="changed_17">Changed:<a class="headerlink" href="#changed_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li>build.yml includes extra optional dep group 'build', for shiv.</li>
+<li>build_pyz.py uses shiv instead of zipapp.</li>
+</ul>
+<h3 id="internal_4">Internal:<a class="headerlink" href="#internal_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>dworshak-secret inspected for PYZ inclusiomln capacity, concerning cryptography eager import.</li>
+</ul>
+<hr />
+<h2 id="116-2026-02-09">[1.1.6] – 2026-02-09<a class="headerlink" href="#116-2026-02-09" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_9">Fixed:<a class="headerlink" href="#fixed_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>build.yml</li>
+</ul>
+<h3 id="internal_5">Internal:<a class="headerlink" href="#internal_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PYZ file needs sys and arch and version info in filename.</li>
+</ul>
+<hr />
+<h2 id="115-2026-02-09">[1.1.5] – 2026-02-09<a class="headerlink" href="#115-2026-02-09" title="Permanent link">&para;</a></h2>
+<h3 id="breaking-changes">BREAKING CHANGES:<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Flat app structure converted to nested app structure, with sub apps: secret, vault, config, and prompt.</li>
+<li>Now dworshak exposes dworshak-secret and dworshak-prompt.</li>
+<li>Soon dworshak will also expose dworshak-config.</li>
+<li>dworshak-secret is the new name of the dworshak-acces package, for clarity</li>
+</ul>
+<hr />
+<h2 id="114-2026-01-28">[1.1.4] – 2026-01-28<a class="headerlink" href="#114-2026-01-28" title="Permanent link">&para;</a></h2>
+<h3 id="changed_18">Changed:<a class="headerlink" href="#changed_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update pyproject.toml description to not use bold markers (asterisk).</li>
+</ul>
+<hr />
+<h2 id="113-2026-01-28">[1.1.3] – 2026-01-28<a class="headerlink" href="#113-2026-01-28" title="Permanent link">&para;</a></h2>
+<h3 id="changed_19">Changed:<a class="headerlink" href="#changed_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update screenshots in README</li>
+<li>Update README installation guide and helptree call</li>
+</ul>
+<hr />
+<h2 id="112-2026-01-28">[1.1.2] – 2026-01-28<a class="headerlink" href="#112-2026-01-28" title="Permanent link">&para;</a></h2>
+<h3 id="changed_20">Changed:<a class="headerlink" href="#changed_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add abbreviated flags for item and service name, -i and -s, in get and store commands.</li>
+<li>Add "--value-only" flag to get command, for easier var assignment in the command line.</li>
+<li>Add <strong>main</strong> file to enable python -m dworshak</li>
+<li>Increase typer-helptree dependency to v0.1.10, with form add_typer_helptree(app, console, version = <strong>version</strong>, hidden=True)</li>
+</ul>
+<h3 id="internal_6">Internal:<a class="headerlink" href="#internal_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Favor flags instad of positionals, for service and item values, for get and store commands. Explicit is better than implicit, and credential management does not need to be particularly fast. Short flags -s and -i help with speed.</li>
+</ul>
+<hr />
+<h2 id="111-2026-01-28">[1.1.1] – 2026-01-28<a class="headerlink" href="#111-2026-01-28" title="Permanent link">&para;</a></h2>
+<h3 id="changed_21">Changed:<a class="headerlink" href="#changed_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Bump dworshak-access to 1.1.1.</li>
+<li>Magenta text in list command for Item column has been changed to green text, for visibility against PowerShell blue on a Windows 10 system.</li>
+</ul>
+<hr />
+<h2 id="0118-2026-01-25">[0.1.18] – 2026-01-25<a class="headerlink" href="#0118-2026-01-25" title="Permanent link">&para;</a></h2>
+<h3 id="changed_22">Changed:<a class="headerlink" href="#changed_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Bump dworshak-access to 0.1.29.</li>
+</ul>
+<h3 id="internal_7">Internal:<a class="headerlink" href="#internal_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Do not state the version number of dworshak-access in the optional dependency 'crypto' section. This is a maintenance risk to keep up with the number in two places. </li>
+</ul>
+<hr />
+<h2 id="0117-2026-01-24">[0.1.17] – 2026-01-24<a class="headerlink" href="#0117-2026-01-24" title="Permanent link">&para;</a></h2>
+<h3 id="changed_23">Changed:<a class="headerlink" href="#changed_23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>No longer does installation include crytography. User must explicity include it as an extra, [crypto].</li>
+<li>Readme reflects new installation methods</li>
+</ul>
+<h3 id="fixed_10">Fixed:<a class="headerlink" href="#fixed_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>bumped dworshak-access version to 0.1.28, which now is 3.9 safe by using datetime.timezone.utc instead of datetime.UTC.</li>
+</ul>
+<hr />
+<h2 id="0116-2026-01-24">[0.1.16] – 2026-01-24<a class="headerlink" href="#0116-2026-01-24" title="Permanent link">&para;</a></h2>
+<h3 id="changed_24">Changed:<a class="headerlink" href="#changed_24" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Claimed compatibility with Python 3.9</li>
+</ul>
+<h3 id="added_4">Added:<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>backup command</li>
+<li>rotate-key command</li>
+</ul>
+<hr />
+<h2 id="0115-2026-01-24">[0.1.15] – 2026-01-24<a class="headerlink" href="#0115-2026-01-24" title="Permanent link">&para;</a></h2>
+<h3 id="changed_25">Changed:<a class="headerlink" href="#changed_25" title="Permanent link">&para;</a></h3>
+<ul>
+<li>dwroshak-access bumped to 0.1.23</li>
+</ul>
+<h3 id="added_5">Added:<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>import and export functions</li>
+</ul>
+<hr />
+<h2 id="0114-2026-01-23">[0.1.14] – 2026-01-23<a class="headerlink" href="#0114-2026-01-23" title="Permanent link">&para;</a></h2>
+<h3 id="changed_26">Changed:<a class="headerlink" href="#changed_26" title="Permanent link">&para;</a></h3>
+<ul>
+<li>dwroshak-access bumped to 0.1.21</li>
+</ul>
+<hr />
+<h2 id="0113-2026-01-23">[0.1.13] – 2026-01-23<a class="headerlink" href="#0113-2026-01-23" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_11">Fixed:<a class="headerlink" href="#fixed_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Versioning is now handled by editing src/dworshak/VERSION</li>
+</ul>
+<hr />
+<h2 id="0112-2026-01-22">[0.1.12] – 2026-01-22<a class="headerlink" href="#0112-2026-01-22" title="Permanent link">&para;</a></h2>
+<h3 id="internal_8">Internal:<a class="headerlink" href="#internal_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Guard against edge cases like missing or malformed DB .</li>
+<li>Version the DB schema so that i can be checked for compatibility.</li>
+<li>Improve PYZ file naming to reflect the system, like pdflinkcheck, and not like pyhabitat.</li>
+</ul>
+<hr />
+<h2 id="0111-2026-01-22">[0.1.11] – 2026-01-22<a class="headerlink" href="#0111-2026-01-22" title="Permanent link">&para;</a></h2>
+<h3 id="added_6">Added:<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>build_pyz.py</li>
+<li>pyhabitat as a dependency</li>
+<li>typer-helptree as a dependency</li>
+<li>.github/workflows/build.yml</li>
+</ul>
+<h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>dev.py (which used to have the typer help tree)</li>
+</ul>
+<hr />
+<h2 id="0110-2026-01-20">[0.1.10] – 2026-01-20<a class="headerlink" href="#0110-2026-01-20" title="Permanent link">&para;</a></h2>
+<h3 id="added_7">Added:<a class="headerlink" href="#added_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>help-tree</code></li>
+<li><code>--version</code></li>
+</ul>
+<h3 id="breaking">BREAKING:<a class="headerlink" href="#breaking" title="Permanent link">&para;</a></h3>
+<ul>
+<li>CLI commands changed for ergonomics and length:<ul>
+<li>retrieve -&gt; get</li>
+<li>register -&gt; store</li>
+</ul>
+</li>
+</ul>
+<h3 id="fixed_12">Fixed:<a class="headerlink" href="#fixed_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>username and password are out, secret is in</li>
+</ul>
+<hr />
+<h2 id="013-2026-01-19">[0.1.3] – 2026-01-19<a class="headerlink" href="#013-2026-01-19" title="Permanent link">&para;</a></h2>
+<h3 id="changed_27">Changed:<a class="headerlink" href="#changed_27" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Now dworshak is just a CLI around dworshak-access.</li>
+</ul>
+<hr />
+<h2 id="012-2026-01-08">[0.1.2] – 2026-01-08<a class="headerlink" href="#012-2026-01-08" title="Permanent link">&para;</a></h2>
+<h3 id="added_8">Added:<a class="headerlink" href="#added_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>.github/workflows/ci.yml and .github/workflows/publish.yml. Now pushing to PyPI.</li>
+</ul>
+<hr />
+<h2 id="011-2026-01-07">[0.1.1] - 2026-01-07<a class="headerlink" href="#011-2026-01-07" title="Permanent link">&para;</a></h2>
+<h3 id="changed_28">Changed:<a class="headerlink" href="#changed_28" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Remove uv-generated <strong>main.py</strong> file in root</li>
+</ul>
+<hr />
+<h2 id="010-2026-01-05">[0.1.0] - 2026-01-05<a class="headerlink" href="#010-2026-01-05" title="Permanent link">&para;</a></h2>
+<h3 id="added_9">Added<a class="headerlink" href="#added_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Initial project structure for <code>dworshak</code>.</li>
+<li><code>cli.py</code> with Typer support for <code>setup</code>, <code>register</code>, and <code>list-services</code>.</li>
+<li>Secure SQLite vault logic using Fernet encryption.</li>
+<li>Multi-platform support for <code>.key</code> storage in <code>~/.dworshak</code>.</li>
+</ul>
+<h3 id="fixed_13">Fixed<a class="headerlink" href="#fixed_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Credential storage risk by migrating from plaintext <code>.env</code> to encrypted SQL blobs.</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/City-of-Memphis-Wastewater/dworshak" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

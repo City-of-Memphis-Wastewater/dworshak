@@ -18,9 +18,6 @@ nav:
   - Home: index.md
   - Quick Start: quickstart.md
 
-  - CLI Reference:
-      - Overview: cli/help.txt
-
   - Concepts:
       - Obtain Pattern: concepts/obtain.md
 

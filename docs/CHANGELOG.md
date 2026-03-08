@@ -8,7 +8,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ## [1.2.16] – 2026-03-07
 ### Changed:
-- Update helptree reference in docs/index.md
+- Update helptree reference in docs/index.md.
 
 ---
 

@@ -1,0 +1,19 @@
+[1m                                                                                   [0m
+[1m [0m[1;33mUsage: [0m[1mdworshak [OPTIONS] COMMAND [ARGS]...[0m[1m                                      [0m[1m [0m
+[1m                                                                                   [0m
+ Dworshak CLI - secure credential orchestration.                                   
+                                                                                   
+[2m╭─[0m[2m Options [0m[2m──────────────────────────────────────────────────────────────────────[0m[2m─╮[0m
+[2m│[0m [1;36m-[0m[1;36m-version[0m            Show the version.                                          [2m│[0m
+[2m│[0m [1;36m-[0m[1;36m-help[0m     [1;32m-h[0m        Show this message and exit.                                [2m│[0m
+[2m╰─────────────────────────────────────────────────────────────────────────────────╯[0m
+[2m╭─[0m[2m Commands [0m[2m─────────────────────────────────────────────────────────────────────[0m[2m─╮[0m
+[2m│[0m [1;36msecret[0m[1;36m [0m Store and retrieve plaintext two-key credential values to encrypted     [2m│[0m
+[2m│[0m [1;36m       [0m database file. (v1.2.15)                                                [2m│[0m
+[2m│[0m [1;36mprompt[0m[1;36m [0m Multiplexed user input via console, GUI, and web. (v0.2.26)             [2m│[0m
+[2m│[0m [1;36mconfig[0m[1;36m [0m Store and retrieve plaintext two-key configuration values to JSON.      [2m│[0m
+[2m│[0m [1;36m       [0m (v0.2.5)                                                                [2m│[0m
+[2m│[0m [1;36menv   [0m[1;36m [0m Store and retrieve plaintext, single-key configuration values to        [2m│[0m
+[2m│[0m [1;36m       [0m typical .env file. (v0.1.6)                                             [2m│[0m
+[2m╰─────────────────────────────────────────────────────────────────────────────────╯[0m
+

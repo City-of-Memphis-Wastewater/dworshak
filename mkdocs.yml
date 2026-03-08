@@ -19,12 +19,7 @@ nav:
   - Quick Start: quickstart.md
 
   - CLI Reference:
-      - Overview: cli/dworshak.md
-      - Secret: cli/secret.md
-      - Secret Vault: cli/secret_vault.md
-      - Config: cli/config.md
-      - Env: cli/env.md
-      - Prompt: cli/prompt.md
+      - Overview: cli/help.txt
 
   - Concepts:
       - Obtain Pattern: concepts/obtain.md

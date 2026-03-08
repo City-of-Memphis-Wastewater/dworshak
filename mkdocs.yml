@@ -27,7 +27,6 @@ nav:
 
   - Project:
       - Changelog: CHANGELOG.md
-      - CLI Policy: CLI_POLICY.md
       - CLI Protocol: cli-protocol.md
 
 markdown_extensions:

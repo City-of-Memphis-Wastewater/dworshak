@@ -39,6 +39,8 @@ jobs:
       - run: |
           chmod +x scripts/generate_cli_docs.sh
           ./scripts/generate_cli_docs.sh
+          chmod +x scripts/update_index_version.sh
+          ./scripts/update_index_version.sh
 
       # Build documentation
       - run: uv run mkdocs build --strict

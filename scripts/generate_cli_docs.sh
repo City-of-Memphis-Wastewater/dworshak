@@ -6,7 +6,7 @@ mkdir -p "$OUT_DIR"
 
 # Strip ANSI escape codes for clean Markdown
 strip_ansi() {
-    sed 's/\x1B\[[0-9;]*[JKmsu]//g'
+    sed 's/\x1B\[[0-9;]*[mK]//g'
 }
 
 # Recursive function to generate CLI docs

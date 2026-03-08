@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is (read: strives to be) based on Keep a Changelog.
 
 ---
+
+## [1.2.15] – 2026-03-07
+### Changed:
+- dworshak-prompt to 0.2.26
+- dworshak-secret to 1.2.15
+- Vault initialization is now automated if missing.
+
+---
  
 ## [1.2.14] – 2026-03-06
 ### Fixed:

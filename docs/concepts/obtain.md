@@ -144,7 +144,9 @@ but never the web interface.
 
 ---
 
-## Arguments the Obtain functions
+## Arguments in the Obtain Functions
+
+These arguments are used in Obtain().config(), Obtain().env(), and Obtain().secret()
 
 - service: str
 - item: str

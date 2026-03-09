@@ -9,11 +9,11 @@ dworshak-prompt.Obtain is a unified mechanism to retrieve configuration, secrets
 
 1. Check existing storage first
 
-Secrets → dworshak-secret vault
+- Secrets → dworshak-secret vault
 
-Configurations → dworshak-config JSON files
+- Configurations → dworshak-config JSON files
 
-Environment variables → .env files via dworshak-env
+- Environment variables → .env files via dworshak-env
 
 
 
@@ -21,26 +21,21 @@ Environment variables → .env files via dworshak-env
 
 If the requested value is missing or overwrite=True, Obtain will ask the user for input.
 
-Input is collected using a priority-aware interface sequence:
-
-1. Console (terminal)
-
-
-2. GUI (Tkinter)
-
-
-3. Web (local browser server)
-
-
-
-Incompatible modes are automatically skipped. CI environments or non-interactive shells can return defaults immediately.
-
+Input is collected using a priority-aware default interface sequence.
 
 
 3. Automatic persistence
 
 Unless forget=True, any new or updated value is saved back to the original storage (vault, config, or env file).
 
+
+### Automatic Fallback (Default Behavior)
+
+If no interface is specified, dworshak-prompt will try:
+
+Console → GUI → Web
+
+Unavailable interfaces are skipped automatically.
 
 
 ---
@@ -64,7 +59,6 @@ ObtainResult contains:
 - status_message: str — human-readable status
 
 
-
 ---
 
 ## Using Obtain in Python
@@ -85,8 +79,67 @@ config_val = obtain.config("my_service", "timeout", suggestion="30")
 env_val = obtain.env("DATABASE_URL")
 ```
 
-This automatically selects the correct backend and triggers the interactive prompt only when necessary.
+### Using Obtain with Interface Control
 
+```
+from dworshak_prompt import obtain, PromptMode
+
+result = obtain.secret(
+    "github",
+    "token",
+    message="Enter your GitHub API token",
+    priority_interface=PromptMode.CONSOLE
+)
+
+if result:
+    print(result.status_message)
+    token = result.value
+else:
+    print("User cancelled.")
+```
+
+
+### Interface Selection
+
+The prompting interface can be controlled with PromptMode.
+
+| Mode	| Behavior |
+| ------ | ------- |
+| PromptMode.CONSOLE	| Force terminal input |
+| PromptMode.GUI	| Use a Tkinter dialog |
+| PromptMode.WEB	| Launch a local browser prompt |
+| None	| Automatic fallback |
+
+
+### Example forcing a GUI dialog:
+
+```python
+from dworshak_prompt import obtain, PromptMode
+
+result = obtain.config(
+    "web_service",
+    "timeout",
+    suggestion="30",
+    priority_interface=PromptMode.GUI
+)
+```
+
+### Avoiding an Interface
+
+You can also skip specific interfaces:
+
+```python
+result = obtain.env(
+    "DATABASE_URL",
+    avoid_interface=PromptMode.WEB
+)
+```
+
+This will try:
+
+Console → GUI
+
+but never the web interface.
 
 ---
 

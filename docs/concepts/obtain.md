@@ -1,6 +1,6 @@
 # Obtain: Smart Retrieval with Interactive Fallback
 
-dworshak-prompt.Obtain is a unified mechanism to retrieve configuration, secrets, or environment values. Its purpose is to make workflows reliable, consistent, and CI-safe while reducing repetitive manual input.
+`dworshak-prompt.Obtain` is a unified mechanism to retrieve configuration, secrets, or environment values. Its purpose is to make workflows reliable, consistent, and CI-safe while reducing repetitive manual input.
 
 
 ---
@@ -161,6 +161,24 @@ ObtainResult contains:
 - is_new: Optional[bool] — True if stored just now, False if already known, None if user cancelled
 
 - status_message: str — human-readable status
+
+---
+
+## CLI Usage
+
+Beyond Python scripting, the obtain pattern can be deveraged in the console for managing individual secrets and configuration values.
+There is hygenic separation between stderr and stdout for console printing, such that values can be piped or captured and leveraged for bash scripting, etc.
+
+```zsh
+VAL=(dworshak prompt obtain secret "aws" "password" --emit)
+```
+
+By default, when a prompt is wrapped, it will be the process as non-interactive and fallback to using Web or GUI input.
+A developer can choose to use console input via /dev/tty if they set the DWORSHAK_FORCE_INTERACTIVE_TTY to 1.
+
+```zsh
+export DWORSHAK_FORCE_INTERACTIVE_TTY=1
+```
 
 ---
 

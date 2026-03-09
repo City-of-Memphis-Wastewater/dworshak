@@ -6,6 +6,19 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.17] – 2026-03-09
+### Changed:
+- Increase dworshak-prompt to 0.2.28
+    - drop dworshak_obtain wrapper function and StoreMode class.
+    - Implement DWORSHAK_FORCE_INTERACTIVE_TTY to allow console interaction for bash scripting with env var assignment and piping.
+
+### Added:
+- docs.yml
+- mkdocs.yml
+- https://city-of-memphis-wastewater.github.io/dworshak
+
+---
+
 ## [1.2.16] – 2026-03-07
 ### Changed:
 - Update helptree reference in docs/index.md.

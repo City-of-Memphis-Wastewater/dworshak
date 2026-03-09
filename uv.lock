@@ -401,7 +401,7 @@ requires-dist = [
     { name = "dworshak-config", extras = ["typer"], specifier = ">=0.2.5" },
     { name = "dworshak-env", extras = ["typer"], specifier = ">=0.1.6" },
     { name = "dworshak-prompt", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
-    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.26" },
+    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.28" },
     { name = "dworshak-secret", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
     { name = "dworshak-secret", extras = ["typer"], specifier = ">=1.2.15" },
     { name = "mkdocs", marker = "extra == 'docs'", specifier = ">=1.5,<2" },
@@ -452,7 +452,7 @@ typer = [
 
 [[package]]
 name = "dworshak-prompt"
-version = "0.2.26"
+version = "0.2.28"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dworshak-config" },
@@ -461,9 +461,9 @@ dependencies = [
     { name = "memphisdrip" },
     { name = "pyhabitat" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f7/eb/ce76dcd10ab2db3cafc08419efdf4fa79e867191ce3d2ba72cfb84b1600b/dworshak_prompt-0.2.26.tar.gz", hash = "sha256:60bbcf2da862d27b5df1ccb3cd67e8734d5617975fdceba3c04e6ce17de196f1", size = 28678, upload-time = "2026-03-08T02:32:03.884Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/56/38/83bb38edf2dcc2a004314e62f7de20a29f71c6d816fbf0213b93f91052c6/dworshak_prompt-0.2.28.tar.gz", hash = "sha256:4811776fb4535ac5db10c0a19dcd3a508d9f290fcfa46d2ff66a102eabc0132f", size = 30316, upload-time = "2026-03-09T20:59:44.906Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6e/17/61a37fea685074aa20d9cde4f85e1bc7f7f746e3092f43282fbc4b6812c2/dworshak_prompt-0.2.26-py3-none-any.whl", hash = "sha256:f854c0f8dc119676de7334f41d511231a3c0fb5700de4ae0e43bf4e3f96b6abb", size = 33343, upload-time = "2026-03-08T02:32:02.823Z" },
+    { url = "https://files.pythonhosted.org/packages/dc/98/aa4b5c3bdb48e9f06ab15ac31de9ceee4b0f1a162b777fee7b0f818a8826/dworshak_prompt-0.2.28-py3-none-any.whl", hash = "sha256:0cf7eba838d1701c6bb86cba95507812462349f9e42f77bd959d389732c81a8e", size = 34953, upload-time = "2026-03-09T20:59:43.653Z" },
 ]
 
 [package.optional-dependencies]

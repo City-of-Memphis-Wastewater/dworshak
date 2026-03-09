@@ -47,12 +47,12 @@ Unless forget=True, any new or updated value is saved back to the original stora
 
 ## Data Structures
 
-Class	Purpose
-
-ObtainResult	Generic wrapper for a retrieved value
-SecretData	Overrides status_message for secrets
-ConfigData	Alias for ObtainResult for config values
-EnvData	Alias for ObtainResult for environment variables
+| Class	| Purpose |
+| ------ | --------|
+| ObtainResult | Generic wrapper for a retrieved value |
+| SecretData | Overrides status_message for secrets |
+| ConfigData | Alias for ObtainResult for config values |
+| EnvData | Alias for ObtainResult for environment variables |
 
 
 ObtainResult contains:

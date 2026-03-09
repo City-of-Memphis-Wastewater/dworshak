@@ -146,13 +146,13 @@ but never the web interface.
 
 ## Arguments in the Obtain Functions
 
-These arguments are used in Obtain().config(), Obtain().env(), and Obtain().secret()
+These arguments are used in Obtain().config(), Obtain().env(), and Obtain().secret() functions.
 
 - service: str
 - item: str
 - message: str | None = None
 - suggestion: str | None = None
-- default: Any | None = None
+- default: str | None = None
 - priority_interface: list[PromptMode] | None = None
 - avoid_interface: set[PromptMode] | None = None
 - path: str | Path | None = None

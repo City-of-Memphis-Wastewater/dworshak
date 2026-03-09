@@ -146,16 +146,16 @@ but never the web interface.
 
 ## Arguments the Obtain functions
 
-- service: str,
-- item: str,
-- message: str | None = None,
-- suggestion: str | None = None,
-- default: Any | None = None,
-- priority_interface: list[PromptMode] | None = None,
-- avoid_interface: set[PromptMode] | None = None,
-- path: str | Path | None = None,
-- overwrite: bool = False,
-- forget: bool = False,
+- service: str
+- item: str
+- message: str | None = None
+- suggestion: str | None = None
+- default: Any | None = None
+- priority_interface: list[PromptMode] | None = None
+- avoid_interface: set[PromptMode] | None = None
+- path: str | Path | None = None
+- overwrite: bool = False
+- forget: bool = False
 
 ---
 

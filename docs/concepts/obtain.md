@@ -88,7 +88,8 @@ result = obtain.secret(
     "github",
     "token",
     message="Enter your GitHub API token",
-    priority_interface=PromptMode.CONSOLE
+    priority_interface=[PromptMode.GUI,PromptMode.CONSOLE],
+    avoid_interface={PromptMode.WEB}
 )
 
 if result:
@@ -120,7 +121,7 @@ result = obtain.config(
     "web_service",
     "timeout",
     suggestion="30",
-    priority_interface=PromptMode.GUI
+    priority_interface=[PromptMode.GUI]
 )
 ```
 
@@ -131,7 +132,7 @@ You can also skip specific interfaces:
 ```python
 result = obtain.env(
     "DATABASE_URL",
-    avoid_interface=PromptMode.WEB
+    avoid_interface={PromptMode.WEB}
 )
 ```
 

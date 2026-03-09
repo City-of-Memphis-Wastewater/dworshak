@@ -143,6 +143,21 @@ but never the web interface.
 
 ---
 
+## Arguments the Obtain functions
+
+- service: str,
+- item: str,
+- message: str | None = None,
+- suggestion: str | None = None,
+- default: Any | None = None,
+- priority_interface: str | PromptMode | None = None,
+- avoid_interface: str | PromptMode | None = None,
+- path: str | Path | None = None,
+- overwrite: bool = False,
+- forget: bool = False,
+
+---
+
 ## Key Features
 
 - Storage-aware first: never prompts unnecessarily

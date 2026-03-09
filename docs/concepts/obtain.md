@@ -171,5 +171,5 @@ These arguments are used in Obtain().config(), Obtain().env(), and Obtain().secr
 
 - Persistent by default: stores new values automatically
 
-Flexible: supports secrets, config files, and environment variables
+- Flexible: supports secrets, config files, and environment variables
 

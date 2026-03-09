@@ -85,25 +85,6 @@ config_val = obtain.config("my_service", "timeout", suggestion="30")
 env_val = obtain.env("DATABASE_URL")
 ```
 
----
-
-## One-Liner Functional API
-
-dworshak_obtain provides a concise functional interface:
-
-```python
-from dworshak_prompt.obtain import dworshak_obtain, StoreMode
-
-# Secret
-api_key = dworshak_obtain("my_service", "api_key", store=StoreMode.SECRET)
-
-# Config
-timeout = dworshak_obtain("my_service", "timeout", store=StoreMode.CONFIG)
-
-# Environment
-db_url = dworshak_obtain("DATABASE_URL", store=StoreMode.ENV)
-```
-
 This automatically selects the correct backend and triggers the interactive prompt only when necessary.
 
 

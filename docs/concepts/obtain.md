@@ -40,27 +40,6 @@ Unavailable interfaces are skipped automatically.
 
 ---
 
-## Data Structures
-
-| Class	| Purpose |
-| ------ | --------|
-| ObtainResult | Generic wrapper for a retrieved value |
-| SecretData | Overrides status_message for secrets |
-| ConfigData | Alias for ObtainResult for config values |
-| EnvData | Alias for ObtainResult for environment variables |
-
-
-ObtainResult contains:
-
-- value: Optional[str] — the retrieved value
-
-- is_new: Optional[bool] — True if stored just now, False if already known, None if user cancelled
-
-- status_message: str — human-readable status
-
-
----
-
 ## Using Obtain in Python
 
 ```python
@@ -158,6 +137,30 @@ These arguments are used in Obtain().config(), Obtain().env(), and Obtain().secr
 - path: str | Path | None = None
 - overwrite: bool = False
 - forget: bool = False
+
+---
+
+## Data Structures
+
+Under the hood, ObtainResult data structures are returned by the functions in the Obtain class. 
+The functions in question are: config(), env(), and secret().
+
+
+| Class	| Purpose |
+| ------ | --------|
+| ObtainResult | Generic wrapper for a retrieved value |
+| SecretData | Overrides status_message for secrets |
+| ConfigData | Alias for ObtainResult for config values |
+| EnvData | Alias for ObtainResult for environment variables |
+
+
+ObtainResult contains:
+
+- value: Optional[str] — the retrieved value
+
+- is_new: Optional[bool] — True if stored just now, False if already known, None if user cancelled
+
+- status_message: str — human-readable status
 
 ---
 

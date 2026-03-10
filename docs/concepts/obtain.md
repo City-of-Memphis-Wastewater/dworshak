@@ -173,7 +173,7 @@ There is hygenic separation between stderr and stdout for console printing, such
 VAL=(dworshak prompt obtain secret "aws" "password" --emit)
 ```
 
-By default, when a prompt is wrapped, it will be the process as non-interactive and fallback to using Web or GUI input.
+By default, when a prompt is wrapped, it will see the process as non-interactive and fallback to using Web or GUI input.
 A developer can choose to use console input via /dev/tty if they set the DWORSHAK_FORCE_INTERACTIVE_TTY to 1.
 
 ```zsh

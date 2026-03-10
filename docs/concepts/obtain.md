@@ -49,13 +49,13 @@ from dworshak_prompt import Obtain
 obtain = Obtain()
 
 # Retrieve a secret (check vault first, prompt if missing)
-secret_val = obtain.secret("my_service", "api_key")
+secret_val = obtain.secret("my_service", "api_key").value
 
 # Retrieve a config value (check file first, prompt if missing)
-config_val = obtain.config("my_service", "timeout", suggestion="30")
+config_val = obtain.config("my_service", "timeout", suggestion="30").value
 
 # Retrieve an environment value (check .env first, prompt if missing)
-env_val = obtain.env("DATABASE_URL")
+env_val = obtain.env("DATABASE_URL").value
 ```
 
 ### Using Obtain with Interface Control

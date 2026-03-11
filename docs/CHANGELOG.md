@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.18] – 2026-03-?
+### Changed:
+- Wild decision: Expose DworshakConfig, DworshakEnv, DworshakSecret, Obtain, and PromptMode in dworshak/src/dworshak/__init__.py
+
+---
+
 ## [1.2.17] – 2026-03-09
 ### Changed:
 - Increase dworshak-prompt to 0.2.28

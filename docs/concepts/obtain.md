@@ -67,8 +67,8 @@ result = obtain.secret(
     "github",
     "token",
     message="Enter your GitHub API token",
-    priority_interface=[PromptMode.GUI,PromptMode.CONSOLE],
-    avoid_interface={PromptMode.WEB}
+    interface_avoid=[PromptMode.GUI,PromptMode.CONSOLE],
+    interface_avoid={PromptMode.WEB}
 )
 
 if result:
@@ -100,7 +100,7 @@ result = obtain.config(
     "web_service",
     "timeout",
     suggestion="30",
-    priority_interface=[PromptMode.GUI]
+    interface_avoid=[PromptMode.GUI]
 )
 ```
 
@@ -111,7 +111,7 @@ You can also skip specific interfaces:
 ```python
 result = obtain.env(
     "DATABASE_URL",
-    avoid_interface={PromptMode.WEB}
+    interface_avoid={PromptMode.WEB}
 )
 ```
 
@@ -132,8 +132,8 @@ These arguments are used in Obtain().config(), Obtain().env(), and Obtain().secr
 - message: str | None = None
 - suggestion: str | None = None
 - default: str | None = None
-- priority_interface: list[PromptMode] | None = None
-- avoid_interface: set[PromptMode] | None = None
+- interface_avoid: list[PromptMode] | None = None
+- interface_avoid: set[PromptMode] | None = None
 - path: str | Path | None = None
 - overwrite: bool = False
 - forget: bool = False

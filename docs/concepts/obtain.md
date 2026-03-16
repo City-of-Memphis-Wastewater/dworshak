@@ -67,7 +67,7 @@ result = obtain.secret(
     "github",
     "token",
     message="Enter your GitHub API token",
-    interface_avoid=[PromptMode.GUI,PromptMode.CONSOLE],
+    interface_priority=[PromptMode.GUI,PromptMode.CONSOLE],
     interface_avoid={PromptMode.WEB}
 )
 
@@ -100,7 +100,7 @@ result = obtain.config(
     "web_service",
     "timeout",
     suggestion="30",
-    interface_avoid=[PromptMode.GUI]
+    interface_priority=[PromptMode.GUI]
 )
 ```
 
@@ -132,7 +132,7 @@ These arguments are used in Obtain().config(), Obtain().env(), and Obtain().secr
 - message: str | None = None
 - suggestion: str | None = None
 - default: str | None = None
-- interface_avoid: list[PromptMode] | None = None
+- interface_priority: list[PromptMode] | None = None
 - interface_avoid: set[PromptMode] | None = None
 - path: str | Path | None = None
 - overwrite: bool = False

@@ -4,7 +4,7 @@ The Dworshak CLI orchestrates credential, configuration, and environment managem
 
 ## Command Tree
 
-![CLI tree](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_v1.2.18_helptree.svg)
+![CLI tree](https://raw.githubusercontent.com/City-of-Memphis-Wastewater/dworshak/main/assets/dworshak_v1.2.19_helptree.svg)
 
 Core command groups:
 

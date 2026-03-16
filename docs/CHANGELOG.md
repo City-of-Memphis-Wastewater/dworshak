@@ -9,6 +9,8 @@ The format is (read: strives to be) based on Keep a Changelog.
 ## [1.2.19] – 2026-03-16
 ### Changed:
 - dworshak-prompt increased to v0.2.31, with altered arguments in the Obtain class.
+- Update docs to reflect argument changes in the Obtain() class.
+- Update helptree.
 
 ---
 

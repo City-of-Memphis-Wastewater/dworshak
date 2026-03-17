@@ -5,11 +5,11 @@ description = "Configuration and credential waterfall with user-in-the-loop prom
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "pyhabitat>=1.2.2",
+    "pyhabitat>=1.2.4",
     "typer>=0.21.0",
     "rich>=13.0.0",
     "dworshak-secret[typer]>=1.2.15",
-    "dworshak-prompt[typer]>=0.2.32",
+    "dworshak-prompt[typer]>=0.2.33",
     "dworshak-config[typer]>=0.2.5",
     "dworshak-env[typer]>=0.1.6",
     "typer-helptree==0.2.6",
@@ -85,6 +85,10 @@ dworshak = "dworshak.cli:app"
 # it is allowed to build from source using your local Rust/Clang.
 package = true
 resolution = "highest"
+
+[tool.uv.sources] # for hardcoding local wheels, to test without leveraging PyPI.
+#dworshak-prompt = { path = "../dworshak-prompt/dist/dworshak_prompt-0.2.32-py3-none-any.whl" }
+#dworshak-config = { path = "../dworshak-config/dist/dworshak_config-0.2.3-py3-none-any.whl" }
 
 [build-system]
 requires = ["setuptools>=64", "wheel"]

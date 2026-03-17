@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.20] – 2026-03-16
+### Changed:
+- dworshak-prompt increased to v0.2.33, with verbose and debug arguments in the Obtain class, passed to the DworshakPrompt instantiation. 
+
+---
+
 ## [1.2.19] – 2026-03-16
 ### Changed:
 - dworshak-prompt increased to v0.2.31, with altered arguments in the Obtain class.

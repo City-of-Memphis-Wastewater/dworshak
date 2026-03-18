@@ -87,6 +87,7 @@ package = true
 resolution = "highest"
 
 [tool.uv.sources] # for hardcoding local wheels, to test without leveraging PyPI.
+dworshak = { path = "src/dworshak" }
 #dworshak-prompt = { path = "../dworshak-prompt/dist/dworshak_prompt-0.2.32-py3-none-any.whl" }
 #dworshak-config = { path = "../dworshak-config/dist/dworshak_config-0.2.3-py3-none-any.whl" }
 

@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.21] – 2026-03-18
+### Changed:
+- Increase dep pyhabitat to 1.2.6 to address change in platform.System for Python 3.13, PEP 738.
+
+---
+
 ## [1.2.20] – 2026-03-16
 ### Changed:
 - dworshak-prompt increased to v0.2.33, with verbose and debug arguments in the Obtain class, passed to the DworshakPrompt instantiation. 

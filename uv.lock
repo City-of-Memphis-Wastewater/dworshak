@@ -401,7 +401,7 @@ requires-dist = [
     { name = "dworshak-config", extras = ["typer"], specifier = ">=0.2.5" },
     { name = "dworshak-env", extras = ["typer"], specifier = ">=0.1.6" },
     { name = "dworshak-prompt", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
-    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.33" },
+    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.34" },
     { name = "dworshak-secret", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
     { name = "dworshak-secret", extras = ["typer"], specifier = ">=1.2.15" },
     { name = "mkdocs", marker = "extra == 'docs'", specifier = ">=1.5,<2" },
@@ -452,7 +452,7 @@ typer = [
 
 [[package]]
 name = "dworshak-prompt"
-version = "0.2.33"
+version = "0.2.34"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dworshak-config" },
@@ -460,9 +460,9 @@ dependencies = [
     { name = "dworshak-secret" },
     { name = "pyhabitat" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8e/f8/898cda8515af8f5f7e104b228c1b6d96dd02afd45aecfc6639a87ff249a3/dworshak_prompt-0.2.33.tar.gz", hash = "sha256:a01c0f25d948641daf7bbbaa959de4e515670d057288ace113dc5d4f0752a8e0", size = 30502, upload-time = "2026-03-17T03:08:44.455Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/73/7c/b7950191337d5e5322a164bf3b231d0fd9ca7034bf20b6bedc6c084a6a74/dworshak_prompt-0.2.34.tar.gz", hash = "sha256:3fe47e19dc24e8e8f2e5090421b2535f762487636fa3259abeeba1f872dd517f", size = 31947, upload-time = "2026-03-19T20:36:32.413Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d7/d1/32e0cb941144412a8c9cb79302ce43bf688785a5de320a7d7d02836f95a6/dworshak_prompt-0.2.33-py3-none-any.whl", hash = "sha256:b71833bd5e8bfa1a45bb44d38bfc3fdea17b583974e662e8c78617cef10c6db9", size = 35296, upload-time = "2026-03-17T03:08:43.04Z" },
+    { url = "https://files.pythonhosted.org/packages/a1/67/d22b3036cce8fe0287e52830898553246186b380fcd799636709f2ce3bb9/dworshak_prompt-0.2.34-py3-none-any.whl", hash = "sha256:9b45367c076a0ef7200303e7db428cceabe9c96247ab9983620422e2039b2e43", size = 36005, upload-time = "2026-03-19T20:36:31.049Z" },
 ]
 
 [package.optional-dependencies]

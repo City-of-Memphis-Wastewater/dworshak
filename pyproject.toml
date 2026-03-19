@@ -9,7 +9,7 @@ dependencies = [
     "typer>=0.21.0",
     "rich>=13.0.0",
     "dworshak-secret[typer]>=1.2.15",
-    "dworshak-prompt[typer]>=0.2.33",
+    "dworshak-prompt[typer]>=0.2.34",
     "dworshak-config[typer]>=0.2.5",
     "dworshak-env[typer]>=0.1.6",
     "typer-helptree==0.2.6",

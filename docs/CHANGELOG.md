@@ -9,6 +9,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 ## [1.2.21] – 2026-03-18
 ### Changed:
 - Increase dep pyhabitat to 1.2.6 to address change in platform.System for Python 3.13, PEP 738.
+- Increase dworshak-prompt to 0.2.34, where InterruptBehavior.RAISE has been added.
 
 ---
 

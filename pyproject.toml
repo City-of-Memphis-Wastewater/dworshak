@@ -5,7 +5,7 @@ description = "Configuration and credential waterfall with user-in-the-loop prom
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "pyhabitat>=1.2.4",
+    "pyhabitat>=1.2.6",
     "typer>=0.21.0",
     "rich>=13.0.0",
     "dworshak-secret[typer]>=1.2.15",

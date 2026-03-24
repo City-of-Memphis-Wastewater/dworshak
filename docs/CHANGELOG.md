@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.22] – 2026-03-23
+### Fixed:
+- Add `--forget` flag to dworshak-prompt.cli.obtain_secret() signature, and increase dworshak-prompt dep  to 0.2.35.
+
+---
+
 ## [1.2.21] – 2026-03-18
 ### Changed:
 - Increase dep pyhabitat to 1.2.6 to address change in platform.System for Python 3.13, PEP 738.

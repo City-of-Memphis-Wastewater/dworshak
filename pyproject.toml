@@ -9,9 +9,9 @@ dependencies = [
     "typer>=0.21.0",
     "rich>=13.0.0",
     "dworshak-secret[typer]>=1.2.15",
-    "dworshak-prompt[typer]>=0.2.35",
+    "dworshak-prompt[typer]>=0.2.37",
     "dworshak-config[typer]>=0.2.5",
-    "dworshak-env[typer]>=0.1.6",
+    "dworshak-env[typer]>=0.1.7",
     "typer-helptree==0.2.6",
 ]
 authors = [
@@ -63,7 +63,8 @@ full = [
 ]
 
 build = [
-    "shiv>=1.0.0"
+    "shiv>=1.0.0",
+    "pyinstaller>=6.18.0"
 ]
 
 docs = [
@@ -98,7 +99,7 @@ build-backend = "setuptools.build_meta"
 
 [dependency-groups]
 dev = [
-    "pyinstaller>=6.18.0",
+    #"pyinstaller>=6.18.0",
 ]
 
 [tool.setuptools.packages.find]

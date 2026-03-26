@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.25] – 2026-03-26
+### Fixed:
+- Adjust cross-platform path resolution for build_executable.py.
+
+---
+
 ## [1.2.24] – 2026-03-26
 ### Fixed:
 - Use `--add-data` in build_executable.py, for the VERSION files from each package, to ensure versioning has the best change of working.

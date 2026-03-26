@@ -89,6 +89,16 @@ def prepare_build_venv() -> Path:
         capture_output=True, text=True, check=True
     )
     return Path(result.stdout.strip())
+
+# 2. Resolve explicit paths for VERSION files
+# We use a small helper to get the path from the perspective of the BUILD venv
+def get_pkg_path(pkg_name):
+    # We must use the venv's python to find the path, 
+    # as the current script's 'importlib' won't see the venv's site-packages yet
+    cmd = [str(BUILD_DIR / "venv" / ("Scripts/python.exe" if IS_WINDOWS else "bin/python")), 
+           "-c", f"import {pkg_name}; from pathlib import Path; print(Path({pkg_name}.__file__).parent)"]
+    res = subprocess.run(cmd, capture_output=True, text=True, check=True)
+    return Path(res.stdout.strip())
     
 # --- PyInstaller Build ---
 def run_pyinstaller(exe_name: str, mode: str = "onedir"):
@@ -100,6 +110,13 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
     #import cryptography
     #crypto_path = Path(cryptography.__file__).parent.parent.resolve()
 
+    # Resolve each one explicitly
+    dw_path = get_pkg_path("dworshak")
+    sec_path = get_pkg_path("dworshak_secret")
+    env_path = get_pkg_path("dworshak_env")
+    cfg_path = get_pkg_path("dworshak_config")
+    pro_path = get_pkg_path("dworshak_prompt")
+    
     # 2. Find the pyinstaller executable in that environment
     build_venv_bin = BUILD_DIR / "venv" / ("Scripts" if IS_WINDOWS else "bin")
     pyinstaller_bin = build_venv_bin / ("pyinstaller.exe" if IS_WINDOWS else "pyinstaller")
@@ -115,13 +132,13 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
         f"--specpath={BUILD_DIR}",
         f"--additional-hooks-dir={HOOKS_DIR_ABS}" if HOOKS_DIR_ABS.exists() else "",
 
-        # Explicitly bundle the VERSION files for each sub-package
-        "--add-data", f"{site_pkgs}/dworshak/VERSION{sep}dworshak",
-        "--add-data", f"{site_pkgs}/dworshak_secret/VERSION{sep}dworshak_secret",
-        "--add-data", f"{site_pkgs}/dworshak_env/VERSION{sep}dworshak_env",
-        "--add-data", f"{site_pkgs}/dworshak_config/VERSION{sep}dworshak_config",
-        "--add-data", f"{site_pkgs}/dworshak_prompt/VERSION{sep}dworshak_prompt",
-        
+        # Explicitly bundle using resolved paths
+        "--add-data", f"{dw_path / 'VERSION'}{sep}dworshak",
+        "--add-data", f"{sec_path / 'VERSION'}{sep}dworshak_secret",
+        "--add-data", f"{env_path / 'VERSION'}{sep}dworshak_env",
+        "--add-data", f"{cfg_path / 'VERSION'}{sep}dworshak_config",
+        "--add-data", f"{pro_path / 'VERSION'}{sep}dworshak_prompt",
+
         "--hidden-import", "typer",
         "--hidden-import", "typer.main",
         "--hidden-import", "typer.models",
@@ -162,28 +179,6 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
     return final_path.resolve()
     
 # --- Post-build verification ---
-
-def verify_cryptography_(executable_path: Path, mode: str):
-    print(f"\nVerifying cryptography in {executable_path}...")
-    
-    if mode == "onedir":
-        # Point Python to the folder containing the frozen dependencies
-        lib_dir = executable_path.parent
-        env = os.environ.copy()
-        env["PYTHONPATH"] = str(lib_dir)
-        cmd = [sys.executable, "-c", "import cryptography; print(cryptography.__version__)"]
-    else:
-        # For onefile, the 'hidden command' strategy above is the only reliable way
-        # because the file must self-extract to run.
-        cmd = [str(executable_path), "--help"] 
-
-    try:
-        result = subprocess.run(cmd, env=env if mode=="onedir" else None, capture_output=True, text=True, check=True)
-        print(f"Cryptography detected: {result.stdout.strip()}")
-    except Exception as e:
-        print(f"Verification failed: {e}")
-        sys.exit(1)
-
 def verify_cryptography(executable_path: Path):
     print(f"\nVerifying cryptography by running: {executable_path} vault health")
 

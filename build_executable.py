@@ -114,6 +114,14 @@ def run_pyinstaller(exe_name: str, mode: str = "onedir"):
         f"--workpath={BUILD_DIR / 'work'}",
         f"--specpath={BUILD_DIR}",
         f"--additional-hooks-dir={HOOKS_DIR_ABS}" if HOOKS_DIR_ABS.exists() else "",
+
+        # Explicitly bundle the VERSION files for each sub-package
+        "--add-data", f"{site_pkgs}/dworshak/VERSION{sep}dworshak",
+        "--add-data", f"{site_pkgs}/dworshak_secret/VERSION{sep}dworshak_secret",
+        "--add-data", f"{site_pkgs}/dworshak_env/VERSION{sep}dworshak_env",
+        "--add-data", f"{site_pkgs}/dworshak_config/VERSION{sep}dworshak_config",
+        "--add-data", f"{site_pkgs}/dworshak_prompt/VERSION{sep}dworshak_prompt",
+        
         "--hidden-import", "typer",
         "--hidden-import", "typer.main",
         "--hidden-import", "typer.models",

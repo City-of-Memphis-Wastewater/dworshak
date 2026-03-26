@@ -92,11 +92,11 @@ def prepare_build_venv() -> Path:
     
 # --- PyInstaller Build ---
 def run_pyinstaller(exe_name: str, mode: str = "onedir"):
+    sep = ";" if IS_WINDOWS else ":"
     setup_dirs()
     clean_previous_artifacts(exe_name, mode)
 
     site_pkgs = prepare_build_venv()
-
     #import cryptography
     #crypto_path = Path(cryptography.__file__).parent.parent.resolve()
 

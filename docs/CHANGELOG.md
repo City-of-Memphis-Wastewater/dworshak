@@ -6,6 +6,13 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.26] – 2026-03-26
+### Changed:
+- Increase dworshak-secret to 1.2.16, which now properly imports backup_vault() from actions.py, for key rotation in key.py.
+- Increase dworshak-prompt to 0.2.38, which has had an increase in pyhabitat to 1.2.6 and dwroshak-secret to 1.2.16.
+
+---
+
 ## [1.2.25] – 2026-03-26
 ### Fixed:
 - Adjust cross-platform path resolution for build_executable.py.

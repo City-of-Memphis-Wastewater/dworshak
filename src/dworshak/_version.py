@@ -22,6 +22,6 @@ def get_version() -> str:
     except (ImportError, PackageNotFoundError):
         pass
     return "0.0.0-unknown"
-__version__ = get_version(PACKAGE_NAME)
+__version__ = get_version()
 
 

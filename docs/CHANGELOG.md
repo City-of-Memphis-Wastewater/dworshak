@@ -9,14 +9,14 @@ The format is (read: strives to be) based on Keep a Changelog.
 ## [1.2.27] – 2026-04-06
 ### Changed:
 - Increase dworshak-config to 0.2.6, which now allows for JSON loading to auto-heal using the json-repair library, given DWORSHAK_CONFIG_AUTO_HEAL_JSON env var set to 1 or true.
-- Increase dworshak-prompt to 0.2.39, which has had an increase in dwroshak-config to 0.2.6.
+- Increase dworshak-prompt to 0.2.39, which has had an increase in dworshak-config to 0.2.6.
 
 ---
 
 ## [1.2.26] – 2026-03-26
 ### Changed:
 - Increase dworshak-secret to 1.2.16, which now properly imports backup_vault() from actions.py, for key rotation in key.py.
-- Increase dworshak-prompt to 0.2.38, which has had an increase in pyhabitat to 1.2.6 and dwroshak-secret to 1.2.16.
+- Increase dworshak-prompt to 0.2.38, which has had an increase in pyhabitat to 1.2.6 and dworshak-secret to 1.2.16.
 
 ---
 
@@ -172,7 +172,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ## [1.2.7] – 2026-02-13
 ### Added:
-- Dummy 'typer' extra, for ecosystem consistency; i have several time tried edit other lines line 'uv add dwroshak-prompt --extra typer --extra crypto', to apply the same line for dworshak, to save typing, and then get punished with a 'typer extra does not exist'. So now it exists.
+- Dummy 'typer' extra, for ecosystem consistency; i have several time tried edit other lines line 'uv add dworshak-prompt --extra typer --extra crypto', to apply the same line for dworshak, to save typing, and then get punished with a 'typer extra does not exist'. So now it exists.
 
 ### Changed:
 - Update ecosystem dependencies for CLI standardization and bug squashing.
@@ -373,7 +373,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ## [0.1.15] – 2026-01-24
 ### Changed:
-- dwroshak-access bumped to 0.1.23
+- dworshak-access bumped to 0.1.23
 
 ### Added:
 - import and export functions
@@ -382,7 +382,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ## [0.1.14] – 2026-01-23
 ### Changed:
-- dwroshak-access bumped to 0.1.21
+- dworshak-access bumped to 0.1.21
 
 ---
 

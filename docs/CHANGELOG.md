@@ -6,6 +6,13 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.27] – 2026-04-06
+### Changed:
+- Increase dworshak-config to 0.2.6, which now allows for JSON loading to auto-heal using the json-repair library, given DWORSHAK_CONFIG_AUTO_HEAL_JSON env var set to 1 or true.
+- Increase dworshak-prompt to 0.2.39, which has had an increase in dwroshak-config to 0.2.6.
+
+---
+
 ## [1.2.26] – 2026-03-26
 ### Changed:
 - Increase dworshak-secret to 1.2.16, which now properly imports backup_vault() from actions.py, for key rotation in key.py.

@@ -59,7 +59,7 @@ app.add_typer(env_app, name="env")
 
 console = Console()
 
-add_typer_helptree(app=app, console=console, version = __version__,hidden=True)
+add_typer_helptree(app=app, console=console, version = __version__,hidden=False)
 
 @app.callback()
 def main(ctx: typer.Context,

@@ -411,12 +411,12 @@ full = [
 requires-dist = [
     { name = "cryptography", marker = "extra == 'crypto'", specifier = ">=46.0.3" },
     { name = "dworshak", extras = ["crypto"], marker = "extra == 'full'", editable = "." },
-    { name = "dworshak-config", extras = ["typer"], specifier = ">=0.2.5" },
+    { name = "dworshak-config", extras = ["typer"], specifier = ">=0.2.6" },
     { name = "dworshak-env", extras = ["typer"], specifier = ">=0.1.7" },
     { name = "dworshak-prompt", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
-    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.38" },
+    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.2.39" },
     { name = "dworshak-secret", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
-    { name = "dworshak-secret", extras = ["typer"], specifier = ">=1.2.16" },
+    { name = "dworshak-secret", extras = ["typer"], specifier = ">=1.2.17" },
     { name = "mkdocs", marker = "extra == 'docs'", specifier = ">=1.5,<2" },
     { name = "mkdocs-material", marker = "extra == 'docs'", specifier = ">=9.5" },
     { name = "pyhabitat", specifier = ">=1.2.6" },
@@ -434,11 +434,15 @@ dev = []
 
 [[package]]
 name = "dworshak-config"
-version = "0.2.5"
+version = "0.2.6"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/6b/40/67e23e861e7288b800b01779de8fe697b19c745c02e486f8d08cd653bd73/dworshak_config-0.2.5.tar.gz", hash = "sha256:10d98581e2625459eb0cdbe28bc422cb185cf4e0824d26c42344c7ecf1964367", size = 14048, upload-time = "2026-03-06T21:42:35.848Z" }
+dependencies = [
+    { name = "json-repair", version = "0.44.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
+    { name = "json-repair", version = "0.58.7", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4b/92/bf9443e34f2d23212e2be6d5cee7f5477b774b4af0fd7807ba0e916ed9cf/dworshak_config-0.2.6.tar.gz", hash = "sha256:f9d2c5d24e6b90842dd53ca602aa41f72fdce84b8d1a77e309b11250578a49f0", size = 14674, upload-time = "2026-04-06T20:06:49.596Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/80/c0/e701d58c2bde0336565c699fe6492af8fa5d9b9f3fdb2171ad3b7b3d700c/dworshak_config-0.2.5-py3-none-any.whl", hash = "sha256:c855049017b9c5fc1af74e5b5e0e911e40c1ec887e19b0a05751467642403608", size = 15716, upload-time = "2026-03-06T21:42:34.728Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/45/99850f18e0010e9094899fa94d59e80d14215b7545f37b28b715399daced/dworshak_config-0.2.6-py3-none-any.whl", hash = "sha256:291dbb9b762870a7a3442faf855c29190b7424bf0a6af8cbec24fc752a7bcdec", size = 16279, upload-time = "2026-04-06T20:06:48.44Z" },
 ]
 
 [package.optional-dependencies]
@@ -468,7 +472,7 @@ typer = [
 
 [[package]]
 name = "dworshak-prompt"
-version = "0.2.38"
+version = "0.2.39"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dworshak-config" },
@@ -476,9 +480,9 @@ dependencies = [
     { name = "dworshak-secret" },
     { name = "pyhabitat" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8f/71/6e8e72a2462c092637a962b3525f6e2f0bf695433792d22f61fb7f96d9b7/dworshak_prompt-0.2.38.tar.gz", hash = "sha256:384ea0db9c52f7a388e698bf94ca92cc5ff20347099c74666083e5af07f91bcd", size = 31932, upload-time = "2026-03-26T20:46:22.142Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bc/13/08b3fe323abf8147b1b5d10e3c190a57b9e67da96c80815fb95bb9a03aeb/dworshak_prompt-0.2.39.tar.gz", hash = "sha256:76b6b7c9fe56ffca25ad2c243dd993337f08f0b87b17dab327d403c9f7582f7c", size = 31944, upload-time = "2026-04-06T20:14:17.107Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/cd/30/d1fab95e2c144446876524802bf353c3c68ca4eda01234b905507d910d92/dworshak_prompt-0.2.38-py3-none-any.whl", hash = "sha256:b09c8938baeaa4c0ef80f010d6342b3d28c653632af74f6a285be936504cf112", size = 36016, upload-time = "2026-03-26T20:46:20.822Z" },
+    { url = "https://files.pythonhosted.org/packages/44/2f/b06c3b447b0a4ce74494f7574807f54bccb4e4380ac3bc9c245c9284094c/dworshak_prompt-0.2.39-py3-none-any.whl", hash = "sha256:28d24cbfb71436b50aa1e95fa46c2c2f48b5f8cd372016f69326d3eead12e36f", size = 36013, upload-time = "2026-04-06T20:14:15.571Z" },
 ]
 
 [package.optional-dependencies]
@@ -495,14 +499,14 @@ typer = [
 
 [[package]]
 name = "dworshak-secret"
-version = "1.2.16"
+version = "1.2.17"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pyhabitat" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4c/0e/f0f8cc4c3fcd9a1f829dcd8bb4af2dfb47e4611fd0482dc6dd8c833c513c/dworshak_secret-1.2.16.tar.gz", hash = "sha256:218b666677ad46ad9ee45ae9a6162659a8331bb262c52b975dd657eacb075999", size = 22502, upload-time = "2026-03-26T20:35:16.276Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/da/32/a903dc7460ddc1ef180095e3d59fefa0674cec1f2a073b771ed164ba1567/dworshak_secret-1.2.17.tar.gz", hash = "sha256:6150f5b746ffc45e2aae1ccffa1e03ea1c386ec43ce55a76809faab58857a816", size = 22600, upload-time = "2026-03-27T18:21:27.115Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/14/78/2c68d5bd9eadaca3ae170df6615721c97217121ceab71b69757b7649ed50/dworshak_secret-1.2.16-py3-none-any.whl", hash = "sha256:721dd17b294af3da249054e7c7e0acb7a8918b897d068f6e2d777c9f1abfaff2", size = 24129, upload-time = "2026-03-26T20:35:14.942Z" },
+    { url = "https://files.pythonhosted.org/packages/84/30/5e4dd4bf5c8c5083b6e5f2a363aee92ebd16b5b070c52db0b1fcf0931e62/dworshak_secret-1.2.17-py3-none-any.whl", hash = "sha256:7efb38f47575ece7e39ae03551885553e47c734cd56f76ced162747f501a94ec", size = 24303, upload-time = "2026-03-27T18:21:25.707Z" },
 ]
 
 [package.optional-dependencies]
@@ -559,6 +563,30 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz", hash = "sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d", size = 245115, upload-time = "2025-03-05T20:05:02.478Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl", hash = "sha256:85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67", size = 134899, upload-time = "2025-03-05T20:05:00.369Z" },
+]
+
+[[package]]
+name = "json-repair"
+version = "0.44.1"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version < '3.10'",
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a8/6b/ed6e92efc5acfbc9c35ccae1676b70e4adb1552421e64f838c2a3f097d9a/json_repair-0.44.1.tar.gz", hash = "sha256:1130eb9733b868dac1340b43cb2effebb519ae6d52dd2d0728c6cca517f1e0b4", size = 32886, upload-time = "2025-04-30T16:09:38.54Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/82/b4/3cbd27a3240b2962c3b87bbb1c20eb6c56e5b26cde61f141f86ca98e2f68/json_repair-0.44.1-py3-none-any.whl", hash = "sha256:51d82532c3b8263782a301eb7904c75dce5fee8c0d1aba490287fc0ab779ac50", size = 22478, upload-time = "2025-04-30T16:09:37.303Z" },
+]
+
+[[package]]
+name = "json-repair"
+version = "0.58.7"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.10'",
+]
+sdist = { url = "https://files.pythonhosted.org/packages/7b/68/119efc8f5f9fc8cf4f35bbfe28c5b84a14e237be4647a53cb29390e06102/json_repair-0.58.7.tar.gz", hash = "sha256:2ea5c841cc1d91dbbe79e9ed4b2b77a5cc04d20892d62a15261b70ce999ec758", size = 46312, upload-time = "2026-03-26T19:12:13.654Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2a/70/1c3d2304b7972a3e9430f1672b4fe20061c0ffc56662ad7c63d0e77a7d1a/json_repair-0.58.7-py3-none-any.whl", hash = "sha256:af0c7ff6a2ddd80bb1e7e6121c1a86d8bb57a539aa211acbfb25c64087b7116f", size = 44545, upload-time = "2026-03-26T19:12:12.445Z" },
 ]
 
 [[package]]

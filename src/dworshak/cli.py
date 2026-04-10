@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Optional
 from typer_helptree import add_typer_helptree
 
+"""
 from dworshak_secret import (
     initialize_vault,
     store_secret,
@@ -21,6 +22,7 @@ from dworshak_secret import (
     backup_vault,
     rotate_key
 )
+"""
 
 from dworshak_secret import cli as secret_cli
 from dworshak_config import cli as config_cli

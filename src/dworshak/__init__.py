@@ -1,4 +1,12 @@
 # src/*/__init__.pt
+"""
+This is not the happy path.
+dworshak is not expected to be used programmatically. 
+dworshak is for cli usage only, pipx installed.
+Include dworshak-prompt programmatically in your project, and then you can also import dworshak_secret.
+Or use the dwroshak_prompt.setup_dworshak_managers() function to return the various manager instances in a dictionary. 
+"""
+
 from __future__ import annotations
 """
 from dworshak_secret import DworshakSecret

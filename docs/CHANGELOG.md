@@ -6,9 +6,10 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.2.28] – 2026-04-08
 ### Changed
 - Remove __init__ exposure.
-- increase dworshak-prompt dep to v0.3.2, and dworshak-secret dep to v1.2.18
+- increase dworshak-prompt dep to v0.3.3, and dworshak-secret dep to v1.2.20
 
 ### Internal
 - No instances of 'from dworshak import' found in projects, we are good to remove the dworshak.__init__ scripting exposure of ecosystem classes and functions. dworshak-prompt is the way.

@@ -1,6 +1,6 @@
 # src/*/__init__.pt
 """
-This is not the happy path.
+This is not the happy path. 
 dworshak is not expected to be used programmatically. 
 dworshak is for cli usage only, pipx installed.
 Include dworshak-prompt programmatically in your project, and then you can also import dworshak_secret.

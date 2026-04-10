@@ -6,6 +6,14 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+### Changed
+- Remove __init__ exposure.
+
+### Internal
+- No instances of 'from dworshak import' found in projects, we are good to remove the dworshak.__init__ scripting exposure of ecosystem classes and functions. dworshak-prompt is the way.
+
+---
+
 ## [1.2.27] – 2026-04-06
 ### Changed:
 - Increase dworshak-config to 0.2.6, which now allows for JSON loading to auto-heal using the json-repair library, given DWORSHAK_CONFIG_AUTO_HEAL_JSON env var set to 1 or true.

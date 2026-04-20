@@ -52,27 +52,6 @@ dworshak helptree
 
 ---
 
-<a id="sister-project-dworshak-secret"></a>
-
-## Sister Projects in the Dworshak Ecosystem
-
-* **CLI/Orchestrator:** [dworshak](https://github.com/City-of-Memphis-Wastewater/dworshak)
-* **Interactive UI:** [dworshak-prompt](https://github.com/City-of-Memphis-Wastewater/dworshak-prompt)
-* **Secrets Storage:** [dworshak-secret](https://github.com/City-of-Memphis-Wastewater/dworshak-secret)
-* **Plaintext Pathed Configs:** [dworshak-config](https://github.com/City-of-Memphis-Wastewater/dworshak-config)
-* **Classic .env Injection:** [dworshak-env](https://github.com/City-of-Memphis-Wastewater/dworshak-env)
-
-```python
-pipx install dworshak
-pip install dworshak-secret
-pip install dworshak-config
-pip install dworshak-env
-pip install dworshak-prompt
-
-```
-
----
-
 ## 🏗  The Ultimate Vision
 To become a stable credential management tool for scripting the flow of Emerson Ovation data and related APIs, supporting multiple projects in and beyond at the Maxson Wastewater Treatment Plant.
 
@@ -158,6 +137,27 @@ pipx install dworshak --system-site-packages
 ```
 apk add py3-cryptography 
 pipx install dworshak --system-site-packages
+
+```
+
+---
+
+<a id="sister-project-dworshak-secret"></a>
+
+## Sister Projects in the Dworshak Ecosystem
+
+* **CLI/Orchestrator:** [dworshak](https://github.com/City-of-Memphis-Wastewater/dworshak)
+* **Interactive UI:** [dworshak-prompt](https://github.com/City-of-Memphis-Wastewater/dworshak-prompt)
+* **Secrets Storage:** [dworshak-secret](https://github.com/City-of-Memphis-Wastewater/dworshak-secret)
+* **Plaintext Pathed Configs:** [dworshak-config](https://github.com/City-of-Memphis-Wastewater/dworshak-config)
+* **Classic .env Injection:** [dworshak-env](https://github.com/City-of-Memphis-Wastewater/dworshak-env)
+
+```python
+pipx install dworshak
+pip install dworshak-secret
+pip install dworshak-config
+pip install dworshak-env
+pip install dworshak-prompt
 
 ```
 

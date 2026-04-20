@@ -6,6 +6,13 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.3.2] – 2026-04-20
+### Changed:
+- Update Github runner actions versions, as per dependabot recommendations.
+- Move Sister Project section in README to almost bottom (with Documentation last), so that it is easy to find quickly.
+
+---
+
 ## [1.3.1] – 2026-04-20
 ### Changed:
 - Add dockerization, using `Docker.multi-dev` file in root and `docker.yml` file in ./.github/workflows

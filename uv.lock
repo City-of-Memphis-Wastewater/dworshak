@@ -414,7 +414,7 @@ requires-dist = [
     { name = "dworshak-config", extras = ["typer"], specifier = ">=0.2.6" },
     { name = "dworshak-env", extras = ["typer"], specifier = ">=0.1.7" },
     { name = "dworshak-prompt", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
-    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.3.3" },
+    { name = "dworshak-prompt", extras = ["typer"], specifier = ">=0.3.4" },
     { name = "dworshak-secret", extras = ["crypto", "typer"], marker = "extra == 'crypto'" },
     { name = "dworshak-secret", extras = ["typer"], specifier = ">=1.2.20" },
     { name = "mkdocs", marker = "extra == 'docs'", specifier = ">=1.5,<2" },
@@ -472,7 +472,7 @@ typer = [
 
 [[package]]
 name = "dworshak-prompt"
-version = "0.3.3"
+version = "0.3.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dworshak-config" },
@@ -480,9 +480,9 @@ dependencies = [
     { name = "dworshak-secret" },
     { name = "pyhabitat" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/aa/ce/81cca6789af580f2fbf7ce18cc057f63d7b193b8b402721bf67c61677cf0/dworshak_prompt-0.3.3.tar.gz", hash = "sha256:b6e1e4d97156498584d97e0516e2a604bcf50ae3ec89b6d5cc7d59e1db94d74e", size = 32749, upload-time = "2026-04-10T21:25:54.351Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e0/fb/9ae909c66cb518be5d3d094388e5a6ab52a5dd4672e382b6866cbd2fdc2b/dworshak_prompt-0.3.4.tar.gz", hash = "sha256:4de0a2ae3fc6d43f1fe6effafb2a4355b5963e533361f2caeba951b6047fd24a", size = 32772, upload-time = "2026-04-20T18:08:45.237Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/59/58/7efb0cf0bc98187e5c63a1816a22f6b1d7d207216bff164ca8b3e3f51a0c/dworshak_prompt-0.3.3-py3-none-any.whl", hash = "sha256:350078bfe9ed08ba047b1fb53e64adb0188b1fa041759d795964f6efeb4071ea", size = 37464, upload-time = "2026-04-10T21:25:53.281Z" },
+    { url = "https://files.pythonhosted.org/packages/9f/1d/c3eee7bee246593ef8f1e9a0974c8e9a653508d24a590b1b104d8dc377c8/dworshak_prompt-0.3.4-py3-none-any.whl", hash = "sha256:a2a749e02c8ad950e10a0d820f21b433b19f4e1ba668342f80427dc76c99082a", size = 37473, upload-time = "2026-04-20T18:08:43.59Z" },
 ]
 
 [package.optional-dependencies]

@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is (read: strives to be) based on Keep a Changelog.
 
+---
+
+## [1.3.1] – 2026-04-20
+### Changed:
+- Add dockerization, using `Docker.multi-dev` file in root and `docker.yml` file in ./.github/workflows
+- Change to HTML image reference style in ./docs/index.md for the SVG help tree.
+
+---
+
 ## [1.2.29] – 2026-04-20
 ### Fixed:
 - Nested double quotes in dworshak_prompt.src.multiplexer, in two instances of dictionary key reference inside of an f-string. Convert the inner instance to single quotes.

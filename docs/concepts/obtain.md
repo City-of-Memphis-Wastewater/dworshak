@@ -67,7 +67,7 @@ result = obtain.secret(
     "github",
     "token",
     message="Enter your GitHub API token",
-    interface_priority=[PromptMode.GUI,PromptMode.CONSOLE],
+    interface_priority=[PromptMode.GUI,PromptMode.CLI],
     interface_avoid={PromptMode.WEB}
 )
 
@@ -85,7 +85,7 @@ The prompting interface can be controlled with PromptMode.
 
 | Mode	| Behavior |
 | ------ | ------- |
-| PromptMode.CONSOLE	| Force terminal input |
+| PromptMode.CLI	| Force terminal input |
 | PromptMode.GUI	| Use a Tkinter dialog |
 | PromptMode.WEB	| Launch a local browser prompt |
 | None	| Automatic fallback |

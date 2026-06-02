@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.3.3] – 2026-06-01
+### Changed:
+- Increase deps, dworshak-prompt to 0.3.7, dworshak-secret to 1.3.2, pyhabitat to 1.2.7.
+
+---
+
 ## [1.3.2] – 2026-04-20
 ### Changed:
 - Update Github runner actions versions, as per dependabot recommendations.

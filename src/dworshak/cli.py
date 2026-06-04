@@ -28,7 +28,9 @@ from dworshak_secret import cli as secret_cli
 from dworshak_config import cli as config_cli
 from dworshak_env import cli as env_cli
 from dworshak_prompt import cli as prompt_cli
-from dworshak._version import __version__
+
+from ._version import __version__
+from .logging_setup import configure_root_logging_for_application
 
 # Force Rich to always enable colors, even in .pyz or Termux
 os.environ["FORCE_COLOR"] = "1"
@@ -65,9 +67,9 @@ add_typer_helptree(app=app, console=console, version = __version__,hidden=False)
 
 @app.callback()
 def main(ctx: typer.Context,
-    version: Optional[bool] = typer.Option(
-    None, "--version", is_flag=True, help="Show the version."
-    )
+    version: Optional[bool] = typer.Option(None, "--version", is_flag=True, help="Show the version."),
+    debug: bool = typer.Option(False, "--debug", "-d", is_flag=True, help="Enable diagnostic logging."),
+    verbose: bool = typer.Option(False, "--verbose", "-v", is_flag=True, help="Enable detail logging.")
     ):
     """
     Enable --version
@@ -75,7 +77,8 @@ def main(ctx: typer.Context,
     if version:
         typer.echo(__version__)
         raise typer.Exit(code=0)
-
+    configure_root_logging_for_application(debug, verbose)
+    
 @app.command(hidden=True)
 def setup():
     """Initialize credential vault (hidden shortcut)."""

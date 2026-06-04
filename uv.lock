@@ -413,8 +413,8 @@ requires-dist = [
     { name = "dworshak", extras = ["crypto"], marker = "extra == 'full'", editable = "." },
     { name = "dworshak-config", extras = ["typer"], path = "../dworshak-config/dist/dworshak_config-0.2.8-py3-none-any.whl" },
     { name = "dworshak-env", extras = ["typer"], path = "../dworshak-env/dist/dworshak_env-0.1.8-py3-none-any.whl" },
-    { name = "dworshak-prompt", extras = ["crypto", "typer"], marker = "extra == 'crypto'", path = "../dworshak-prompt/dist/dworshak_prompt-0.3.9-py3-none-any.whl" },
-    { name = "dworshak-prompt", extras = ["typer"], path = "../dworshak-prompt/dist/dworshak_prompt-0.3.9-py3-none-any.whl" },
+    { name = "dworshak-prompt", extras = ["crypto", "typer"], marker = "extra == 'crypto'", path = "../dworshak-prompt/dist/dworshak_prompt-0.3.9.1-py3-none-any.whl" },
+    { name = "dworshak-prompt", extras = ["typer"], path = "../dworshak-prompt/dist/dworshak_prompt-0.3.9.1-py3-none-any.whl" },
     { name = "dworshak-secret", extras = ["crypto", "typer"], marker = "extra == 'crypto'", path = "../dworshak-secret/dist/dworshak_secret-1.3.5-py3-none-any.whl" },
     { name = "dworshak-secret", extras = ["typer"], path = "../dworshak-secret/dist/dworshak_secret-1.3.5-py3-none-any.whl" },
     { name = "mkdocs", marker = "extra == 'docs'", specifier = ">=1.5,<2" },
@@ -487,8 +487,8 @@ provides-extras = ["typer"]
 
 [[package]]
 name = "dworshak-prompt"
-version = "0.3.9"
-source = { path = "../dworshak-prompt/dist/dworshak_prompt-0.3.9-py3-none-any.whl" }
+version = "0.3.9.1"
+source = { path = "../dworshak-prompt/dist/dworshak_prompt-0.3.9.1-py3-none-any.whl" }
 dependencies = [
     { name = "dworshak-config" },
     { name = "dworshak-env" },
@@ -496,7 +496,7 @@ dependencies = [
     { name = "pyhabitat" },
 ]
 wheels = [
-    { filename = "dworshak_prompt-0.3.9-py3-none-any.whl", hash = "sha256:4ff1783f67520ac7f39634e68c1ecf3d53e396c78ca21ab7df1673992ddbeff0" },
+    { filename = "dworshak_prompt-0.3.9.1-py3-none-any.whl", hash = "sha256:ef84cca2c03d58bae0c0b7de76453d743fc74d06d112db7ad97483e8d9778136" },
 ]
 
 [package.optional-dependencies]

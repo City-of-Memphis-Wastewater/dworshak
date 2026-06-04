@@ -90,8 +90,11 @@ resolution = "highest"
 [tool.uv.sources] # for hardcoding local wheels, to test without leveraging PyPI.
 dworshak = { workspace = true }
 #pyhabitat = { path = "../pyhabitat/dist/pyhabitat-0.2.4-py3-none-any.whl" }
-#dworshak-prompt = { path = "../dworshak-prompt/dist/dworshak_prompt-0.2.32-py3-none-any.whl" }
-#dworshak-config = { path = "../dworshak-config/dist/dworshak_config-0.2.3-py3-none-any.whl" }
+dworshak-config = { path = "../dworshak-config/dist/dworshak_config-0.2.8-py3-none-any.whl" }
+dworshak-env = { path = "../dworshak-env/dist/dworshak_env-0.1.8-py3-none-any.whl" }
+dworshak-secret = { path = "../dworshak-secret/dist/dworshak_secret-1.3.5-py3-none-any.whl" }
+dworshak-prompt = { path = "../dworshak-prompt/dist/dworshak_prompt-0.3.9-py3-none-any.whl" }
+typer-helptree = { path = "../typer-helptree/dist/typer_helptree-0.2.10.2-py3-none-any.whl" }
 
 [build-system]
 requires = ["setuptools>=64", "wheel"]

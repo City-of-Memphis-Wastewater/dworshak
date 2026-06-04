@@ -65,7 +65,7 @@ console = Console()
 
 add_typer_helptree(app=app, console=console, version = __version__,hidden=False)
 
-@app.callback()
+@app.callback(invoke_without_command=True,no_args_is_help=True)
 def main(ctx: typer.Context,
     version: Optional[bool] = typer.Option(None, "--version", is_flag=True, help="Show the version."),
     debug: bool = typer.Option(False, "--debug", "-d", is_flag=True, help="Enable diagnostic logging."),

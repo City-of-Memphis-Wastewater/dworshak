@@ -32,7 +32,7 @@ jobs:
         run: pip install --upgrade uv
 
       - name: Sync uv
-        run: uv run --extra crypto
+        run: uv sync --extra crypto
 
       - name: Install build tool via uv (system-wide, no venv needed)
         run: uv tool install build --upgrade

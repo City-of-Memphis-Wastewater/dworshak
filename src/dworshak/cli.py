@@ -30,7 +30,7 @@ from dworshak_env import cli as env_cli
 from dworshak_prompt import cli as prompt_cli
 
 from ._version import __version__
-from .logging_setup import configure_root_logging_for_application
+from .logging_setup import configure_logging_for_application
 
 # Force Rich to always enable colors, even in .pyz or Termux
 os.environ["FORCE_COLOR"] = "1"
@@ -77,7 +77,7 @@ def main(ctx: typer.Context,
     if version:
         typer.echo(__version__)
         raise typer.Exit(code=0)
-    configure_root_logging_for_application(debug, verbose)
+    configure_logging_for_application(debug, verbose)
     
 @app.command(hidden=True)
 def setup():

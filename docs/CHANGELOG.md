@@ -6,6 +6,13 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.3.5] – 2026-06-05
+### Changed:
+- Improved logging, propogate the new app-based approach to the CLI, using configure_logging_for_application().
+- Ensure uv extra deps for github runners.
+
+---
+
 ## [1.3.4] – 2026-06-01
 ### Changed:
 - Increase deps, dworshak-prompt to 0.3.8, dworshak-secret to 1.3.4.

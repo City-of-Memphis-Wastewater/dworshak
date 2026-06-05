@@ -9,7 +9,7 @@ console = Console(stderr=True)
 logger = logging.getLogger("dworshak")
 
 def configure_logging_for_application(debug: bool=False,verbose: bool=False):
-    INTENT="subapp"
+    INTENT="app"
 
     if debug:
         level = logging.DEBUG

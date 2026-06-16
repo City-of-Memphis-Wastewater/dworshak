@@ -6,6 +6,12 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.3.5.3] - 2026-06-16
+### Changed:
+- Bump typer-helptree 0.2.10.5, which handles click.Context or typer._click.Context in a way that allows the entire command structure drill-down to be exposed.
+
+---
+
 ## [1.3.5.2] - 2026-06-15
 ### Fixed:
 - Path resolution improved.

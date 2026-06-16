@@ -6,7 +6,7 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
-## [1.3.5.1] - 2026-06-15
+## [1.3.5.2] - 2026-06-15
 ### Fixed:
 - Path resolution improved.
 - Rule: users must provide a filepath for the vault, not just a dir.

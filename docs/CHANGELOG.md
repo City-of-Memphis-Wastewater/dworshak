@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is (read: strives to be) based on Keep a Changelog.
+The format is (read: strives to be) based on Keep a Changelog. 
 
 ---
 

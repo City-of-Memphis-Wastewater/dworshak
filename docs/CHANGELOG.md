@@ -6,6 +6,15 @@ The format is (read: strives to be) based on Keep a Changelog.
 
 ---
 
+## [1.3.5.1] - 2026-06-15
+### Fixed:
+- Path resolution improved.
+- Rule: users must provide a filepath for the vault, not just a dir.
+- dworshak-secret set to 1.3.5.1
+- dworshak-prompt set to 0.3.11
+
+---
+
 ## [1.3.5] – 2026-06-05
 ### Changed:
 - Improved logging, propogate the new app-based approach to the CLI, using configure_logging_for_application().
